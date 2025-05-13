@@ -1,0 +1,44 @@
+.hero-banner {
+    position: relative;
+    height: calc(100vh - 80px);
+    video {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+    .category {
+        position: absolute;
+        top: 25px;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        gap: 24px;
+    }
+    .content {
+        position: relative;
+        .txt-block {
+            position: absolute;
+            left: 0;
+            bottom: 50px;
+            z-index: 9;
+            width: 100%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            @include media-query(492px) {
+                align-items: flex-start;
+                flex-direction: column-reverse;
+                gap: 16px;
+            }
+            button {
+                background: transparent;
+                border: none;
+                svg {
+                    width: clamp(32px, 2.5vw, 60px);
+                    height: clamp(32px, 2.5vw, 60px);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,74 @@
+.manga-banner {
+    background: url("../media/background/Hero.png") no-repeat;
+    background-position: center;
+    background-size: cover;
+    .content {
+        padding: clamp(70px, 5.26vw, 120px) 0;
+        height:  calc(100vh - 80px);
+        display: grid;
+        align-content: end;
+        .txt-block {
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+            -webkit-box-orient: vertical;
+            .manga_cards{  
+                display: flex;
+                gap: clamp(16px,1.25vw,30px);
+                @include media-query(490px){
+                    flex-wrap: wrap;
+                }
+            }
+            img {
+                width: clamp(201px,14.531vw,350px);
+                object-fit: cover;
+                border-radius: 12px;
+            }
+            .text {
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                line-clamp: 3;
+                -webkit-box-orient: vertical;
+            }
+        }
+    }
+}
+.manga-banner-2{
+    background: url("../media/background/hero.jpg") no-repeat;
+    background-position: center;
+    background-size: cover;
+    .content{
+        height:clamp(350px,24.844vw,530px);
+        display: grid;
+        align-content: end;
+        padding: clamp(24px,2.083vw,30px) 0;
+        @include media-query(576px){
+            height:auto;
+        }
+        .manga-card-2{  
+            display: flex;
+            align-items: flex-start;
+            gap: clamp(16px,1.25vw,30px);
+            @include media-query(576px){
+                flex-direction: column;
+                height: auto;
+            }
+            .card-img{
+                flex-shrink: 0;
+            }   
+            img{
+                border-radius: 12px;
+            }
+            .text{
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                line-clamp: 3;
+                -webkit-box-orient: vertical;
+            }
+
+        }
+    }
+}

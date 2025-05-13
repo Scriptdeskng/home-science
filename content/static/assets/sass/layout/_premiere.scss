@@ -1,0 +1,15 @@
+.premiere{
+    background:url("../media/background/banner-2.jpg") no-repeat;
+    background-position: center;
+    background-size: cover;
+    video{
+        border-radius: 12px;
+        height: clamp(350px,22.917vw,550px);
+        width: 100%;
+        object-fit: cover;
+    }
+}
+.page{
+    background: linear-gradient(0deg, var(--Text-Dark-Black, #0C0C0D) 0%, var(--Text-Dark-Black, #0C0C0D) 100%), #FBECF3;
+    padding: clamp(70px,5.365vw,150px) 0;
+}

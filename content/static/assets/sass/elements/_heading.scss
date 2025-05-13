@@ -1,0 +1,31 @@
+.heading {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+    form{
+        position:relative;
+        input{
+            padding: clamp(12px,0.833vw,30px) clamp(20px,1.667vw,40px);
+            color: white;
+            border: 1px solid white;
+            background: transparent;
+            border-radius: 4px;
+    }
+    button{
+        position:absolute;
+        border: none;
+        top: 13px;
+        right: 15px;
+        background: none;
+    }
+    }
+    a {
+        gap: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        i {
+            font-size: 18px;
+        }
+    }
+}

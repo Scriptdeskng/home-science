@@ -1,0 +1,78 @@
+.login {
+    padding: clamp(80px, 6.25vw, 150px) clamp(200px, 12.5vw, 280px);
+    @include media-query(576px){
+        padding: 0 0;
+    }
+    .pic{
+        img{
+            height: 93vh;
+            @include media-query(768px){
+                height: auto;
+            }
+        }
+    }
+    .login-form {
+        height: 93vh;
+        padding: clamp(32px, 2.5vw, 60px);
+        p {
+            font-size: 12px;
+        }
+        form {
+            .input-box-1 {
+                position: relative;
+                label {
+                    padding: 0 clamp(12px, 0.833vw, 20px);
+                    width: 100%;
+                    font-size: 12px;
+                }
+                input {
+                    width: 100%;
+                    padding: 8px 8px 8px 16px;
+                    background: $medium-black;
+                    color: $white;
+                    border-radius: 4px;
+                    border: none;
+                    &:focus {
+                        border: none;
+                    }
+                    &:focus-visible {
+                        border: none;
+                        outline: none;
+                    }
+                }
+                button {
+                    background: none;
+                    border: none;
+                    position: absolute;
+                    right: 12px;
+                    top: 27px;
+                }
+            }
+            a {
+                font-size: 12px;
+            }
+            .login-cards {
+                width: 100%;
+                background-color: $accent-1;
+                padding: clamp(8px, 0.521vw, 16px) clamp(16px, 1.25vw, 32px);
+                border-radius: 5px;
+                a {
+                    text-align: center;
+                    font-size: 18px;
+                }
+            }
+            .link-btn {
+                background-color: $white;
+                color: $light-black;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: clamp(6px, 0.417vw, 20px);
+                padding: clamp(8px, 0.521vw, 16px) clamp(10px, 0.833vw, 20px);
+                border-radius: 5px;
+                border: 1px solid $light-gray;
+            }
+        }
+    }
+}

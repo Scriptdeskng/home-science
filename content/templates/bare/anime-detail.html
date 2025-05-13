@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Teach Me || E-Learning HTML Template">
+
+    <title>Anime Tube</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/media/favicon/favicon.png">
+
+    <!-- All CSS files -->
+    <link rel="stylesheet" href="assets/css/vendor/font-awesome.css">
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/slick.css">
+    <link rel="stylesheet" href="assets/css/vendor/slick-theme.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="stylesheet" href="assets/css/vendor/aksVideoPlayer.css">
+</head>
+
+<body class="x-hidden">
+
+    <!-- Preloader-->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+    <!-- Preloader-->
+    <!-- Main Wrapper Start -->
+
+        <!-- HEADER MENU START -->
+        <header class="header">
+            <nav class="navigation d-flex align-items-center justify-content-between">
+                <a href="index.html" class="d-flex align-items-center">
+                    <img src="assets/media/user/logo.png" alt="/logo" class="header-logo">
+                </a>
+                <div class="menu-button-right">
+                    <div class="main-menu__nav">
+                        <ul class="main-menu__list">
+                            <li>
+                                <a href="index.html">HOME</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="javascript:void(0);" class="active">Anime
+                                </a>
+                                <ul>
+                                    <li><a href="anime.html">Anime</a></li>
+                                    <li><a href="anime-detail.html" class="active">Anime detail</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="javascript:void(0);">Movies
+                                </a>
+                                <ul>
+                                    <li><a href="movies.html">Movies</a></li>
+                                    <li><a href="movies-detail.html">Movies details</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="javascript:void(0);">Manga
+                                </a>
+                                <ul>
+                                    <li><a href="manga.html">manga</a></li>
+                                    <li><a href="manga-detail.html">manga detail</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="javascript:void(0);">Blog
+                                </a>
+                                <ul>
+                                    <li><a href="blogs.html">blogs</a></li>
+                                    <li><a href="blogs-detail.html">blogs-detail</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="javascript:void(0);">Pages
+                                </a>
+                                <ul>
+                                    <li><a href="404.html">404</a></li>
+                                    <li><a href="log-in.html">login</a></li>
+                                    <li><a href="signup.html">signup</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center d-xl-flex d-none">
+                    <div class="input-box">
+                        <form action="index.html">
+                            <input type="text" placeholder="Search..." required>
+                            <button class="search" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="20"
+                                    height="20" viewBox="0 0 20 20" fill="none">
+                                    <g clip-path="url(#clip0_11668_3150)">
+                                        <path
+                                            d="M8.11719 0C12.593 0 16.2344 3.64137 16.2344 8.11719C16.2344 10.1445 15.4873 12.0007 14.2539 13.4247L19.8284 18.9998C20.0572 19.2286 20.0572 19.5996 19.8284 19.8284C19.5995 20.0573 19.2286 20.0572 18.9997 19.8284L13.4254 14.2534C12.0012 15.4871 10.1448 16.2344 8.11719 16.2344C3.64137 16.2344 1.90735e-06 12.593 1.90735e-06 8.11719C1.90735e-06 3.64137 3.64137 0 8.11719 0ZM8.11719 15.0625C11.9469 15.0625 15.0625 11.9468 15.0625 8.11719C15.0625 4.28754 11.9468 1.17187 8.11719 1.17187C4.28754 1.17187 1.17188 4.28754 1.17188 8.11719C1.17188 11.9468 4.28754 15.0625 8.11719 15.0625Z"
+                                            fill="#FAFAFA" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_11668_3150">
+                                            <rect width="20" height="20" fill="white" />
+                                        </clipPath>
+                                    </defs>
+                                </svg></button>
+                        </form>
+                        <i class="fal fa-times close-icon"></i>
+                    </div>
+                    <div class="icon">
+                        <a href="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
+                                fill="none">
+                                <path
+                                    d="M16.0547 10.268V8.39844C16.0547 5.67102 14.2417 3.35934 11.7578 2.6043V1.75781C11.7578 0.788555 10.9692 0 9.99998 0C9.03073 0 8.24217 0.788555 8.24217 1.75781V2.6043C5.75819 3.35934 3.9453 5.67098 3.9453 8.39844V10.268C3.9453 12.6638 3.03209 14.9355 1.37393 16.6648C1.21143 16.8342 1.16577 17.0843 1.25788 17.3002C1.34998 17.5161 1.56209 17.6562 1.79686 17.6562H7.12924C7.40143 18.9919 8.58518 20 9.99998 20C11.4148 20 12.5985 18.9919 12.8707 17.6562H18.2031C18.4379 17.6562 18.6499 17.5161 18.7421 17.3002C18.8342 17.0843 18.7885 16.8342 18.626 16.6648C16.9679 14.9355 16.0547 12.6638 16.0547 10.268ZM9.41405 1.75781C9.41405 1.43473 9.6769 1.17188 9.99998 1.17188C10.3231 1.17188 10.5859 1.43473 10.5859 1.75781V2.37219C10.3931 2.35359 10.1976 2.34375 9.99998 2.34375C9.80233 2.34375 9.6069 2.35359 9.41405 2.37219V1.75781ZM9.99998 18.8281C9.23612 18.8281 8.58483 18.3382 8.34295 17.6562H11.657C11.4151 18.3382 10.7639 18.8281 9.99998 18.8281ZM3.05975 16.4844C4.39416 14.6956 5.11717 12.5309 5.11717 10.268V8.39844C5.11717 5.70605 7.3076 3.51562 9.99998 3.51562C12.6924 3.51562 14.8828 5.70605 14.8828 8.39844V10.268C14.8828 12.5309 15.6058 14.6956 16.9403 16.4844H3.05975Z"
+                                    fill="#FAFAFA" />
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="dropdown-container">
+                        <details class="dropdown right">
+                            <summary class="avatar">
+                                <img src="assets/media/user/Ellipse-1.png" alt="logo">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
+                                    fill="none">
+                                    <path d="M0 4.01306L8.00002 11.987L16 4.01306H0Z" fill="#FAFAFA" />
+                                </svg>
+                            </summary>
+                            <ul>
+                                <!-- Menu links -->
+                                <li>
+                                    <a href="#">
+                                        <i class="fa-light fa-user"></i>
+                                        profile
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa-light fa-envelope"></i>
+                                        Email
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa-solid fa-gear"></i>
+                                        Setting
+                                    </a>
+                                </li>
+                                <!-- Optional divider -->
+                                <li>
+                                    <a href="#">
+                                        <i class="fa-solid fa-info"></i>
+                                        Help
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa-solid fa-right-from-bracket"></i>
+                                        Logout
+                                    </a>
+                                </li>
+                            </ul>
+                        </details>
+                    </div>
+                </div>
+                <a href="#" class="d-xl-none d-flex main-menu__toggler mobile-nav__toggler">
+                    <i class="fa-light fa-bars"></i>
+                </a>
+            </nav>
+        </header>
+        <!-- HEADER MENU END -->
+
+        <!-- HERO BANNER START -->
+        <div class="anime-detail">
+            <div class="trailer">
+                    <div class="videoplayer no_variable_height">
+                        <div id="video"></div>
+            </div>
+        </div>
+        <!-- blogs-start -->
+        <section class="anime-streaming bg-dark-black py-40">
+            <div class="container-fluid">
+                <h3 class="white mb-24">The Lost Kingdom</h3>
+                <div class="streamer-detail mb-24">
+                    <div class="block-left-side">
+                        <div class="d-flex align-items-center gap-24">
+                            <img src="assets/media/anime/Ellipse_1.png" alt="pic">
+                            <div>
+                                <h5 class="fw-500">Pre-Match Session</h5>
+                                <p class="fw-400">Mr.Lowlander</p>
+                            </div>
+                        </div>
+                        <a href="" class="cus-btn">
+                            <span>Follow Now</span>
+                            <span>Follow Now</span>
+                        </a>
+                    </div>
+                    <div class="block-right-side">
+                        <a href="" class="like-dislike">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"
+                                fill="none">
+                                <g clip-path="url(#clip0_11590_2742)">
+                                    <path
+                                        d="M31.9879 19.2867C31.9879 18.085 31.3422 17.0313 30.3796 16.4541C30.7484 15.9216 30.9647 15.2755 30.9647 14.5801C30.9647 12.7605 29.4843 11.2801 27.6648 11.2801H20.6986C20.9121 10.3126 21.2041 8.86082 21.4075 7.341C21.9366 3.38594 21.575 1.1925 20.2695 0.438192C19.4556 -0.0319956 18.5781 -0.127371 17.7986 0.169379C17.1965 0.398754 16.3832 0.962692 15.9198 2.34675L14.0889 7.14057C12.8746 10.1395 8.38371 13.3341 7.32077 14.0592H0.958832C0.43602 14.0592 0.012207 14.4831 0.012207 15.0058V28.9094C0.012207 29.4323 0.436082 29.8561 0.958832 29.8561H7.42902C11.0358 31.2785 14.83 32 18.71 32H26.3003C28.1199 32 29.6003 30.5196 29.6003 28.7001C29.6003 28.0629 29.4187 27.4673 29.1046 26.9623C30.2047 26.4266 30.9646 25.2969 30.9646 23.9934C30.9646 23.2979 30.7483 22.6519 30.3795 22.1193C31.3422 21.5422 31.9879 20.4884 31.9879 19.2867ZM6.66214 27.9629H1.90546V15.9526H6.66214V27.9629ZM28.6879 20.6934H27.6647C27.1419 20.6934 26.7181 21.1173 26.7181 21.64C26.7181 22.1628 27.142 22.5866 27.6647 22.5866C28.4403 22.5866 29.0714 23.2177 29.0714 23.9934C29.0714 24.769 28.4403 25.4001 27.6647 25.4001H26.3004C25.7776 25.4001 25.3538 25.8239 25.3538 26.3467C25.3538 26.8694 25.7776 27.2933 26.3004 27.2933C27.076 27.2933 27.7071 27.9244 27.7071 28.7C27.7071 29.4756 27.076 30.1067 26.3004 30.1067H18.71C15.2235 30.1067 11.8108 29.4864 8.55552 28.2619V15.5096C9.98508 14.5234 14.4866 11.2193 15.8482 7.84044C15.8503 7.83507 15.8525 7.82969 15.8545 7.82432L17.696 3.00288C17.7011 2.98938 17.706 2.97569 17.7105 2.962C17.889 2.42138 18.1596 2.05794 18.4726 1.93875C18.7761 1.82307 19.1023 1.95038 19.3223 2.07757C19.3305 2.08225 20.1201 2.67119 19.5329 7.07544C19.1993 9.57675 18.5935 11.9691 18.5875 11.993C18.5153 12.2762 18.5781 12.5769 18.7573 12.8076C18.9367 13.0384 19.2125 13.1734 19.5048 13.1734H27.6649C28.4405 13.1734 29.0716 13.8045 29.0716 14.5801C29.0716 15.3558 28.4405 15.9868 27.6649 15.9868C27.1421 15.9868 26.7183 16.4107 26.7183 16.9334C26.7183 17.4563 27.1421 17.8801 27.6649 17.8801H28.6881C29.4637 17.8801 30.0948 18.5111 30.0948 19.2868C30.0947 20.0623 29.4635 20.6934 28.6879 20.6934Z"
+                                        fill="#FAFAFA" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_11590_2742">
+                                        <rect width="32" height="32" fill="white" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                            <p class="fw-700">17K</p>
+                        </a>
+                        <a href="" class="like-dislike">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"
+                                fill="none">
+                                <g clip-path="url(#clip0_11590_2747)">
+                                    <path
+                                        d="M0.0121059 12.7133C0.0121059 13.915 0.657793 14.9687 1.62042 15.5459C1.25161 16.0784 1.03529 16.7245 1.03529 17.4199C1.03529 19.2395 2.51567 20.7199 4.33523 20.7199H11.3014C11.0879 21.6874 10.7959 23.1392 10.5925 24.659C10.0634 28.6141 10.425 30.8075 11.7305 31.5618C12.5444 32.032 13.4219 32.1274 14.2014 31.8306C14.8035 31.6012 15.6168 31.0373 16.0802 29.6532L17.9111 24.8594C19.1254 21.8605 23.6163 18.6659 24.6792 17.9408H31.0412C31.564 17.9408 31.9878 17.5169 31.9878 16.9942V3.09056C31.9878 2.56775 31.5639 2.14393 31.0412 2.14393H24.571C20.9642 0.721497 17.17 -3.8147e-06 13.29 -3.8147e-06H5.69967C3.88011 -3.8147e-06 2.39973 1.48037 2.39973 3.29993C2.39973 3.93712 2.58129 4.53275 2.89536 5.03768C1.79529 5.57343 1.03542 6.70306 1.03542 8.00662C1.03542 8.70212 1.25173 9.34812 1.62054 9.88068C0.657793 10.4578 0.0121059 11.5116 0.0121059 12.7133ZM25.3379 4.03712H30.0945V16.0474H25.3379V4.03712ZM3.31211 11.3066H4.33529C4.8581 11.3066 5.28192 10.8827 5.28192 10.36C5.28192 9.83718 4.85804 9.41337 4.33529 9.41337C3.55967 9.41337 2.92861 8.78231 2.92861 8.00662C2.92861 7.231 3.55967 6.59993 4.33529 6.59993H5.69961C6.22242 6.59993 6.64623 6.17606 6.64623 5.65331C6.64623 5.13056 6.22236 4.70668 5.69961 4.70668C4.92398 4.70668 4.29292 4.07562 4.29292 3.3C4.29292 2.52437 4.92398 1.89331 5.69961 1.89331H13.29C16.7765 1.89331 20.1892 2.51362 23.4445 3.73812V16.4904C22.0149 17.4766 17.5134 20.7807 16.1518 24.1596C16.1497 24.1649 16.1475 24.1703 16.1455 24.1757L14.304 28.9971C14.2989 29.0106 14.294 29.0243 14.2895 29.038C14.111 29.5786 13.8404 29.9421 13.5274 30.0612C13.2239 30.1769 12.8977 30.0496 12.6777 29.9224C12.6695 29.9177 11.8799 29.3288 12.4671 24.9246C12.8007 22.4232 13.4065 20.0309 13.4125 20.007C13.4847 19.7238 13.4219 19.4231 13.2427 19.1924C13.0633 18.9616 12.7875 18.8266 12.4952 18.8266H4.33511C3.55948 18.8266 2.92842 18.1955 2.92842 17.4199C2.92842 16.6442 3.55948 16.0132 4.33511 16.0132C4.85792 16.0132 5.28173 15.5893 5.28173 15.0666C5.28173 14.5437 4.85786 14.1199 4.33511 14.1199H3.31192C2.53629 14.1199 1.90523 13.4889 1.90523 12.7132C1.90529 11.9377 2.53648 11.3066 3.31211 11.3066Z"
+                                        fill="#92949F" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_11590_2747">
+                                        <rect width="32" height="32" fill="white" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                            <p class="fw-700">17K</p>
+                        </a>
+                    </div>
+                </div>
+                <p class="white mb-48">Lorem ipsum dolor sit amet consectetur. Turpis sapien in lacus in venenatis
+                    interdum id. Sed magna sagittis vitae odio tincidunt nullam. Porttitor congue scelerisque tempor
+                    adipiscing sem. Pretium hac nibh arcu euismod enim habitasse ipsum aenean. Tincidunt dictum enim
+                    felis ipsum vestibulum sed</p>
+                <div class="add-comment mb-24">
+                    <img src="assets/media/anime/Ellipse_2.png" alt="">
+                    <div class="comment-input">
+                        <input type="text" name="comment" id="message" class="form-control"
+                            placeholder="Write a Comment">
+                        <a href="" class="post-btn light-gray">Post</a>
+                    </div>
+                </div>
+                <h4 class="white mb-24">3 Comments</h4>
+                <div class="review-card">
+                    <div class="img">
+                        <img src="assets/media/anime/Ellipse_2.png" alt="pic">
+                    </div>
+                    <div class="text-block">
+                        <div class="d-flex align-items-end justify-content-between mb-16">
+                            <div>
+                                <span class="subtitle light-gray">08 JULY, 2024</span>
+                                <h6 class="fw-500">John Paul</h6>
+                            </div>
+                            <a href="" class="reply-btn fw-500">Reply</a>
+                        </div> 
+                        <p class="mb-24">Lorem ipsum dolor sit amet consectetur. Pharetra luctus in dignissim amet. Dignissim adipiscing amet praesent nec libero ultrices ac ullamcorper. Enim mattis faucibus viverra integer vestibulum in<br> Imperdiet pellentesque nisl cursus arcu nulla massa pharetra. Tristique.</p>   
+                    </div>
+                </div>
+                <div class="review-card-2">
+                    <div class="img">
+                        <img src="assets/media/anime/Ellipse_3.png" alt="pic">
+                    </div>
+                    <div>
+                        <div class="text-block">
+                            <div class="d-flex align-items-end justify-content-between mb-16">
+                                <div>
+                                    <span class="subtitle light-gray">08 JULY, 2024</span>
+                                    <h6 class="fw-500">Sarah Johnson</h6>
+                                </div>
+                                <a href="" class="reply-btn fw-500">Reply</a>
+                            </div> 
+                            <p class="mb-24">Lorem ipsum dolor sit amet consectetur. Pharetra luctus in dignissim amet. Dignissim adipiscing amet praesent nec libero ultrices ac ullamcorper. Enim mattis faucibus viverra integer vestibulum in proin. Imperdiet pellentesque nisl cursus arcu nulla massa pharetra. Tristique.</p>   
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="img">
+                        <img src="assets/media/anime/Ellipse_4.png" alt="pic">
+                    </div>
+                        <div class="text-block">
+                            <div class="d-flex align-items-end justify-content-between mb-16">
+                                <div>
+                                    <span class="subtitle light-gray">08 JULY, 2024</span>
+                                    <h6 class="fw-500">James Michael</h6>
+                                </div>
+                                <a href="" class="reply-btn fw-500">Reply</a>
+                            </div> 
+                            <p class="mb-48">Lorem ipsum dolor sit amet consectetur. Pharetra luctus in dignissim amet. Dignissim adipiscing amet praesent nec libero ultrices ac ullamcorper. Enim mattis faucibus viverra integer vestibulum in<br> Imperdiet pellentesque nisl cursus arcu nulla massa pharetra. Tristique.</p>   
+                        </div>
+                </div>
+                <div class="heading mb-24">
+                    <h4 class="white mb-12">Top Ricks For You</h4>
+                    <a href="#" class="p white">See All <span><i class="fa-regular fa-chevron-right"></i></span></a>
+                </div>
+                <div class="slider-arrows mt-sm-0 mt-48 d-xxl-flex d-none">
+                    <a href="javascript:;" class="arrow-btn btn-prev" data-slide="trendingSlider">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M18.226 0.319518C18.6519 0.745482 18.652 1.43624 18.2259 1.86228L8.08822 11.9997L18.226 22.1377C18.6519 22.5637 18.652 23.2544 18.2259 23.6805C17.7999 24.1065 17.1092 24.1065 16.6831 23.6805L5.77404 12.7711C5.56946 12.5665 5.45455 12.289 5.45455 11.9997C5.45455 11.7104 5.56953 11.4329 5.77411 11.2284L16.6832 0.319591C17.1092 -0.106518 17.7999 -0.106518 18.226 0.319518Z" fill="#FAFAFA"/>
+                          </svg>
+                    </a>
+                    <a href="javascript:;" class="arrow-btn btn-next" data-slide="trendingSlider">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M5.77408 0.319518C5.34812 0.745482 5.34804 1.43624 5.77415 1.86228L15.9118 11.9997L5.77408 22.1377C5.34812 22.5637 5.34804 23.2544 5.77415 23.6805C6.20019 24.1065 6.89088 24.1065 7.31692 23.6805L18.226 12.7711C18.4306 12.5665 18.5455 12.289 18.5455 11.9997C18.5455 11.7104 18.4305 11.4329 18.2259 11.2284L7.31684 0.319591C6.89088 -0.106518 6.20012 -0.106518 5.77408 0.319518Z" fill="#FAFAFA"/>
+                          </svg>
+                    </a>
+                </div>
+                <div class="trendingSlider row">
+                    <div class="col-12">
+                        <a href="anime-detail.html" class="anime-card gap-24">
+                            <img src="assets/media/anime/anime-01.jpg" alt="pic">
+                            <div class="overlay"></div>
+                            <div class="text">
+                                <h6 class="white">Attack on Titan</h6>
+                                <p class="white">Action, Dark Fantasy</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-12">
+                        <a href="anime-detail.html" class="anime-card gap-24">
+                            <img src="assets/media/anime/anime-02.jpg" alt="pic">
+                            <div class="overlay"></div>
+                            <div class="text">
+                                <h6 class="white">Naruto</h6>
+                                <p class="white">Action, Adventure</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-12">
+                        <a href="anime-detail.html" class="anime-card gap-24">
+                            <img src="assets/media/anime/anime-03.jpg" alt="pic">
+                            <div class="overlay"></div>
+                            <div class="text">
+                                <h6 class="white">My Hero Academia</h6>
+                                <p class="white">Action, Superhero, Comedy </p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-12">
+                        <a href="anime-detail.html" class="anime-card gap-24">
+                            <img src="assets/media/anime/anime-04.jpg" alt="pic">
+                            <div class="overlay"></div>
+                            <div class="text">
+                                <h6 class="white">One Piece</h6>
+                                <p class="white">Action, Adventure, Fantasy </p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-12">
+                        <a href="anime-detail.html" class="anime-card gap-24">
+                            <img src="assets/media/anime/anime-05.jpg" alt="pic">
+                            <div class="overlay"></div>
+                            <div class="text">
+                                <h6 class="white">Demon Slayer</h6>
+                                <p class="white">Dark Fantasy, Supernatural</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-12">
+                        <a href="anime-detail.html" class="anime-card gap-24">
+                            <img src="assets/media/anime/anime-01.jpg" alt="pic">
+                            <div class="overlay"></div>
+                            <div class="text">
+                                <h6 class="white">Attack on Titan</h6>
+                                <p class="white">Action, Dark Fantasy</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-12">
+                        <a href="anime-detail.html" class="anime-card gap-24">
+                            <img src="assets/media/anime/anime-02.jpg" alt="pic">
+                            <div class="overlay"></div>
+                            <div class="text">
+                                <h6 class="white">Naruto</h6>
+                                <p class="white">Action, Adventure</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-12">
+                        <a href="anime-detail.html" class="anime-card gap-24">
+                            <img src="assets/media/anime/anime-03.jpg" alt="pic">
+                            <div class="overlay"></div>
+                            <div class="text">
+                                <h6 class="white">My Hero Academia</h6>
+                                <p class="white">Action, Superhero, Comedy </p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-12">
+                        <a href="anime-detail.html" class="anime-card gap-24">
+                            <img src="assets/media/anime/anime-04.jpg" alt="pic">
+                            <div class="overlay"></div>
+                            <div class="text">
+                                <h6 class="white">One Piece</h6>
+                                <p class="white">Action, Adventure, Fantasy </p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-12">
+                        <a href="anime-detail.html" class="anime-card gap-24">
+                            <img src="assets/media/anime/anime-05.jpg" alt="pic">
+                            <div class="overlay"></div>
+                            <div class="text">
+                                <h6 class="white">Demon Slayer</h6>
+                                <p class="white">Dark Fantasy, Supernatural</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--blogs-->
+        <!-- HERO BANNER END -->
+
+        <!-- FOOTER START -->
+        <footer class="py-64">
+            <div class="container-fluid">
+                <div class="row row-gap-48">
+                    <div class="col-lg-6">
+                        <div class="text">
+                            <h6 class="mb-16 color-primary">Start Your Entertainment Journey</h6>
+                            <h3 class="white mb-48">Start Your Entertainment Journey</h3>
+                            <div class="newsletter-field">
+                                <form action="index.html">
+                                    <input type="email" name="email" id="eMail" class="form-input"
+                                        placeholder=" Your Email">
+                                    <button type="submit" class="submit-arrow">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none">
+                                            <g clip-path="url(#clip0_11735_1263)">
+                                                <path
+                                                    d="M23.7939 0.205977C23.595 0.00703961 23.2966 -0.0541321 23.0356 0.0503052L0.441886 9.08769C0.183371 9.1911 0.0102616 9.43729 0.000324102 9.71558C-0.0095665 9.99383 0.145683 10.2517 0.396183 10.3732L9.3056 14.6942L13.6266 23.6036C13.7445 23.8466 13.9906 23.9999 14.2591 23.9999C14.2675 23.9999 14.2758 23.9998 14.2842 23.9994C14.5624 23.9896 14.8087 23.8164 14.9121 23.5579L23.9496 0.964319C24.054 0.703132 23.9928 0.404867 23.7939 0.205977ZM2.44176 9.80235L20.3773 2.62819L9.68848 13.3169L2.44176 9.80235ZM14.1975 21.5581L10.6828 14.3112L21.3717 3.6225L14.1975 21.5581Z"
+                                                    fill="#AB0511" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_11735_1263">
+                                                    <rect width="24" height="24" fill="white" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="assets/media/footer/pngwing.com1.png" alt="pic">
+                    </div>
+                    <div class="col-lg-6">
+                        <a href="index.html">
+                            <img src="assets/media/user/logo.png" alt="/logo" class="header-logo pt-12 mb-24">
+                        </a>
+                        <p>Lorem ipsum dolor sit amet consectetur. Magna at in nunc viverra. Felis<br> nascetur nulla at
+                            viverra egestas.</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="row row-gap-4">
+                            <div class="col-md-3 col-5">
+                                <ul class="list-unstyled">
+                                    <li class="mb-12">
+                                        <a href="index.html">
+                                            Home
+                                        </a>
+                                    </li>
+                                    <li class="mb-12">
+                                        <a href="anime.html">
+                                            Anime
+                                        </a>
+                                    </li>
+                                    <li class="mb-12">
+                                        <a href="movies.html">
+                                            Movies
+                                        </a>
+                                    </li>
+                                    <li class="">
+                                        <a href="blogs.html">
+                                            Blog
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4 col-7">
+                               <ul class="list-unstyled">
+                                <li class="mb-12">
+                                    <a href="#">
+                                        Terms and Conditions
+                                    </a>
+                                </li>
+                                <li class="mb-12">
+                                    <a href="#">
+                                        Privacy Policy
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Cookie Policy 
+                                    </a>
+                                </li>
+                            </ul>
+                            </div>
+                            <div class="col-md-4 col-12">
+                                <ul class="list-unstyled">
+                                    <li class="mb-12">
+                                        <a href="#" class="white">
+                                            Have a Chat!
+                                        </a>
+                                    </li>
+                                    <li class="mb-12">
+                                        <a href="#">
+                                            abc@example.com
+                                        </a>
+                                    </li>
+                                    <li class="white">
+                                        <a href="#" class="white">
+                                            Follow Us
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="list-unstyled gap-16 d-flex">
+                                    <li>
+                                        <a href="#">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none">
+                                                <path
+                                                    d="M16.7273 4H14.3471C13.295 4 12.286 4.42143 11.5421 5.17157C10.7981 5.92172 10.3802 6.93913 10.3802 8V10.4H8V13.6H10.3802V20H13.5537V13.6H15.9339L16.7273 10.4H13.5537V8C13.5537 7.78783 13.6373 7.58434 13.7861 7.43431C13.9349 7.28429 14.1367 7.2 14.3471 7.2H16.7273V4Z"
+                                                    stroke="#EAEAEC" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none">
+                                                <path d="M19 5L10 14" stroke="#EAEAEC" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                                <path d="M19 5L13.4 21L10.2 13.8L3 10.6L19 5Z" stroke="#EAEAEC"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M8.26748 5C6.4629 5 5 6.4629 5 8.26748V15.8024C5 17.607 6.4629 19.0699 8.26748 19.0699H15.8024C17.607 19.0699 19.0699 17.607 19.0699 15.8024V8.26748C19.0699 6.4629 17.607 5 15.8024 5H8.26748ZM4 8.26748C4 5.91062 5.91062 4 8.26748 4H15.8024C18.1593 4 20.0699 5.91062 20.0699 8.26748V15.8024C20.0699 18.1593 18.1593 20.0699 15.8024 20.0699H8.26748C5.91062 20.0699 4 18.1593 4 15.8024V8.26748ZM12.4364 9.51543C11.9134 9.43786 11.3792 9.52721 10.9098 9.77075C10.4404 10.0143 10.0598 10.3996 9.82209 10.872C9.58436 11.3443 9.50161 11.8795 9.58562 12.4016C9.66962 12.9237 9.91611 13.406 10.29 13.7799C10.6639 14.1538 11.1462 14.4003 11.6683 14.4843C12.1903 14.5683 12.7256 14.4855 13.1979 14.2478C13.6703 14.0101 14.0556 13.6294 14.2991 13.1601C14.5427 12.6907 14.632 12.1565 14.5545 11.6335C14.4753 11.0999 14.2267 10.606 13.8453 10.2246C13.4639 9.84316 12.97 9.59454 12.4364 9.51543ZM10.4492 8.88312C11.1053 8.54271 11.852 8.41783 12.5831 8.52624C13.3289 8.63683 14.0193 8.98435 14.5524 9.51746C15.0855 10.0506 15.4331 10.741 15.5436 11.4868C15.6521 12.2179 15.5272 12.9646 15.1868 13.6207C14.8463 14.2767 14.3077 14.8087 13.6475 15.141C12.9873 15.4733 12.2391 15.589 11.5094 15.4716C10.7797 15.3541 10.1055 15.0096 9.58291 14.487C9.06027 13.9643 8.71574 13.2902 8.59832 12.5605C8.48089 11.8308 8.59656 11.0826 8.92886 10.4224C9.26116 9.76216 9.79317 9.22354 10.4492 8.88312ZM16.1792 7.39074C15.903 7.39074 15.6792 7.6146 15.6792 7.89074C15.6792 8.16688 15.903 8.39074 16.1792 8.39074H16.1878C16.464 8.39074 16.6878 8.16688 16.6878 7.89074C16.6878 7.6146 16.464 7.39074 16.1878 7.39074H16.1792Z"
+                                                    fill="#EAEAEC" />
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none">
+                                                <path
+                                                    d="M7 6.5C7 5.83696 7.26339 5.20107 7.73223 4.73223C8.20107 4.26339 8.83696 4 9.5 4H12V9H9.5C8.83696 9 8.20107 8.73661 7.73223 8.26777C7.26339 7.79893 7 7.16304 7 6.5Z"
+                                                    stroke="#EAEAEC" stroke-linecap="round" stroke-linejoin="round" />
+                                                <path
+                                                    d="M12 4H14.5C14.8283 4 15.1534 4.06466 15.4567 4.1903C15.76 4.31594 16.0356 4.50009 16.2678 4.73223C16.4999 4.96438 16.6841 5.23998 16.8097 5.54329C16.9353 5.84661 17 6.1717 17 6.5C17 6.8283 16.9353 7.15339 16.8097 7.45671C16.6841 7.76002 16.4999 8.03562 16.2678 8.26777C16.0356 8.49991 15.76 8.68406 15.4567 8.8097C15.1534 8.93534 14.8283 9 14.5 9H12V4Z"
+                                                    stroke="#EAEAEC" stroke-linecap="round" stroke-linejoin="round" />
+                                                <path
+                                                    d="M12 11.5C12 11.1717 12.0647 10.8466 12.1903 10.5433C12.3159 10.24 12.5001 9.96438 12.7322 9.73223C12.9644 9.50009 13.24 9.31594 13.5433 9.1903C13.8466 9.06466 14.1717 9 14.5 9C14.8283 9 15.1534 9.06466 15.4567 9.1903C15.76 9.31594 16.0356 9.50009 16.2678 9.73223C16.4999 9.96438 16.6841 10.24 16.8097 10.5433C16.9353 10.8466 17 11.1717 17 11.5C17 11.8283 16.9353 12.1534 16.8097 12.4567C16.6841 12.76 16.4999 13.0356 16.2678 13.2678C16.0356 13.4999 15.76 13.6841 15.4567 13.8097C15.1534 13.9353 14.8283 14 14.5 14C14.1717 14 13.8466 13.9353 13.5433 13.8097C13.24 13.6841 12.9644 13.4999 12.7322 13.2678C12.5001 13.0356 12.3159 12.76 12.1903 12.4567C12.0647 12.1534 12 11.8283 12 11.5V11.5Z"
+                                                    stroke="#EAEAEC" stroke-linecap="round" stroke-linejoin="round" />
+                                                <path
+                                                    d="M7 16.5C7 15.837 7.26339 15.2011 7.73223 14.7322C8.20107 14.2634 8.83696 14 9.5 14H12V16.5C12 17.163 11.7366 17.7989 11.2678 18.2678C10.7989 18.7366 10.163 19 9.5 19C8.83696 19 8.20107 18.7366 7.73223 18.2678C7.26339 17.7989 7 17.163 7 16.5Z"
+                                                    stroke="#EAEAEC" stroke-linecap="round" stroke-linejoin="round" />
+                                                <path
+                                                    d="M7 11.5C7 10.837 7.26339 10.2011 7.73223 9.73223C8.20107 9.26339 8.83696 9 9.5 9H12V14H9.5C8.83696 14 8.20107 13.7366 7.73223 13.2678C7.26339 12.7989 7 12.163 7 11.5Z"
+                                                    stroke="#EAEAEC" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- FOOTER END -->
+
+    <!-- Main Wrapper End -->
+
+    <!-- Back To Top Start -->
+    <button class="scrollToTopBtn"><i class="fa fa-arrow-up"></i></button>
+
+
+
+    <!-- Mobile Menu Start -->
+    <div class="mobile-nav__wrapper">
+        <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+        <div class="mobile-nav__content">
+            <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
+            <div class="logo-box">
+                <a href="index.html" aria-label="logo image"><img src="assets/media/user/logo.png" alt="logo"></a>
+            </div>
+            <div class="mobile-nav__container"></div>
+            <ul class="mobile-nav__contact list-unstyled">
+                <li>
+                    <i class="fa-thin fa-envelope"></i>
+                    <a href="mailto:example@company.com">example@company.com</a>
+                </li>
+                <li>
+                    <i class="fa-light fa-phone-volume"></i>
+                    <a href="tel:+12345678">+123 (4567) -890</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Mobile Menu End -->
+
+    <!--  -->
+    <!-- modal-popup area start  -->
+    <div class="modal fade" id="videoModal" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="top_bar">
+                    <h4 class="modal-title">Demon Slayer Season 4</h4>
+                    <button type="button" class="close" id="closeVideoModalButton" data-dismiss="modal"
+                        aria-label="Close">
+                        <span aria-hidden="true"><i class="fas fa-times"></i> <b>Close</b></span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <video controls title="Video">
+                        <source src="assets/media/videos/demon_slayer.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal-popup area end  -->
+
+
+
+    <!-- Jquery Js -->
+    <script src="assets/js/vendor/bootstrap.min.js"></script>
+    <script src="assets/js/vendor/jquery-3.6.3.min.js"></script>
+    <script src="assets/js/vendor/slick.min.js"></script>
+    <script src="assets/js/vendor/aksVideoPlayer.js"></script>
+    <script src="assets/js/app.js"></script>
+
+</body>
+
+</html>

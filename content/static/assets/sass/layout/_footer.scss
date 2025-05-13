@@ -1,0 +1,79 @@
+footer {
+    background-color: $accent-3;
+
+    .row-gap-48 {
+        row-gap: clamp(32px, 2.5vw, 60px);
+    }
+
+    .newsletter-field {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 12px;
+        border-bottom: 1px solid white;
+
+        .submit-arrow {
+            position: absolute;
+            right: 16px;
+            top: 02px;
+            background: none;
+            border: 0;
+        }
+    }
+
+    ul {
+        li {
+            a {
+                color: $light-gray;
+                transition: $transition;
+
+                &:hover {
+                    color: $accent-1 !important;
+                    transition: $transition;
+                }
+
+                svg {
+                    width: clamp(18px, 1.25vw, 40px);
+                    height: clamp(18px, 1.25vw, 40px);
+                    
+                    path {
+                        stroke: $white;
+                        transition: $transition;
+                    }
+                }
+
+                &:hover {
+                    svg {
+                        path {
+                            stroke: $accent-1;
+                            transition: $transition;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+.text {
+    input {
+        color: white;
+        border: none;
+        background: none;
+
+        &:focus {
+            border: none;
+        }
+
+        &:focus-visible {
+            border: none;
+            outline: none;
+        }
+
+        hr {
+            height: 1px;
+            width: 840px;
+        }
+    }
+}

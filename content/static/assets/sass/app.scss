@@ -1,0 +1,137 @@
+/*---------------------------------------------"
+// Template Name: Teach Me
+// Description:  Teach Me Html Template
+// Version: 1.0.0
+
+===============================================   
+STYLE SHEET INDEXING
+|
+|___ Fonts
+|___ Variables
+|___ Responsive
+|___ Reset Styles
+|___ Spacing
+|___ Helper Classes
+|___ Buttons
+|___ Headings
+|___ Layout Styles
+|___ END STYLE SHEET INDEXING
+
+--------------------------------------------*/
+
+/*-------------------------
+    Fonts
+-------------------------*/
+
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+/*-------------------------
+    Variables
+-------------------------*/
+/* Fonts */
+$font-primary: "Bai Jamjuree", sans-serif;
+$font-awesome: "Font Awesome 6 Pro";
+
+/* Colors */
+$accent-1: #AB0511;
+$accent-2: #EBFF03;
+$accent-3: #000000;
+$medium-black: #1e1f20;
+$dark-black:#0C0C0D;
+$light-black: #141516;
+$dark-gray: #45474f;
+$light-gray: #92949f;
+$lightest-gray: #eaeaec;
+$light-white: #fafafa;
+$white:#FAFAFA;
+/* Transitions */
+$transition: all 0.5s ease-in-out;
+
+/* Border-Radius */
+$br-4: clamp(2px, 0.208vw, 8px);
+$br-8: clamp(4px, 0.417vw, 16px);
+$br-10: clamp(5px, 0.521vw, 20px);
+$br-12: clamp(8px, 0.625vw, 24px);
+$br-14: clamp(10px, 0.729vw, 28px);
+$br-16: clamp(12px, 0.833vw, 32px);
+$br-18: clamp(14px, 0.938vw, 36px);
+$br-20: clamp(16px, 1.042vw, 40px);
+$br-24: clamp(18px, 1.25vw, 48px);
+$br-32: clamp(24px, 1.667vw, 64px);
+
+/* Gap */
+$gap-4: clamp(2px, 0.208vw, 8px);
+$gap-8: clamp(4px, 0.417vw, 16px);
+$gap-10: clamp(5px, 0.521vw, 20px);
+$gap-12: clamp(8px, 0.625vw, 24px);
+$gap-14: clamp(10px, 0.729vw, 28px);
+$gap-16: clamp(12px, 0.833vw, 32px);
+$gap-18: clamp(14px, 0.938vw, 36px) !important;
+$gap-20: clamp(16px, 1.042vw, 40px) !important;
+$gap-24: clamp(18px, 1.25vw, 48px) !important;
+$gap-32: clamp(24px, 1.667vw, 64px);
+$gap-38: clamp(28px, 1.979vw, 76px);
+$gap-48: clamp(40px, 2.5vw, 28px);
+$gap-64: clamp(48px, 3.333vw, 128px);
+
+/*-------------------------
+    Responsive Styles
+-------------------------*/
+@import "helpers/mixin";
+
+/*-------------------------
+    Reset Styles
+-------------------------*/
+@import "basic/basic";
+
+/*-------------------------
+Helpers
+-------------------------*/
+@import "helpers/classes";
+
+@import "helpers/spacing";
+
+/*-------------------------
+Elements
+-------------------------*/
+
+@import "elements/buttons";
+
+@import "elements/form";
+
+@import "elements/dropdown";
+
+@import "elements/heading";
+
+@import "elements/modal-box";
+
+@import "elements/video";
+
+@import "elements/nice-select";
+
+@import "elements/preloader";
+
+/*-------------------------
+  layouts
+-------------------------*/
+@import "layout/header";
+
+@import "layout/hero-banner";
+
+@import "layout/cards";
+
+@import "layout/inner-banner";
+
+@import "layout/animes";
+
+@import "layout/collection";
+
+@import "layout/premiere";
+
+@import "layout/blogs";
+
+@import "layout/pages";
+
+@import "layout/manga";
+
+@import "layout/footer";

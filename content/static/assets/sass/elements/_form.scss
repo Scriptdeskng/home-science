@@ -1,0 +1,128 @@
+/*-------------------------
+  Form Styling
+-------------------------*/
+
+textarea.form-control {
+  min-height: 130px;
+  max-height: 150px;
+
+  @media (max-width: 578px) {
+    min-height: 80px;
+    max-height: 80px;
+  }
+}
+
+.form-control {
+  padding: 16px 16px;
+  padding-left: 44px;
+  border-radius: $br-8;
+  border: 1px solid $white;
+  background: transparent;
+  font-family: $font-primary;
+  font-size: 15px; /* 14px */
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  position: relative;
+  color: $dark-black;
+  box-shadow: none;
+
+  @include media-query(430px) {
+    padding-right: 54px;
+  }
+  &.form-control-2 {
+    padding-left: 16px;
+  }
+
+  &:focus {
+    box-shadow: none;
+    outline: 0;
+    background: transparent;
+  }
+
+  &::placeholder {
+    color: $dark-gray;
+    opacity: 1;
+  }
+  svg {
+    position: absolute;
+    top: 16px;
+    left: 18px;
+  }
+}
+
+
+input[type="file"] {
+  display: none;
+}
+
+label {
+  &.error {
+    color: #ff0000;
+  }
+}
+.form-group {
+  position: relative;
+  flex-shrink: 0;
+  width: 100%;
+  input[type="date"],
+  input[type="text"],
+  input[type="email"],
+  input[type="file"],
+  input[type="number"],
+  input[type="password"],
+  input[type="search"],
+  input[type="submit"],
+  input[type="tel"],
+  textarea,
+  .cus-form-control {
+      width: 60%;
+      background: $light-black;
+      padding: 0 clamp(12px, 0.83vw, 24px);
+      height: clamp(42px, 2.917vw, 72px);
+      color: $white;
+      font-weight: 500;
+      display: flex;
+      border-radius: 10px;
+      align-items: center;
+      border: 1px solid $white;
+      font-size: clamp(13px, 0.833vw, 22px);
+      @include media-query(991px) {
+          font-size: clamp(13.5px, 1.778vw, 16px);
+      }
+      @include media-query(767px) {
+          font-size: clamp(13px, 2.286vw, 14px);
+      }
+      @include media-query(575px) {
+          font-size: clamp(11.5px, 3.59vw, 14px);
+      }
+      &:focus {
+          color: $white;
+          outline: none;
+          background:$accent-3 !important;
+          border: 1px solid $white;
+          border-radius: 10px;
+          box-shadow: none;
+      }
+      &:hover {
+          color: $white;
+          border: 1px solid $white;
+      }
+      &::placeholder {
+          color: $white;
+          opacity: 1;
+      }
+  }
+}
+#eye, #eye-icon{
+  cursor: pointer;
+}
+.input-box-1{
+  position: relative;
+  i{
+    position: absolute;
+    bottom: 12px;
+    right: 16px;
+    font-size: 14px;
+  }
+}

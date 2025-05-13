@@ -1,0 +1,15 @@
+.collection{
+    .cards{
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: clamp(16px,1.042vw,40px);
+     background: $accent-3;
+     color: white;
+     border-radius: 12px;
+     img{
+        width: clamp(55px,4.167vw,100px);
+        height: clamp(55px,4.167vw,100px);
+     }
+    }
+}

@@ -1,0 +1,23 @@
+.inner-banner {
+    height: clamp(400px, 27.083vw, 850px);
+    display: grid;
+    align-content: center;
+    background: url("../media/background/banner.jpg") no-repeat;
+    background-size: cover;
+    background-position: left;
+
+    @include media-query(575px) {
+        height: clamp(350px, 27.083vw, 600px);
+    }
+
+    .content {
+        ul {
+            li {
+                color: $white;
+                border-radius: 2px;
+                border: 1px solid white;
+                padding: 4px;
+            }
+        }
+    }
+}

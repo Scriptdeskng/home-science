@@ -1,0 +1,79 @@
+{% extends 'content/base.html' %}
+{% load static %}
+
+
+
+{% block head_title %}
+  All Content
+{% endblock head_title %}
+    
+{% block content %}
+  <!-- Trending Area Start -->
+  <section class="mt-40 mb-48 pt-5">
+    <div class="container-fluid">
+        <div class="heading mb-24">
+            <h4 class="white mb-12">All Content</h4>
+        </div>
+        <div class="row">
+            
+            {% for content in contents %}
+            <div class="col-md-3">
+                <a href="{% url 'content:content_detail_view' content.slug %}" class="anime-card gap-24">
+                    <img src="{{ content.img_poster.url }}" alt="pic">
+                            <div class="overlay"></div>
+                            <div class="text">
+                                <h6 class="white">{{ content.title }}</h6>
+                        <p class="white">Action, Dark Fantasy</p>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+                
+     
+        </div>
+
+        <div class="row" >
+                <!-- Pagination Buttons -->
+    <ul class="hl-pagination mt-5">
+
+        {%if contents.has_previous %}
+
+        <li class="hl-pagination--item">
+            <a class="hl-pagination--button" href="?page={{contents.previous_page_number}}">
+                <svg xmlns=" http://www.w3.org/2000/svg" width="28" height="19" viewBox="0 0 28 19" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M18.49 0.196115C18.2638 1.3274 18.3963 3.13433 19.5707 4.7971C20.7361 6.44723 22.973 8.01774 27.0705 8.60308L27 9.09638V9.0997L27.0705 9.59299C22.973 10.1783 20.7361 11.7488 19.5707 13.399C18.3963 15.0617 18.2638 16.8687 18.49 18L17.5095 18.1961C17.2357 16.8274 17.4033 14.7343 18.7539 12.8221C19.6399 11.5675 21.016 10.4172 23.0581 9.59804H0V8.59804H23.0581C21.016 7.77883 19.6399 6.62854 18.7539 5.37401C17.4033 3.46179 17.2357 1.36872 17.5095 0L18.49 0.196115Z"
+                        fill="currentColor" />
+                </svg>
+            </a>
+        </li>
+        {% endif %}
+
+        <li class="hl-pagination--item">
+            <button class="hl-pagination--button current">{{contents.number}}</button>
+        </li>
+
+        {%if contents.has_next %}
+        <li class="hl-pagination--item">
+            <a class="hl-pagination--button" href="?page={{contents.next_page_number}}">
+                <svg xmlns=" http://www.w3.org/2000/svg" width="28" height="19" viewBox="0 0 28 19" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M18.49 0.196115C18.2638 1.3274 18.3963 3.13433 19.5707 4.7971C20.7361 6.44723 22.973 8.01774 27.0705 8.60308L27 9.09638V9.0997L27.0705 9.59299C22.973 10.1783 20.7361 11.7488 19.5707 13.399C18.3963 15.0617 18.2638 16.8687 18.49 18L17.5095 18.1961C17.2357 16.8274 17.4033 14.7343 18.7539 12.8221C19.6399 11.5675 21.016 10.4172 23.0581 9.59804H0V8.59804H23.0581C21.016 7.77883 19.6399 6.62854 18.7539 5.37401C17.4033 3.46179 17.2357 1.36872 17.5095 0L18.49 0.196115Z"
+                        fill="currentColor" />
+                </svg>
+            </a>
+        </li>
+        {% endif %}
+
+
+
+    </ul>
+</div>
+    </div>
+</section>
+<!-- Trending Area End -->
+  
+      
+    {% endblock content %}
+  
+    

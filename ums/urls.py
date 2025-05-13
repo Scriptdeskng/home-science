@@ -1,0 +1,58 @@
+from django.urls import path, include
+from .views import *
+from django.contrib.auth.decorators import login_required
+
+app_name = "users"
+
+urlpatterns = [
+    path("after_signup/", after_signup, name="after_signup"),
+    path("after_login/", after_login, name="after_login"),
+    path("awaiting_response/", awaiting_response, name="awaiting_response"),
+    path("onboarding/", onboarding, name="onboarding"),
+    path("subscribe/", subscribe, name="subscribe"),
+    path("cancelSubscribtion/", cancelSubscribtion, name="cancelSubscribtion"),
+    path("inactive_account/", inactive_account, name="inactive_account"),
+    path("data_sync_endpoint/", data_sync, name="data_sync_endpoint"),
+    path("data-sync/", data_sync_v2, name="data_sync_v2"),
+    path("campaign_notification/", campaign_notification, name="campaign_notification"),
+    path("generate_report/", generate_report, name="generate-report"),
+    path("fetch_stats/", fetch_stats, name="fetch_stats"),
+    path(
+        "pull_3rd_party_acquisition_report/",
+        pull_3rd_party_acquisition_report,
+        name="pull_3rd_party_acquisition_report",
+    ),
+    path(
+        "reconcile_subscribtions/",
+        reconcile_subscribtions,
+        name="reconcile_subscribtions",
+    ),
+    path("campaign-stats/", fetch_campaign_behaviour, name="fetch_campaign_behaviour"),
+    path(
+        "campaign-stats-daily/",
+        fetch_campaign_behaviour_daily,
+        name="fetch_campaign_behaviour_daily",
+    ),
+    path(
+        "fetch_subscription_source_quick_report/",
+        fetch_subscription_source_quick_report,
+        name="fetch_subscription_source_quick_report",
+    ),
+    path(
+        "cleanup_campaign_tracker/",
+        cleanup_campaign_tracker,
+        name="cleanup_campaign_tracker",
+    ),
+    path("cleanup_data_sync/", cleanup_data_sync, name="cleanup_data_sync"),
+    path("cleanup_data/", cleanup_data, name="cleanup-data"),
+    path(
+        "campaign_partner_user_behaviour_query/",
+        campaign_partner_user_behaviour_query,
+        name="campaign_partner_user_behaviour_query",
+    ),
+    path(
+        "get_cr_data/",
+        get_cr_data,
+        name="get_cr_data",
+    ),
+]

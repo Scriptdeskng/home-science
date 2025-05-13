@@ -1,0 +1,165 @@
+.anime-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: 1fr;
+        grid-column-gap: 24px;
+        grid-row-gap: 24px;
+        @include media-query(1399px) {
+                grid-template-columns: repeat(3, 1fr);
+        }
+        @include media-query(768px) {
+                grid-template-columns: repeat(2, 1fr);
+        }
+        @include media-query(567px) {
+                grid-template-columns: repeat(1, 1fr);
+        }
+}
+.anime-detail {
+        .pic {
+                position: relative;
+                img {
+                        width: 100%;
+                        height: 100%;
+                }
+                .icon {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                }
+        }
+}
+.anime-streaming {
+        .streamer-detail {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                @include media-query(576px) {
+                        align-items: flex-start;
+                        flex-direction: column;
+                        row-gap: clamp(24px, 1.667vw, 64px);
+                }
+                .block-left-side {
+                        display: flex;
+                        align-items: center;
+                        gap: clamp(40px, 2.5vw, 88px);
+                        @include media-query(576px) {
+                                img {
+                                        width: clamp(40px, 3.75vw, 100px);
+                                        width: clamp(40px, 3.75vw, 100px);
+                                }
+                        }
+                        @include media-query(567px) {
+                                align-items: flex-start;
+                                flex-direction: column;
+                                row-gap: clamp(24px, 1.667vw, 64px);
+                        }
+                }
+                .block-right-side {
+                        display: flex;
+                        align-items: center;
+                        gap: clamp(18px, 1.25vw, 48px) !important;
+                        .like-dislike {
+                                display: flex;
+                                align-items: center;
+                                gap: clamp(8px, 0.625vw, 24px);
+                                @include media-query(576px) {
+                                        svg {
+                                                width: clamp(20px, 1.667vw, 42px);
+                                                height: clamp(20px, 1.667vw, 42px);
+                                        }
+                                }
+                        }
+                }
+        }
+        .add-comment {
+                display: flex;
+                align-items: center;
+                gap: clamp(18px, 1.25vw, 48px) !important;
+                .comment-input {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        border-bottom: 1px solid $lightest-gray;
+                        width: 100%;
+                        input {
+                                padding-left: 0;
+                                color: white;
+                                border: none;
+                        }
+                }
+        }
+        .review-card {
+                display: flex;
+                align-items: flex-start;
+                gap: clamp(12px, 1.25vw, 32px);
+                .img {
+                        display: flex;
+                        flex-shrink: 0;
+                }
+                .text-block {
+                        width: 100%;
+                        span {
+                                font-size: 12px;
+                        }
+                }
+        }
+        .review-card-2 {
+                display: flex;
+                align-items: flex-start;
+                gap: clamp(12px, 1.25vw, 32px);
+                padding-left: clamp(32px, 4.583vw, 120px);
+                .img {
+                        display: flex;
+                        flex-shrink: 0;
+                }
+                .text-block {
+                        width: 100%;
+                        span {
+                                font-size: 12px;
+                        }
+                }
+        }
+        .slider-arrows {
+                justify-content: space-between;
+                position: relative;
+                z-index: 999;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, 0);
+                .btn-prev {
+                        position: relative;
+                        left: -3%;
+                        bottom: -127px;
+                        @include media-query(992px) {
+                                left: -2%;
+                                bottom: -175px;
+                        }
+                        @include media-query(768px) {
+                                left: -3%;
+                                bottom: -144px;
+                        }
+                        @include media-query(576px) {
+                                left: -4%;
+                                bottom: -109px;
+                        }
+                }
+                .btn-next {
+                        position: relative;
+                        left: 3%;
+                        bottom: -127px;
+                        @include media-query(992px) {
+                                left: 2%;
+                                bottom: -175px;
+                                @include media-query(768px) {
+                                        left: 3%;
+                                        bottom: -144px;
+                                        @include media-query(576px) {
+                                                left: 4%;
+                                                bottom: -103px;
+                                        }
+                                }
+                        }
+                }
+        }
+}

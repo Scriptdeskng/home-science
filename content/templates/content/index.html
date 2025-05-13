@@ -1,0 +1,112 @@
+{% extends 'content/base.html' %}
+{% load static %}
+{% block content %}
+    <!-- HERO BANNER START -->
+    <section class="hero-banner">
+        <video autoplay muted loop id="myVideo">
+            <source src="{{ featured_content.trailer_mp4.url }}" type="video/mp4">
+        </video>
+        <div class="container-fluid">
+            <div class="content">
+                <div class="txt-block">
+                    <div>
+                        <p class="white">New Release</p>
+                        <h1 class="mb-12 white">{{ featured_content.title }}</h1>
+                        <p class="white mb-48">
+                            {% comment %} Lorem ipsum dolor sit amet consectetur. Sed netus tortor hendrerit
+                            <br class="d-sm-block d-none">
+                            massa sem nunc nam odio. Orci posuere id donec. {% endcomment %}
+                        </p>
+                        <div class="gap-24 d-flex">
+                            <a href="{% url 'content:content_detail_view' featured_content.slug %}"
+                               class="cus-btn">
+                                <span class="btn-text">
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                         width="20"
+                                         height="20"
+                                         viewBox="0 0 20 20"
+                                         fill="none">
+                                        <path d="M16.6755 8.8536L4.87079 0.272465C4.43757 -0.0415717 3.86247 -0.0888661 3.38763 0.155174C2.90901 0.397323 2.61011 0.889185 2.61011 1.42078V18.5774C2.61011 19.1146 2.90901 19.6046 3.38763 19.8468C3.59005 19.9489 3.81139 20 4.03462 20C4.32596 20 4.62107 19.9073 4.87079 19.7238L16.6755 11.1502C17.0482 10.8759 17.2658 10.4522 17.2658 10.0019C17.2677 9.5441 17.0444 9.12223 16.6755 8.8536Z" fill="#FAFAFA" />
+                                    </svg>
+                                    Play Now
+                                </span>
+                                <span class="btn-text">
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                         width="20"
+                                         height="20"
+                                         viewBox="0 0 20 20"
+                                         fill="none">
+                                        <path d="M16.6755 8.8536L4.87079 0.272465C4.43757 -0.0415717 3.86247 -0.0888661 3.38763 0.155174C2.90901 0.397323 2.61011 0.889185 2.61011 1.42078V18.5774C2.61011 19.1146 2.90901 19.6046 3.38763 19.8468C3.59005 19.9489 3.81139 20 4.03462 20C4.32596 20 4.62107 19.9073 4.87079 19.7238L16.6755 11.1502C17.0482 10.8759 17.2658 10.4522 17.2658 10.0019C17.2677 9.5441 17.0444 9.12223 16.6755 8.8536Z" fill="#FAFAFA" />
+                                    </svg>
+                                    Play Now
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <button id="togglebutton">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             width="48"
+                             height="48"
+                             viewBox="0 0 48 48"
+                             fill="none">
+                            <path d="M0.5 24C0.5 11.0213 11.0213 0.5 24 0.5C36.9787 0.5 47.5 11.0213 47.5 24C47.5 36.9787 36.9787 47.5 24 47.5C11.0213 47.5 0.5 36.9787 0.5 24Z" stroke="#FAFAFA" />
+                            <path d="M15.3522 20.1679H12V27.6321H15.3522L21.6862 32.3296C21.6862 32.3296 22.8479 33.3038 22.8479 32.2981C22.8479 31.2901 22.8479 16.2725 22.8479 15.3559C22.8479 14.566 21.826 15.3374 21.826 15.3374L15.3522 20.1679Z" fill="#FAFAFA" />
+                            <path d="M30.4765 23.8689L26.3344 18H28.5749L31.6677 22.5246L34.7279 18H36.9464L32.8044 23.8689L37.1759 30H34.9355L31.6677 25.2131L28.3563 30H26.1377L30.4765 23.8689Z" fill="white" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- HERO BANNER END -->
+    <!-- Trending Area Start -->
+    <section class="mt-40 mb-48">
+        <div class="container-fluid">
+            <div class="heading mb-24">
+                <h4 class="white mb-12">Trending Videos</h4>
+                <a href="#" class="p white">See All <span><i class="fa-regular fa-chevron-right"></i></span></a>
+            </div>
+            <div class="trendingSlider row">
+                {% for content in trending_today %}
+                    <div class="col-12">
+                        <a href="{% url 'content:content_detail_view' content.slug %}"
+                           class="anime-card gap-24">
+                            <img src="{{ content.img_poster.url }}" alt="pic">
+                            <div class="overlay"></div>
+                            <div class="text">
+                                <h6 class="white">{{ content.title }}</h6>
+                                {% comment %} <p class="white">Action, Dark Fantasy</p> {% endcomment %}
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- Trending Area End -->
+    <!-- New Releases Start -->
+    <section class="my-48">
+        <div class="container-fluid">
+            <div class="heading mb-24">
+                <h4 class="white mb-12">New Releases</h4>
+                <a href="#" class="p white">See All <span><i class="fa-regular fa-chevron-right"></i></span></a>
+            </div>
+            <div class="releasesSlider row">
+                {% for content in recent_contents %}
+                    <div class="col-12">
+                        <a href="{% url 'content:content_detail_view' content.slug %}"
+                           class="anime-card gap-24">
+                            <img src="{{ content.img_poster.url }}" alt="pic">
+                            <div class="overlay"></div>
+                            <div class="text">
+                                <h6 class="white">{{ content.title }}</h6>
+                                {% comment %} <p class="white">Mystery, Supernatural</p> {% endcomment %}
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- New Releases end -->
+{% endblock content %}

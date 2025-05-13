@@ -1,0 +1,287 @@
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+ul.list-style,
+ol.list-style {
+  padding: 0;
+}
+
+ul.list-style li::marker,
+ol.list-style li::marker {
+  color: $accent-1;
+}
+
+.unstyled {
+  padding-left: 0;
+  list-style: none;
+  margin-bottom: 0;
+}
+
+.container-fluid {
+  @media (min-width: 1200px) {
+    padding: 0 5vw;
+    width: 100%;
+  }
+
+  padding-right: calc(var(--bs-gutter-x) * 0.75);
+  padding-left: calc(var(--bs-gutter-x) * 0.75);
+
+  @media (max-width: 575px) {
+    --bs-gutter-x: 2rem;
+    --bs-gutter-y: 0;
+    width: 100%;
+    padding-right: calc(var(--bs-gutter-x) * 0.5);
+  }
+}
+
+.slick-track>[class*="col"] {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  padding-right: calc(var(--bs-gutter-x) / 2);
+  padding-left: calc(var(--bs-gutter-x) / 2);
+
+  @media (max-width: 575px) {
+    padding-right: calc(var(--bs-gutter-x) * 0.25);
+    padding-left: calc(var(--bs-gutter-x) * 0.25);
+  }
+}
+
+.page-content {
+  margin: clamp(14px, 1.198vw, 40px) 0;
+}
+
+.x-hidden {
+  overflow-x: hidden;
+}
+
+/*-------------------------
+  Typography
+-------------------------*/
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-primary;
+  color: $white;
+  background: radial-gradient(53.17% 53.17% at 50% 46.83%, #ab0511 9.23%, #450207 85%);
+  vertical-align: baseline;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-size: clamp(15px, 0.938vw, 36px);
+  /* 18px */
+  font-weight: 400;
+  line-height: 140%;
+  height: 100%;
+
+  @include media-query(991px) {
+    font-size: clamp(15.5px, 1.778vw, 16px);
+  }
+
+  @include media-query(767px) {
+    font-size: clamp(14px, 2.286vw, 14px);
+  }
+
+  @include media-query(575px) {
+    font-size: clamp(12.5px, 3.59vw, 14px);
+  }
+}
+
+a {
+  $font-primary: "Bai Jamjuree", sans-serif;
+  font-size: clamp(15px, 0.938vw, 30px);
+  display: inline-block;
+  text-decoration: none;
+  color: unset;
+  transition: $transition;
+
+  &:hover {
+    color: $accent-2;
+    transition: $transition;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+address,
+p,
+pre,
+blockquote,
+table,
+hr {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  a {
+    color: inherit;
+  }
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  color: $white;
+  margin-bottom: 0;
+}
+
+h1,
+.h1 {
+  font-family: $font-primary;
+  font-size: clamp(45px, 3.594vw, 140px);
+  /* 69px */
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+  letter-spacing: 0.76px;
+  text-transform: capitalize;
+
+  @include media-query(1199px) {
+    font-size: clamp(60px, 4.837vw, 69px);
+    /* 58px */
+  }
+
+  @include media-query(820px) {
+    font-size: clamp(40px, 5.61vw, 58px);
+    /* 46px */
+  }
+
+  @include media-query(576px) {
+    font-size: clamp(25px, 5.61vw, 58px);
+    /* 46px */
+  }
+
+  @include media-query(320px) {
+    font-size: clamp(22px, 5.61vw, 58px);
+    /* 46px */
+  }
+}
+
+h2,
+.h2 {
+  font-size: clamp(33px, 2.865vw, 110px);
+  /* 55px */
+  font-weight: 500;
+  line-height: 120%;
+
+  @media (max-width: 991px) {
+    font-size: clamp(27px, 3.78vw, 36px);
+  }
+
+  @media (max-width: 767px) {
+    font-size: clamp(24px, 4.219vw, 30px);
+  }
+
+  @media (max-width: 575px) {
+    font-size: clamp(20px, 5.897vw, 26px);
+  }
+}
+
+h3,
+.h3 {
+  font-size: clamp(30px, 2.292vw, 92px);
+  /* 44px */
+  font-family: $font-primary;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+
+  @include media-query(1200px) {
+    font-size: clamp(24px, 2.086vw, 48px);
+    /* 37px */
+  }
+
+  @include media-query(820px) {
+    font-size: clamp(28px, 2.902vw, 38px);
+    /* 32px */
+  }
+}
+
+h4,
+.h4 {
+  font-size: clamp(32px, 1.823vw, 84px);
+  /* 35px */
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+
+  @include media-query(1199px) {
+    font-size: clamp(29px, 2.752vw, 40px);
+    /*33px */
+  }
+
+  @include media-query(820px) {
+    font-size: clamp(23px, 3.293vw, 30px);
+    /* 27px */
+  }
+}
+
+h5,
+.h5 {
+  font-size: clamp(24px, 1.458vw, 70px);
+  /* 28px */
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+
+  @include media-query(1199px) {
+    font-size: clamp(23px, 2.085vw, 32px);
+    /*25px*/
+  }
+
+  @include media-query(820px) {
+    font-size: clamp(19px, 2.439vw, 24px);
+    /*20px */
+  }
+}
+
+h6,
+.h6 {
+  font-size: clamp(20px, 1.198vw, 56px);
+  /*23px*/
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+
+  @include media-query(1199px) {
+    font-size: clamp(21px, 1.918vw, 28px);
+  }
+
+  @include media-query(820px) {
+    font-size: clamp(18px, 2.317vw, 21px);
+  }
+}
+
+span {
+  display: inline-block;
+}
+
+b,
+strong {
+  font-family: $font-primary;
+}

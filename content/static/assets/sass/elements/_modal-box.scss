@@ -1,0 +1,176 @@
+.modal {
+    &.show {
+        display: grid !important;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .modal-dialog {
+        max-width: 70%;
+
+        @include media-query(575px) {
+            width: auto;
+        }
+
+        @include media-query(490px) {
+            max-width: 100%;
+        }
+
+        &.compare-dialog {
+            @include media-query(1024px) {
+                overflow: hidden;
+                max-width: 100% !important;
+            }
+        }
+
+        .modal-content {
+            background: transparent;
+            border: 0;
+
+            .modal-body {
+                .detail-wrapper {
+                    .quick-image-box {
+                        border-radius: $br-10;
+                        background-color: $white;
+                        display: grid;
+                        align-items: center;
+                        justify-content: center;
+                    }
+
+                    .product-text-container {
+                        position: relative;
+                        border-radius: $br-10;
+                        padding: clamp(28px, 2.083vw, 64px) clamp(16px, 1.25vw, 40px);
+
+                        @include media-query(1599px) {
+                            padding: 24px 0;
+                        }
+                        @include media-query(1024px) {
+                            padding: 24px;
+                        }
+                        @include media-query(490px) {
+                            margin-top: 8px;
+                        }
+
+                        .quantity {
+                            @include media-query(490px) {
+                                display: none;
+                            }
+                        }
+
+                        .product-text {
+                            @include media-query(490px) {
+                                overflow: hidden;
+                                display: -webkit-box;
+                                -webkit-line-clamp: 2; 
+                                line-clamp: 2; 
+                                -webkit-box-orient: vertical;
+                            }
+                        }
+
+                        .close-content {
+                            position: absolute;
+                            right: 32px;
+                            top: 8px;
+                            @include media-query(1599px) {
+                                top: 32px;
+                            }
+                            @include media-query(490px) {
+                                top: 16px;
+                                right: 24px;
+                            }
+                        }
+
+                        .label {
+                            padding: 4px 12px;
+                            border-radius: 2px;
+                            background-color: $accent-1;
+                            display: inline-flex;
+                            color: $white;
+
+                            &.label-2 {
+                                background-color: #006937;
+                            }
+                        }
+
+                        .content-block {
+                            .product-color {
+                                display: flex;
+                                align-items: center;
+                                gap: 16px;
+
+                                ul {
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 8px;
+                                }
+
+                                // Radio Button
+                                input[type=radio] {
+                                    width: 28px;
+                                    height: 28px;
+                                    -webkit-appearance: none;
+                                    border-radius: 5px;
+
+                                    @include media-query(992px) {
+                                        width: 20px;
+                                        height: 20px;
+                                    }
+
+                                    &.radio-1 {
+                                        background-color: $lightest-gray;
+                                    }
+
+                                    &.radio-2 {
+                                        background-color: $medium-black;
+                                    }
+
+                                    &.radio-6 {
+                                        background-color: $accent-1;
+                                    }
+
+                                }
+
+                                input[type=radio]:checked {
+                                    border: 3px solid $white;
+                                    border-radius: 3px;
+                                    outline: 1px solid $dark-black;
+                                    cursor: pointer;
+                                }
+
+                                input[type=radio]:hover {
+                                    transition: $transition;
+                                    cursor: pointer;
+                                    border: 3px solid $white;
+                                    border-radius: 3px;
+                                    outline: 1px solid $dark-black;
+                                }
+
+                                input[type=radio]:focus {
+                                    outline-color: transparent;
+                                }
+                            }
+                        }
+
+                        .function-bar {
+                            display: flex;
+                            align-items: center;
+                            gap: 24px;
+
+                            @include media-query(490px) {
+                                flex-wrap: wrap;
+                            }
+
+                            .cart-btn {
+                                .cus-btn-2 {
+                                    padding: 13.5px 32px;
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

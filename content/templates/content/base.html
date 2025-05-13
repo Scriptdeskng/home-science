@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Homescinece">
+        <title>Homescinece</title>
+        <!-- Favicon -->
+        <link rel="shortcut icon"
+              type="image/x-icon"
+              href="{% static 'assets/media/favicon/favicon.png' %}">
+        <!-- All CSS files -->
+        <link rel="stylesheet"
+              href="{% static 'assets/css/vendor/font-awesome.css' %}">
+        <link rel="stylesheet"
+              href="{% static 'assets/css/vendor/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/vendor/slick.css' %}">
+        <link rel="stylesheet"
+              href="{% static 'assets/css/vendor/slick-theme.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/app.css' %}">
+        <link rel="stylesheet"
+              href="{% static 'assets/css/vendor/aksVideoPlayer.css' %}">
+    </head>
+    <body class="tt-smooth-scroll x-hidden">
+        <!-- Preloader-->
+        <div id="preloader">
+            <div class="loader"></div>
+        </div>
+        <!-- Preloader-->
+        <!-- Main Wrapper Start -->
+        <div id="scroll-container">
+            {% include 'partials/_header.html' %}
+            {% block content %}
+            {% endblock content %}
+            {% include 'partials/_footer.html' %}
+        </div>
+        <!-- Main Wrapper End -->
+        <!-- Back To Top Start -->
+        <button class="scrollToTopBtn">
+            <i class="fa fa-arrow-up"></i>
+        </button>
+        <!-- Mobile Menu Start -->
+        <div class="mobile-nav__wrapper">
+            <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+            <div class="mobile-nav__content">
+                <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
+                <div class="logo-box">
+                    <a href="index.html" aria-label="logo image">
+                        <img src="{% static 'assets/media/user/logo.png' %}" alt="logo">
+                    </a>
+                </div>
+                <div class="mobile-nav__container"></div>
+                <ul class="mobile-nav__contact list-unstyled">
+                    <li>
+                        <i class="fa-thin fa-envelope"></i>
+                        <a href="mailto:example@company.com">example@company.com</a>
+                    </li>
+                    <li>
+                        <i class="fa-light fa-phone-volume"></i>
+                        <a href="tel:+12345678">+123 (4567) -890</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Mobile Menu End -->
+        <!-- Jquery Js -->
+        <script src="{% static 'assets/js/vendor/bootstrap.min.js' %}"></script>
+        <script src="{% static 'assets/js/vendor/jquery-3.6.3.min.js' %}"></script>
+        <script src="{% static 'assets/js/vendor/slick.min.js' %}"></script>
+        <script src="{% static 'assets/js/vendor/aksVideoPlayer.js' %}"></script>
+        <script src="{% static 'assets/js/app.js' %}"></script>
+        {% block extra_js %}
+        {% endblock extra_js %}
+    </body>
+</html>

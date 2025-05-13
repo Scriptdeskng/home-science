@@ -1,0 +1,64 @@
+.blogs {
+    a{
+        width: 100%;
+    }
+    .blog-card {
+        position: relative;
+        overflow: hidden;
+        .overlay {
+            position: absolute;
+            z-index: 2;
+            top: 0;
+            left: 0;
+            border-radius: 12px;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0) 64.94%, rgba(0, 0, 0, 0.8) 100%);
+        }
+        .img-block {
+            overflow: hidden;
+            img {
+                border-radius: 12px;
+                width: 100%;
+                -webkit-transition: all 0.6s linear 0s;
+                transition: all 0.6s linear 0s;
+            }
+        }
+        .text-block {
+            width: 100%;
+            position: absolute;
+            z-index: 3;
+            bottom: 0;
+            left: 0;
+            padding: 16px;
+        }
+        &:hover {
+            .img-block {
+                img {
+                    -webkit-transform: scale(1.1);
+                    transform: scale(1.1);
+                    -webkit-transition: all 0.6s linear 0s;
+                    transition: all 0.6s linear 0s;
+                }
+            }
+        }
+    }
+}
+.blog-banner {
+    background: url("../media/blogs/main_banner.png") no-repeat;
+    background-position: center;
+    background-size: cover;
+    .content {
+        padding: clamp(70px, 5.26vw, 120px) 0;
+        height: calc(100vh - 80px);
+        display: grid;
+        align-content: end;
+        .blog-card {
+            display: flex;
+            gap: clamp(16px, 1.25vw, 30px);
+            @include media-query(576px) {
+                flex-wrap: wrap;
+            }
+        }
+    }
+}
