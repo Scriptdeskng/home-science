@@ -79,7 +79,7 @@ class Homepage(View):
         if not recent_contents:
             recent_contents = (
                 Content.objects.filter(verified=True)
-                .only("id", "title", "upload_date")
+                .only("id", "title", "slug", "upload_date")
                 .order_by("-upload_date")[:10]
             )
             cache.set("recent_contents", recent_contents, timeout=60 * 1440)
@@ -88,7 +88,7 @@ class Homepage(View):
         latest_episodes = cache.get("latest_episodes")
         if not latest_episodes:
             latest_episodes = Episode.objects.only(
-                "id", "title", "upload_date"
+                "id", "title", "upload_date", "slug"
             ).order_by("-upload_date")[:10]
             cache.set("latest_episodes", latest_episodes, timeout=60 * 1440)
         template = "content/index.html"
