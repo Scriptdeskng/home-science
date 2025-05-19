@@ -3,7 +3,7 @@ from .base import *
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*", "homescience.avanzar.online"]
 # ALLOWED_HOSTS = ["3.228.112.140", "magicbox.tv", "www.magicbox.tv"]
 
 
