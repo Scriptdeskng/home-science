@@ -70,7 +70,7 @@ class Homepage(View):
         trending_today = cache.get("trending_today")
         if not trending_today:
             trending_today = Content.objects.filter(verified=True).only(
-                "id", "title", "watch_times"
+                "id", "title", "watch_times", "slug"
             )[:10]
             cache.set("trending_today", trending_today, timeout=60 * 1440)
 
@@ -126,7 +126,7 @@ class AllContentsView(View):
             # if page is empty then return last page
             contents = paginator.page(paginator.num_pages)
 
-        template = "cotent/view-all.html"
+        template = "content/view-all.html"
 
         context = {
             "contents": contents,
@@ -155,7 +155,7 @@ class AllEpisodesContentsView(View):
             # if page is empty then return last page
             contents = paginator.page(paginator.num_pages)
 
-        template = "cotent/view-all-episodes.html"
+        template = "content/view-all-episodes.html"
 
         context = {
             "contents": contents,

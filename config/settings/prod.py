@@ -46,6 +46,8 @@ ALLOWED_HOSTS = ["*"]
 #     }
 # }
 
+STATIC_ROOT = "/home/avanzar/homescience-project/static/"
+
 
 DATABASES = {
     "default": {
@@ -101,10 +103,9 @@ CELERY_TIMEZONE = "Africa/Lagos"
 
 DO_SPACES_ACCESS_KEY_ID = config("DO_SPACE_ACCESS_KEY")
 DO_SPACES_SECRET_ACCESS_KEY = config("DO_SPACE_SECRET_KEY")
-DO_SPACES_BUCKET_NAME = "homescience-files"
-DO_SPACES_REGION_NAME = "nyc3"
-DO_SPACES_ENDPOINT_URL = "https://nyc3.digitaloceanspaces.com"
-
+DO_SPACES_BUCKET_NAME = "homescience-bucket"
+DO_SPACES_REGION_NAME = "fra1"
+DO_SPACES_ENDPOINT_URL = "https://fra1.digitaloceanspaces.com"
 
 AWS_ACCESS_KEY_ID = DO_SPACES_ACCESS_KEY_ID
 AWS_SECRET_ACCESS_KEY = DO_SPACES_SECRET_ACCESS_KEY
@@ -123,4 +124,4 @@ AWS_DEFAULT_ACL = "public-read"
 # Ensure file paths are correct
 MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/"
 
-DEFAULT_FILE_STORAGE = "homescience.settings.storage_backends.MediaStorage"
+DEFAULT_FILE_STORAGE = "config.settings.storage_backends.MediaStorage"

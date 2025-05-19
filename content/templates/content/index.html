@@ -64,7 +64,7 @@
         <div class="container-fluid">
             <div class="heading mb-24">
                 <h4 class="white mb-12">Trending Videos</h4>
-                <a href="#" class="p white">See All <span><i class="fa-regular fa-chevron-right"></i></span></a>
+                <a href="{% url 'content:all_contents' %}" class="p white">See All <span><i class="fa-regular fa-chevron-right"></i></span></a>
             </div>
             <div class="trendingSlider row">
                 {% for content in trending_today %}
@@ -89,7 +89,7 @@
         <div class="container-fluid">
             <div class="heading mb-24">
                 <h4 class="white mb-12">New Releases</h4>
-                <a href="#" class="p white">See All <span><i class="fa-regular fa-chevron-right"></i></span></a>
+                <a href="{% url 'content:all_contents' %}" class="p white">See All <span><i class="fa-regular fa-chevron-right"></i></span></a>
             </div>
             <div class="releasesSlider row">
                 {% for content in recent_contents %}
