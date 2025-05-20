@@ -71,7 +71,7 @@
                     <div class="col-12">
                         <a href="{% url 'content:content_detail_view' content.slug %}"
                            class="anime-card gap-24">
-                            <img src="{{ content.img_poster.url }}" alt="pic">
+                            <img src="{{ content.img_poster.url }}" alt="pic" loading="lazy">
                             <div class="overlay"></div>
                             <div class="text">
                                 <h6 class="white">{{ content.title }}</h6>
@@ -96,7 +96,7 @@
                     <div class="col-12">
                         <a href="{% url 'content:content_detail_view' content.slug %}"
                            class="anime-card gap-24">
-                            <img src="{{ content.img_poster.url }}" alt="pic">
+                            <img src="{{ content.img_poster.url }}" alt="pic" loading="lazy">
                             <div class="overlay"></div>
                             <div class="text">
                                 <h6 class="white">{{ content.title }}</h6>
