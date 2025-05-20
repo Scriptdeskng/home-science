@@ -4,7 +4,7 @@ from .base import *
 DEBUG = True
 
 # ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ["homescience.avanzar.online"]
+ALLOWED_HOSTS = ["homescience.avanzar.online", "homerecipe.avanzar.online"]
 
 
 # INSTALLED_APPS += ["debug_toolbar"]
