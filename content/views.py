@@ -67,30 +67,30 @@ class Homepage(View):
         # )  # 1 hour
 
         # Trending today, using only verified contents
-        trending_today = cache.get("trending_today")
-        if not trending_today:
-            trending_today = Content.objects.filter(verified=True).only(
-                "id", "title", "watch_times", "slug"
-            )[:10]
-            cache.set("trending_today", trending_today, timeout=60 * 1440)
+        # trending_today = cache.get("trending_today")
+        # if not trending_today:
+        trending_today = Content.objects.filter(verified=True).only(
+            "id", "title", "watch_times", "slug"
+        )[:10]
+        # cache.set("trending_today", trending_today, timeout=60 * 1440)
 
         # Recent contents ordered by upload date
-        recent_contents = cache.get("recent_contents")
-        if not recent_contents:
-            recent_contents = (
-                Content.objects.filter(verified=True)
-                .only("id", "title", "slug", "upload_date")
-                .order_by("-upload_date")[:10]
-            )
-            cache.set("recent_contents", recent_contents, timeout=60 * 1440)
+        # recent_contents = cache.get("recent_contents")
+        # if not recent_contents:
+        recent_contents = (
+            Content.objects.filter(verified=True)
+            .only("id", "title", "slug", "upload_date")
+            .order_by("-upload_date")[:10]
+        )
+        # cache.set("recent_contents", recent_contents, timeout=60 * 1440)
 
         # Latest episodes ordered by upload date
-        latest_episodes = cache.get("latest_episodes")
-        if not latest_episodes:
-            latest_episodes = Episode.objects.only(
-                "id", "title", "upload_date", "slug"
-            ).order_by("-upload_date")[:10]
-            cache.set("latest_episodes", latest_episodes, timeout=60 * 1440)
+        # latest_episodes = cache.get("latest_episodes")
+        # if not latest_episodes:
+        latest_episodes = Episode.objects.only(
+            "id", "title", "upload_date", "slug"
+        ).order_by("-upload_date")[:10]
+        cache.set("latest_episodes", latest_episodes, timeout=60 * 1440)
         template = "content/index.html"
 
         context = {
