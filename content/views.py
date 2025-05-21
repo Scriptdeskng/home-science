@@ -90,7 +90,14 @@ class Homepage(View):
         latest_episodes = Episode.objects.only(
             "id", "title", "upload_date", "slug"
         ).order_by("-upload_date")[:10]
-        cache.set("latest_episodes", latest_episodes, timeout=60 * 1440)
+        # cache.set("latest_episodes", latest_episodes, timeout=60 * 1440)
+
+        local_content = Content.objects.filter(
+            verified=True, category__slug="local"
+        ).only("id", "title", "watch_times", "slug")[:10]
+        foreign_content = Content.objects.filter(
+            verified=True, category__slug="foreign"
+        ).only("id", "title", "watch_times", "slug")[:10]
         template = "content/index.html"
 
         context = {
@@ -98,6 +105,8 @@ class Homepage(View):
             # "contents": contents,
             "trending_today": trending_today,
             "recent_contents": recent_contents,
+            "local_content": local_content,
+            "foreign_content": foreign_content,
             "latest_episodes": latest_episodes,
         }
 
