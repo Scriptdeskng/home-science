@@ -24,7 +24,8 @@ class ContentAdmin(ImportExportModelAdmin, admin.ModelAdmin):
         "verified",
         "created_at",
     ]
-    list_editable = ["featured", "verified"]
+    list_editable = ["featured", "verified", "category"]
+    list_filter = ["category", "verified", "featured"]
     search_fields = ["title"]
     resource_class = ContentResource
 
