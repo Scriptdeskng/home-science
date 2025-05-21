@@ -88,7 +88,7 @@
         <div class="container-fluid">
             <div class="heading mb-24">
                 <h4 class="white mb-12">Local Recipe</h4>
-                <a href="{% url 'content:all_contents' %}" class="p white">See All <span><i class="fa-regular fa-chevron-right"></i></span></a>
+                <a href="{% url 'content:category' category_slug='local' %}" class="p white">See All <span><i class="fa-regular fa-chevron-right"></i></span></a>
             </div>
             <div class="trendingSlider row">
                 {% for content in local_content %}
@@ -108,12 +108,12 @@
         </div>
     </section>
     <!-- Local Recipe End -->
-        <!-- Local Recipe Start -->
+        <!-- foreign Recipe Start -->
         <section class="mt-40 mb-48">
             <div class="container-fluid">
                 <div class="heading mb-24">
                     <h4 class="white mb-12">Intercontinental Recipe</h4>
-                    <a href="{% url 'content:all_contents' %}" class="p white">See All <span><i class="fa-regular fa-chevron-right"></i></span></a>
+                    <a href="{% url 'content:category' category_slug='foreign' %}" class="p white">See All <span><i class="fa-regular fa-chevron-right"></i></span></a>
                 </div>
                 <div class="trendingSlider row">
                     {% for content in foreign_content %}
