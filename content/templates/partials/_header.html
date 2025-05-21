@@ -14,6 +14,12 @@
                     <li>
                         <a href="{% url 'content:all_contents' %}" class="active">All Videos</a>
                     </li>
+                    <li>
+                        <a href="{% url 'content:category' category_slug='local' %}" class="active">Local Recipes</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'content:category' category_slug='foreign' %}" class="active">Intercontinental Recipes</a>
+                    </li>
                    
                     {% comment %} <li class="dropdown">
                         <a href="javascript:void(0);">Anime</a>
