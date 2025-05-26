@@ -442,8 +442,23 @@ var MyScroll = "";
           seek: true,
           volume: true,
           speed: true,
-          // aspectRatio: "16:9"
+          aspectRatio: "16:9"
         });
+
+        function play() {
+          aksVideo.play();
+          aksVideo2.play();
+          aks.find(".aks-vp-control").attr("aks-tooltip", settings.pauseLabel);
+          aks.find(".aks-vp-control-play").hide();
+          aks.find(".aks-vp-control-pause").show();
+          aks.find(".aks-video-player").addClass("video-playing");
+        }
+        function pause() {
+          aksVideo.pause();
+          aks.find(".aks-vp-control").attr("aks-tooltip", settings.playLabel);
+          aks.find(".aks-vp-control-play").show();
+          aks.find(".aks-vp-control-pause").hide();
+        }
       }
     },
     videoPlay:function(){
