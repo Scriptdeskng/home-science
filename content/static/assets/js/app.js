@@ -442,7 +442,7 @@ var MyScroll = "";
           seek: true,
           volume: true,
           speed: true,
-          aspectRatio: "16:9"
+          // aspectRatio: "16:9"
         });
       }
     },
