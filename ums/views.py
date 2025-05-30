@@ -527,16 +527,47 @@ def fetch_stats(request):
 @require_POST
 @csrf_exempt
 def data_sync_v2(request):
-
     from .tasks import process_datasync
 
-    print("Receiving from Forthsoft  datasync")
+    print("Receiving from Forthsoft datasync")
 
-    the_data = json.loads(request.body)
-    # process_datasync.delay(the_data)
-    process_datasync.apply_async(args=[the_data], countdown=45)
+    try:
+        # Check if request body is empty
+        if not request.body:
+            return JsonResponse({"status": 400, "message": "Empty request body"})
 
-    return JsonResponse({"status": 200, "message": "ok"})
+        # Try to decode the request body
+        try:
+            request_body = request.body.decode("utf-8")
+        except UnicodeDecodeError:
+            return JsonResponse(
+                {"status": 400, "message": "Invalid request body encoding"}
+            )
+
+        # Try to parse as JSON
+        try:
+            the_data = json.loads(request_body)
+        except json.JSONDecodeError as e:
+            return JsonResponse(
+                {
+                    "status": 400,
+                    "message": f"Invalid JSON format: {str(e)}",
+                    "received_data": request_body[
+                        :200
+                    ],  # First 200 chars for debugging
+                }
+            )
+
+        # Process the data
+        process_datasync.apply_async(args=[the_data], countdown=45)
+
+        return JsonResponse({"status": 200, "message": "ok"})
+
+    except Exception as e:
+        print(f"Error in data_sync_v2: {str(e)}")
+        return JsonResponse(
+            {"status": 500, "message": "Internal server error", "error": str(e)}
+        )
 
 
 def reconcile_subscribtions(request):
