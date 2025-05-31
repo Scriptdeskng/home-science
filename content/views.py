@@ -274,11 +274,11 @@ def faqPage(request):
 
     faq_data = [
         (
-            "What is MagicBoxx?",
-            "MagicBox service is a video-on-demand where users enjoy premium & quality videos.",
+            "What is Home Recipe?",
+            "Home Recipe service is a video-on-demand where users enjoy premium & quality videos.",
         ),
         (
-            "How much does the MagicBox service cost?",
+            "How much does the Home Recipe service cost?",
             "Daily Subscription - N75, Weekly Subscription - N100, Monthly subscription - N150",
         ),
         (
@@ -291,14 +291,14 @@ def faqPage(request):
         ),
         ("Do I need to register for the service?", "YES"),
         (
-            "What benefits will I enjoy when using the MagicBox service?",
+            "What benefits will I enjoy when using the Home Recipe service?",
             "Subscribers get to enjoy a collection of entertaining, informative, and educative video content on demand",
         ),
-        ("Who can use the MagicBox service?", "Everyone"),
+        ("Who can use the Home Recipe service?", "Everyone"),
         ("What devices can access the application?", "IOS and Andriod"),
-        ("Do I get notified after my MagicBox Plan has expired?", "Yes"),
+        ("Do I get notified after my Home Recipe Plan has expired?", "Yes"),
         (
-            "How do I unsubscribe from MagicBox service?",
+            "How do I unsubscribe from Home Recipe service?",
             "'STOP KEYWORD'. E.g (STOP MBD) for daily",
         ),
     ]
@@ -316,7 +316,7 @@ def getRequestInfo(request):
 
 
 def echoView(request):
-    return HttpResponse("YES, MAGICBOXX IS LIVE !!")
+    return HttpResponse("YES, Home Recipe IS LIVE !!")
 
 
 def search_videos(request):
