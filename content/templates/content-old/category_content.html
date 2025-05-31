@@ -1,0 +1,41 @@
+{% extends 'content/base.html' %}
+{% load static %}
+
+
+
+{% block head_title %}
+    {{the_category}}
+{% endblock head_title %}
+    
+{% block content %}
+  <!-- Trending Area Start -->
+  <section class="mt-40 mb-48 pt-5">
+    <div class="container-fluid">
+        <div class="heading mb-24">
+            <h4 class="white mb-12">{{the_category}}</h4>
+        </div>
+        <div class="row">
+            
+            {% for content in the_contents %}
+            <div class="col-md-3">
+                <a href="{% url 'content:content_detail_view' content.slug %}" class="anime-card gap-24">
+                    <img src="{{ content.img_poster.url }}" alt="pic">
+                            <div class="overlay"></div>
+                            <div class="text">
+                                <h6 class="white">{{ content.title }}</h6>
+                        <p class="white">{{content.category}}</p>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+                
+     
+        </div>
+    </div>
+</section>
+<!-- Trending Area End -->
+  
+      
+    {% endblock content %}
+  
+    

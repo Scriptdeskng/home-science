@@ -1,1247 +1,647 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Teach Me || E-Learning HTML Template">
-
-    <title>Anime Tube</title>
-
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/media/favicon/favicon.png">
-
-    <!-- All CSS files -->
-    <link rel="stylesheet" href="assets/css/vendor/font-awesome.css">
-    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/vendor/slick.css">
-    <link rel="stylesheet" href="assets/css/vendor/slick-theme.css">
-    <link rel="stylesheet" href="assets/css/app.css">
-
-</head>
-
-<body class="tt-smooth-scroll x-hidden">
-
-    <!-- Preloader-->
-    <div id="preloader">
-        <div class="loader"></div>
-    </div>
-    <!-- Preloader-->
-
-    <!-- Main Wrapper Start -->
-    <div id="scroll-container">
-
-        <!-- HEADER MENU START -->
-        <header class="header">
-            <nav class="navigation d-flex align-items-center justify-content-between">
-                <a href="index.html" class="d-flex align-items-center">
-                    <img src="assets/media/user/logo.png" alt="/logo" class="header-logo">
-                </a>
-                <div class="menu-button-right">
-                    <div class="main-menu__nav">
-                        <ul class="main-menu__list">
-                            <li>
-                                <a href="index.html" class="active">HOME</a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="javascript:void(0);">Anime
-                                </a>
-                                <ul>
-                                    <li><a href="anime.html">Anime</a></li>
-                                    <li><a href="anime-detail.html">Anime detail</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="javascript:void(0);">Movies
-                                </a>
-                                <ul>
-                                    <li><a href="movies.html">Movies</a></li>
-                                    <li><a href="movies-detail.html">Movies details</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="javascript:void(0);">Manga
-                                </a>
-                                <ul>
-                                    <li><a href="manga.html">manga</a></li>
-                                    <li><a href="manga-detail.html">manga detail</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="javascript:void(0);">Blog
-                                </a>
-                                <ul>
-                                    <li><a href="blogs.html">blogs</a></li>
-                                    <li><a href="blogs-detail.html">blogs-detail</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="javascript:void(0);">Pages
-                                </a>
-                                <ul>
-                                    <li><a href="404.html">404</a></li>
-                                    <li><a href="log-in.html">login</a></li>
-                                    <li><a href="signup.html">signup</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center d-xl-flex d-none">
-                    <div class="input-box">
-                        <form action="index.html">
-                            <input type="text" placeholder="Search..." required>
-                            <button class="search" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="20"
-                                    height="20" viewBox="0 0 20 20" fill="none">
-                                    <g clip-path="url(#clip0_11668_3150)">
-                                        <path
-                                            d="M8.11719 0C12.593 0 16.2344 3.64137 16.2344 8.11719C16.2344 10.1445 15.4873 12.0007 14.2539 13.4247L19.8284 18.9998C20.0572 19.2286 20.0572 19.5996 19.8284 19.8284C19.5995 20.0573 19.2286 20.0572 18.9997 19.8284L13.4254 14.2534C12.0012 15.4871 10.1448 16.2344 8.11719 16.2344C3.64137 16.2344 1.90735e-06 12.593 1.90735e-06 8.11719C1.90735e-06 3.64137 3.64137 0 8.11719 0ZM8.11719 15.0625C11.9469 15.0625 15.0625 11.9468 15.0625 8.11719C15.0625 4.28754 11.9468 1.17187 8.11719 1.17187C4.28754 1.17187 1.17188 4.28754 1.17188 8.11719C1.17188 11.9468 4.28754 15.0625 8.11719 15.0625Z"
-                                            fill="#FAFAFA" />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_11668_3150">
-                                            <rect width="20" height="20" fill="white" />
-                                        </clipPath>
-                                    </defs>
-                                </svg></button>
-                        </form>
-                        <i class="fal fa-times close-icon"></i>
-                    </div>
-                    <div class="icon">
-                        <a href="">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
-                                fill="none">
-                                <path
-                                    d="M16.0547 10.268V8.39844C16.0547 5.67102 14.2417 3.35934 11.7578 2.6043V1.75781C11.7578 0.788555 10.9692 0 9.99998 0C9.03073 0 8.24217 0.788555 8.24217 1.75781V2.6043C5.75819 3.35934 3.9453 5.67098 3.9453 8.39844V10.268C3.9453 12.6638 3.03209 14.9355 1.37393 16.6648C1.21143 16.8342 1.16577 17.0843 1.25788 17.3002C1.34998 17.5161 1.56209 17.6562 1.79686 17.6562H7.12924C7.40143 18.9919 8.58518 20 9.99998 20C11.4148 20 12.5985 18.9919 12.8707 17.6562H18.2031C18.4379 17.6562 18.6499 17.5161 18.7421 17.3002C18.8342 17.0843 18.7885 16.8342 18.626 16.6648C16.9679 14.9355 16.0547 12.6638 16.0547 10.268ZM9.41405 1.75781C9.41405 1.43473 9.6769 1.17188 9.99998 1.17188C10.3231 1.17188 10.5859 1.43473 10.5859 1.75781V2.37219C10.3931 2.35359 10.1976 2.34375 9.99998 2.34375C9.80233 2.34375 9.6069 2.35359 9.41405 2.37219V1.75781ZM9.99998 18.8281C9.23612 18.8281 8.58483 18.3382 8.34295 17.6562H11.657C11.4151 18.3382 10.7639 18.8281 9.99998 18.8281ZM3.05975 16.4844C4.39416 14.6956 5.11717 12.5309 5.11717 10.268V8.39844C5.11717 5.70605 7.3076 3.51562 9.99998 3.51562C12.6924 3.51562 14.8828 5.70605 14.8828 8.39844V10.268C14.8828 12.5309 15.6058 14.6956 16.9403 16.4844H3.05975Z"
-                                    fill="#FAFAFA" />
-                            </svg>
-                        </a>
-                    </div>
-                    <div class="dropdown-container">
-                        <details class="dropdown right">
-                            <summary class="avatar">
-                                <img src="assets/media/user/Ellipse-1.png" alt="logo">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
-                                    fill="none">
-                                    <path d="M0 4.01306L8.00002 11.987L16 4.01306H0Z" fill="#FAFAFA" />
-                                </svg>
-                            </summary>
-                            <ul>
-                                <!-- Menu links -->
-                                <li>
-                                    <a href="#">
-                                        <i class="fa-light fa-user"></i>
-                                        profile
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa-light fa-envelope"></i>
-                                        Email
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa-solid fa-gear"></i>
-                                        Setting
-                                    </a>
-                                </li>
-                                <!-- Optional divider -->
-                                <li>
-                                    <a href="#">
-                                        <i class="fa-solid fa-info"></i>
-                                        Help
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa-solid fa-right-from-bracket"></i>
-                                        Logout
-                                    </a>
-                                </li>
-                            </ul>
-                        </details>
-                    </div>
-                </div>
-                <a href="#" class="d-xl-none d-flex main-menu__toggler mobile-nav__toggler">
-                    <i class="fa-light fa-bars"></i>
-                </a>
-            </nav>
-        </header>
-        <!-- HEADER MENU END -->
-
-        <!-- HERO BANNER START -->
-        <section class="hero-banner">
-            <video autoplay muted loop id="myVideo">
-                <source src="assets/media/videos/hero_banner.mp4" type="video/mp4">
-            </video>
-            <div class="container-fluid">
-                <div class="content">
-                    <div class="txt-block">
-                        <div>
-                            <p class="white">New Release</p>
-                            <h1 class="mb-12 white">Naruto Clein</h1>
-                            <p class="white mb-48">Lorem ipsum dolor sit amet consectetur. Sed netus tortor hendrerit<br
-                                    class="d-sm-block d-none"> massa sem nunc nam odio. Orci posuere id donec.</p>
-                            <div class="gap-24 d-flex">
-                                <a href="index.html" class="cus-btn">
-                                    <span class="btn-text">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                            viewBox="0 0 20 20" fill="none">
-                                            <path
-                                                d="M16.6755 8.8536L4.87079 0.272465C4.43757 -0.0415717 3.86247 -0.0888661 3.38763 0.155174C2.90901 0.397323 2.61011 0.889185 2.61011 1.42078V18.5774C2.61011 19.1146 2.90901 19.6046 3.38763 19.8468C3.59005 19.9489 3.81139 20 4.03462 20C4.32596 20 4.62107 19.9073 4.87079 19.7238L16.6755 11.1502C17.0482 10.8759 17.2658 10.4522 17.2658 10.0019C17.2677 9.5441 17.0444 9.12223 16.6755 8.8536Z"
-                                                fill="#FAFAFA" />
-                                        </svg>
-                                        Play Now
-                                    </span>
-                                    <span class="btn-text">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                            viewBox="0 0 20 20" fill="none">
-                                            <path
-                                                d="M16.6755 8.8536L4.87079 0.272465C4.43757 -0.0415717 3.86247 -0.0888661 3.38763 0.155174C2.90901 0.397323 2.61011 0.889185 2.61011 1.42078V18.5774C2.61011 19.1146 2.90901 19.6046 3.38763 19.8468C3.59005 19.9489 3.81139 20 4.03462 20C4.32596 20 4.62107 19.9073 4.87079 19.7238L16.6755 11.1502C17.0482 10.8759 17.2658 10.4522 17.2658 10.0019C17.2677 9.5441 17.0444 9.12223 16.6755 8.8536Z"
-                                                fill="#FAFAFA" />
-                                        </svg>
-                                        Play Now
-                                    </span>
-                                </a>
-                                <a href="index.html" class="cus-btn-2">
-                                    <span class="btn-text">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                            viewBox="0 0 20 20" fill="none">
-                                            <g clip-path="url(#clip0_11687_723)">
-                                                <path
-                                                    d="M10 0C4.47254 0 0 4.47293 0 10C0 15.5275 4.47293 20 10 20C15.5275 20 20 15.5271 20 10C20 4.47254 15.527 0 10 0ZM10 18.4375C5.33621 18.4375 1.5625 14.6635 1.5625 10C1.5625 5.33621 5.33652 1.5625 10 1.5625C14.6638 1.5625 18.4375 5.33652 18.4375 10C18.4375 14.6638 14.6634 18.4375 10 18.4375Z"
-                                                    fill="#FAFAFA" />
-                                                <path
-                                                    d="M10 8.37227C9.56852 8.37227 9.21875 8.72203 9.21875 9.15352V14.1845C9.21875 14.616 9.56852 14.9657 10 14.9657C10.4315 14.9657 10.7812 14.6159 10.7812 14.1845V9.15352C10.7812 8.72203 10.4315 8.37227 10 8.37227Z"
-                                                    fill="#FAFAFA" />
-                                                <path
-                                                    d="M10 7.41562C10.5825 7.41562 11.0547 6.94343 11.0547 6.36094C11.0547 5.77845 10.5825 5.30625 10 5.30625C9.41751 5.30625 8.94531 5.77845 8.94531 6.36094C8.94531 6.94343 9.41751 7.41562 10 7.41562Z"
-                                                    fill="#FAFAFA" />
-                                            </g>
-                                            <defs>
-                                                <clipPath id="clip0_11687_723">
-                                                    <rect width="20" height="20" fill="white" />
-                                                </clipPath>
-                                            </defs>
-                                        </svg>
-                                        More Info
-                                    </span>
-                                    <span class="btn-text">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                            viewBox="0 0 20 20" fill="none">
-                                            <g clip-path="url(#clip0_11687_723)">
-                                                <path
-                                                    d="M10 0C4.47254 0 0 4.47293 0 10C0 15.5275 4.47293 20 10 20C15.5275 20 20 15.5271 20 10C20 4.47254 15.527 0 10 0ZM10 18.4375C5.33621 18.4375 1.5625 14.6635 1.5625 10C1.5625 5.33621 5.33652 1.5625 10 1.5625C14.6638 1.5625 18.4375 5.33652 18.4375 10C18.4375 14.6638 14.6634 18.4375 10 18.4375Z"
-                                                    fill="#FAFAFA" />
-                                                <path
-                                                    d="M10 8.37227C9.56852 8.37227 9.21875 8.72203 9.21875 9.15352V14.1845C9.21875 14.616 9.56852 14.9657 10 14.9657C10.4315 14.9657 10.7812 14.6159 10.7812 14.1845V9.15352C10.7812 8.72203 10.4315 8.37227 10 8.37227Z"
-                                                    fill="#FAFAFA" />
-                                                <path
-                                                    d="M10 7.41562C10.5825 7.41562 11.0547 6.94343 11.0547 6.36094C11.0547 5.77845 10.5825 5.30625 10 5.30625C9.41751 5.30625 8.94531 5.77845 8.94531 6.36094C8.94531 6.94343 9.41751 7.41562 10 7.41562Z"
-                                                    fill="#FAFAFA" />
-                                            </g>
-                                            <defs>
-                                                <clipPath id="clip0_11687_724">
-                                                    <rect width="20" height="20" fill="white" />
-                                                </clipPath>
-                                            </defs>
-                                        </svg>
-                                        More Info
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                        <button id="togglebutton">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"
-                                fill="none">
-                                <path d="M0.5 24C0.5 11.0213 11.0213 0.5 24 0.5C36.9787 0.5 47.5 11.0213 47.5 24C47.5 36.9787 36.9787 47.5 24 47.5C11.0213 47.5 0.5 36.9787 0.5 24Z" stroke="#FAFAFA"/>
-                                <path d="M15.3522 20.1679H12V27.6321H15.3522L21.6862 32.3296C21.6862 32.3296 22.8479 33.3038 22.8479 32.2981C22.8479 31.2901 22.8479 16.2725 22.8479 15.3559C22.8479 14.566 21.826 15.3374 21.826 15.3374L15.3522 20.1679Z" fill="#FAFAFA"/>
-                                <path d="M30.4765 23.8689L26.3344 18H28.5749L31.6677 22.5246L34.7279 18H36.9464L32.8044 23.8689L37.1759 30H34.9355L31.6677 25.2131L28.3563 30H26.1377L30.4765 23.8689Z" fill="white"/>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="Askbootstrap">
+      <meta name="author" content="Askbootstrap">
+      <title>VIDOE - Video Streaming Website HTML Template</title>
+      <!-- Favicon Icon -->
+      <link rel="icon" type="image/png" href="img/favicon.png">
+      <!-- Bootstrap core CSS-->
+      <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <!-- Custom fonts for this template-->
+      <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+      <!-- Custom styles for this template-->
+      <link href="css/osahan.css" rel="stylesheet">
+      <!-- Owl Carousel -->
+      <link rel="stylesheet" href="vendor/owl-carousel/owl.carousel.css">
+      <link rel="stylesheet" href="vendor/owl-carousel/owl.theme.css">
+   </head>
+   <body id="page-top">
+      <nav class="navbar navbar-expand navbar-light bg-white static-top osahan-nav sticky-top">
+         &nbsp;&nbsp; 
+         <button class="btn btn-link btn-sm text-secondary order-1 order-sm-0" id="sidebarToggle">
+         <i class="fas fa-bars"></i>
+         </button> &nbsp;&nbsp;
+         <a class="navbar-brand mr-1" href="index.html"><img class="img-fluid" alt="" src="img/logo.png"></a>
+         <!-- Navbar Search -->
+         <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-5 my-2 my-md-0 osahan-navbar-search">
+            <div class="input-group">
+               <input type="text" class="form-control" placeholder="Search for...">
+               <div class="input-group-append">
+                  <button class="btn btn-light" type="button">
+                  <i class="fas fa-search"></i> 
+                  </button>
+               </div>
             </div>
-        </section>
-        <!-- HERO BANNER END -->
-
-        <!-- Trending Area Start -->
-        <section class="mt-40 mb-48">
-            <div class="container-fluid">
-                <div class="heading mb-24">
-                    <h4 class="white mb-12">Trending Shows</h4>
-                    <a href="#" class="p white">See All <span><i class="fa-regular fa-chevron-right"></i></span></a>
-                </div>
-                <div class="trendingSlider row">
-                    <div class="col-12">
-                        <a href="anime-detail.html" class="anime-card gap-24">
-                            <img src="assets/media/anime/anime-01.jpg" alt="pic">
-                            <div class="overlay"></div>
-                            <div class="text">
-                                <h6 class="white">Attack on Titan</h6>
-                                <p class="white">Action, Dark Fantasy</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12">
-                        <a href="anime-detail.html" class="anime-card gap-24">
-                            <img src="assets/media/anime/anime-02.jpg" alt="pic">
-                            <div class="overlay"></div>
-                            <div class="text">
-                                <h6 class="white">Naruto</h6>
-                                <p class="white">Action, Adventure</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12">
-                        <a href="anime-detail.html" class="anime-card gap-24">
-                            <img src="assets/media/anime/anime-03.jpg" alt="pic">
-                            <div class="overlay"></div>
-                            <div class="text">
-                                <h6 class="white">My Hero Academia</h6>
-                                <p class="white">Action, Superhero, Comedy </p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12">
-                        <a href="anime-detail.html" class="anime-card gap-24">
-                            <img src="assets/media/anime/anime-04.jpg" alt="pic">
-                            <div class="overlay"></div>
-                            <div class="text">
-                                <h6 class="white">One Piece</h6>
-                                <p class="white">Action, Adventure, Fantasy </p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12">
-                        <a href="anime-detail.html" class="anime-card gap-24">
-                            <img src="assets/media/anime/anime-05.jpg" alt="pic">
-                            <div class="overlay"></div>
-                            <div class="text">
-                                <h6 class="white">Demon Slayer</h6>
-                                <p class="white">Dark Fantasy, Supernatural</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12">
-                        <a href="anime-detail.html" class="anime-card gap-24">
-                            <img src="assets/media/anime/anime-01.jpg" alt="pic">
-                            <div class="overlay"></div>
-                            <div class="text">
-                                <h6 class="white">Attack on Titan</h6>
-                                <p class="white">Action, Dark Fantasy</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12">
-                        <a href="anime-detail.html" class="anime-card gap-24">
-                            <img src="assets/media/anime/anime-02.jpg" alt="pic">
-                            <div class="overlay"></div>
-                            <div class="text">
-                                <h6 class="white">Naruto</h6>
-                                <p class="white">Action, Adventure</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12">
-                        <a href="anime-detail.html" class="anime-card gap-24">
-                            <img src="assets/media/anime/anime-03.jpg" alt="pic">
-                            <div class="overlay"></div>
-                            <div class="text">
-                                <h6 class="white">My Hero Academia</h6>
-                                <p class="white">Action, Superhero, Comedy </p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12">
-                        <a href="anime-detail.html" class="anime-card gap-24">
-                            <img src="assets/media/anime/anime-04.jpg" alt="pic">
-                            <div class="overlay"></div>
-                            <div class="text">
-                                <h6 class="white">One Piece</h6>
-                                <p class="white">Action, Adventure, Fantasy </p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12">
-                        <a href="anime-detail.html" class="anime-card gap-24">
-                            <img src="assets/media/anime/anime-05.jpg" alt="pic">
-                            <div class="overlay"></div>
-                            <div class="text">
-                                <h6 class="white">Demon Slayer</h6>
-                                <p class="white">Dark Fantasy, Supernatural</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+         </form>
+         <!-- Navbar -->
+         <ul class="navbar-nav ml-auto ml-md-0 osahan-right-navbar">
+            <li class="nav-item mx-1">
+               <a class="nav-link" href="upload.html">
+               <i class="fas fa-plus-circle fa-fw"></i>
+               Upload Video
+               </a>
+            </li>
+            <li class="nav-item dropdown no-arrow mx-1">
+               <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               <i class="fas fa-bell fa-fw"></i>
+               <span class="badge badge-danger">9+</span>
+               </a>
+               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
+                  <a class="dropdown-item" href="#"><i class="fas fa-fw fa-edit "></i> &nbsp; Action</a>
+                  <a class="dropdown-item" href="#"><i class="fas fa-fw fa-headphones-alt "></i> &nbsp; Another action</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#"><i class="fas fa-fw fa-star "></i> &nbsp; Something else here</a>
+               </div>
+            </li>
+            <li class="nav-item dropdown no-arrow mx-1">
+               <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               <i class="fas fa-envelope fa-fw"></i>
+               <span class="badge badge-success">7</span>
+               </a>
+               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
+                  <a class="dropdown-item" href="#"><i class="fas fa-fw fa-edit "></i> &nbsp; Action</a>
+                  <a class="dropdown-item" href="#"><i class="fas fa-fw fa-headphones-alt "></i> &nbsp; Another action</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#"><i class="fas fa-fw fa-star "></i> &nbsp; Something else here</a>
+               </div>
+            </li>
+            <li class="nav-item dropdown no-arrow osahan-right-navbar-user">
+               <a class="nav-link dropdown-toggle user-dropdown-link" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               <img alt="Avatar" src="img/user.png">
+               Osahan 
+               </a>
+               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                  <a class="dropdown-item" href="account.html"><i class="fas fa-fw fa-user-circle"></i> &nbsp; My Account</a>
+                  <a class="dropdown-item" href="subscriptions.html"><i class="fas fa-fw fa-video"></i> &nbsp; Subscriptions</a>
+                  <a class="dropdown-item" href="settings.html"><i class="fas fa-fw fa-cog"></i> &nbsp; Settings</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal"><i class="fas fa-fw fa-sign-out-alt"></i> &nbsp; Logout</a>
+               </div>
+            </li>
+         </ul>
+      </nav>
+      <div id="wrapper">
+         <!-- Sidebar -->
+         <ul class="sidebar navbar-nav">
+            <li class="nav-item active">
+               <a class="nav-link" href="index.html">
+               <i class="fas fa-fw fa-home"></i>
+               <span>Home</span>
+               </a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="channels.html">
+               <i class="fas fa-fw fa-users"></i>
+               <span>Channels</span>
+               </a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="single-channel.html">
+               <i class="fas fa-fw fa-user-alt"></i>
+               <span>Single Channel</span>
+               </a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="video-page.html">
+               <i class="fas fa-fw fa-video"></i>
+               <span>Video Page</span>
+               </a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="upload-video.html">
+               <i class="fas fa-fw fa-cloud-upload-alt"></i>
+               <span>Upload Video</span>
+               </a>
+            </li>
+            <li class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               <i class="fas fa-fw fa-folder"></i>
+               <span>Pages</span>
+               </a>
+               <div class="dropdown-menu">
+                  <h6 class="dropdown-header">Login Screens:</h6>
+                  <a class="dropdown-item" href="login.html">Login</a>
+                  <a class="dropdown-item" href="register.html">Register</a>
+                  <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
+                  <div class="dropdown-divider"></div>
+                  <h6 class="dropdown-header">Other Pages:</h6>
+                  <a class="dropdown-item" href="404.html">404 Page</a>
+                  <a class="dropdown-item" href="blank.html">Blank Page</a>
+               </div>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="history-page.html">
+               <i class="fas fa-fw fa-history"></i>
+               <span>History Page</span>
+               </a>
+            </li>
+            <li class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" href="categories.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               <i class="fas fa-fw fa-list-alt"></i>
+               <span>Categories</span>
+               </a>
+               <div class="dropdown-menu">
+                  <a class="dropdown-item" href="categories.html">Movie</a>
+                  <a class="dropdown-item" href="categories.html">Music</a>
+                  <a class="dropdown-item" href="categories.html">Television</a>
+               </div>
+            </li>
+            <li class="nav-item channel-sidebar-list">
+               <h6>SUBSCRIPTIONS</h6>
+               <ul>
+                  <li>
+                     <a href="subscriptions.html">
+                     <img class="img-fluid" alt="" src="img/s1.png"> Your Life 
+                     </a>
+                  </li>
+                  <li>
+                     <a href="subscriptions.html">
+                     <img class="img-fluid" alt="" src="img/s2.png"> Unboxing  <span class="badge badge-warning">2</span>
+                     </a>
+                  </li>
+                  <li>
+                     <a href="subscriptions.html">
+                     <img class="img-fluid" alt="" src="img/s3.png"> Product / Service  
+                     </a>
+                  </li>
+                  <li>
+                     <a href="subscriptions.html">
+                     <img class="img-fluid" alt="" src="img/s4.png">  Gaming 
+                     </a>
+                  </li>
+               </ul>
+            </li>
+         </ul>
+         <div id="content-wrapper">
+            <div class="container-fluid pb-0">
+               <div class="top-mobile-search">
+                  <div class="row">
+                     <div class="col-md-12">   
+                        <form class="mobile-search">
+                           <div class="input-group">
+                             <input type="text" placeholder="Search for..." class="form-control">
+                               <div class="input-group-append">
+                                 <button type="button" class="btn btn-dark"><i class="fas fa-search"></i></button>
+                               </div>
+                           </div>
+                        </form>   
+                     </div>
+                  </div>
+               </div>
+               <div class="top-category section-padding mb-4">
+                  <div class="row">
+                     <div class="col-md-12">
+                        <div class="main-title">
+                           <div class="btn-group float-right right-action">
+                              <a href="#" class="right-action-link text-gray" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                              </a>
+                              <div class="dropdown-menu dropdown-menu-right">
+                                 <a class="dropdown-item" href="#"><i class="fas fa-fw fa-star"></i> &nbsp; Top Rated</a>
+                                 <a class="dropdown-item" href="#"><i class="fas fa-fw fa-signal"></i> &nbsp; Viewed</a>
+                                 <a class="dropdown-item" href="#"><i class="fas fa-fw fa-times-circle"></i> &nbsp; Close</a>
+                              </div>
+                           </div>
+                           <h6>Channels Categories</h6>
+                        </div>
+                     </div>
+                     <div class="col-md-12">
+                        <div class="owl-carousel owl-carousel-category">
+                           <div class="item">
+                              <div class="category-item">
+                                 <a href="#">
+                                    <img class="img-fluid" src="img/s1.png" alt="">
+                                    <h6>Your Life</h6>
+                                    <p>74,853 views</p>
+                                 </a>
+                              </div>
+                           </div>
+                           <div class="item">
+                              <div class="category-item">
+                                 <a href="#">
+                                    <img class="img-fluid" src="img/s2.png" alt="">
+                                    <h6>Unboxing Cool</h6>
+                                    <p>74,853 views</p>
+                                 </a>
+                              </div>
+                           </div>
+                           <div class="item">
+                              <div class="category-item">
+                                 <a href="#">
+                                    <img class="img-fluid" src="img/s3.png" alt="">
+                                    <h6>Service Reviewing</h6>
+                                    <p>74,853 views</p>
+                                 </a>
+                              </div>
+                           </div>
+                           <div class="item">
+                              <div class="category-item">
+                                 <a href="#">
+                                    <img class="img-fluid" src="img/s4.png" alt="">
+                                    <h6>Gaming <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span></h6>
+                                    <p>74,853 views</p>
+                                 </a>
+                              </div>
+                           </div>
+                           <div class="item">
+                              <div class="category-item">
+                                 <a href="#">
+                                    <img class="img-fluid" src="img/s5.png" alt="">
+                                    <h6>Technology Tutorials</h6>
+                                    <p>74,853 views</p>
+                                 </a>
+                              </div>
+                           </div>
+                           <div class="item">
+                              <div class="category-item">
+                                 <a href="#">
+                                    <img class="img-fluid" src="img/s6.png" alt="">
+                                    <h6>Singing</h6>
+                                    <p>74,853 views</p>
+                                 </a>
+                              </div>
+                           </div>
+                           <div class="item">
+                              <div class="category-item">
+                                 <a href="#">
+                                    <img class="img-fluid" src="img/s7.png" alt="">
+                                    <h6>Cooking</h6>
+                                    <p>74,853 views</p>
+                                 </a>
+                              </div>
+                           </div>
+                           <div class="item">
+                              <div class="category-item">
+                                 <a href="#">
+                                    <img class="img-fluid" src="img/s8.png" alt="">
+                                    <h6>Traveling</h6>
+                                    <p>74,853 views</p>
+                                 </a>
+                              </div>
+                           </div>
+                           <div class="item">
+                              <div class="category-item">
+                                 <a href="#">
+                                    <img class="img-fluid" src="img/s1.png" alt="">
+                                    <h6>Education</h6>
+                                    <p>74,853 views</p>
+                                 </a>
+                              </div>
+                           </div>
+                           <div class="item">
+                              <div class="category-item">
+                                 <a href="#">
+                                    <img class="img-fluid" src="img/s2.png" alt="">
+                                    <h6>Noodles, Sauces & Instant Food</h6>
+                                    <p>74,853 views</p>
+                                 </a>
+                              </div>
+                           </div>
+                           <div class="item">
+                              <div class="category-item">
+                                 <a href="#">
+                                    <img class="img-fluid" src="img/s3.png" alt="">
+                                    <h6>Comedy <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span></h6>
+                                    <p>74,853 views</p>
+                                 </a>
+                              </div>
+                           </div>
+                           <div class="item">
+                              <div class="category-item">
+                                 <a href="#">
+                                    <img class="img-fluid" src="img/s4.png" alt="">
+                                    <h6>Lifestyle Advice</h6>
+                                    <p>74,853 views</p>
+                                 </a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <hr>
+               <div class="video-block section-padding">
+                  <div class="row">
+                     <div class="col-md-12">
+                        <div class="main-title">
+                           <div class="btn-group float-right right-action">
+                              <a href="#" class="right-action-link text-gray" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Sort by <i class="fa fa-caret-down" aria-hidden="true"></i>
+                              </a>
+                              <div class="dropdown-menu dropdown-menu-right">
+                                 <a class="dropdown-item" href="#"><i class="fas fa-fw fa-star"></i> &nbsp; Top Rated</a>
+                                 <a class="dropdown-item" href="#"><i class="fas fa-fw fa-signal"></i> &nbsp; Viewed</a>
+                                 <a class="dropdown-item" href="#"><i class="fas fa-fw fa-times-circle"></i> &nbsp; Close</a>
+                              </div>
+                           </div>
+                           <h6>Featured Videos</h6>
+                        </div>
+                     </div>
+                     <div class="col-xl-3 col-sm-6 mb-3">
+                        <div class="video-card">
+                           <div class="video-card-image">
+                              <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
+                              <a href="#"><img class="img-fluid" src="img/v1.png" alt=""></a>
+                              <div class="time">3:50</div>
+                           </div>
+                           <div class="video-card-body">
+                              <div class="video-title">
+                                 <a href="#">There are many variations of passages of Lorem</a>
+                              </div>
+                              <div class="video-page text-success">
+                                 Education  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
+                              </div>
+                              <div class="video-view">
+                                 1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-xl-3 col-sm-6 mb-3">
+                        <div class="video-card">
+                           <div class="video-card-image">
+                              <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
+                              <a href="#"><img class="img-fluid" src="img/v2.png" alt=""></a>
+                              <div class="time">3:50</div>
+                           </div>
+                           <div class="video-card-body">
+                              <div class="video-title">
+                                 <a href="#">There are many variations of passages of Lorem</a>
+                              </div>
+                              <div class="video-page text-success">
+                                 Education  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
+                              </div>
+                              <div class="video-view">
+                                 1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-xl-3 col-sm-6 mb-3">
+                        <div class="video-card">
+                           <div class="video-card-image">
+                              <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
+                              <a href="#"><img class="img-fluid" src="img/v3.png" alt=""></a>
+                              <div class="time">3:50</div>
+                           </div>
+                           <div class="video-card-body">
+                              <div class="video-title">
+                                 <a href="#">There are many variations of passages of Lorem</a>
+                              </div>
+                              <div class="video-page text-danger">
+                                 Education  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Unverified"><i class="fas fa-frown text-danger"></i></a>
+                              </div>
+                              <div class="video-view">
+                                 1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-xl-3 col-sm-6 mb-3">
+                        <div class="video-card">
+                           <div class="video-card-image">
+                              <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
+                              <a href="#"><img class="img-fluid" src="img/v4.png" alt=""></a>
+                              <div class="time">3:50</div>
+                           </div>
+                           <div class="video-card-body">
+                              <div class="video-title">
+                                 <a href="#">There are many variations of passages of Lorem</a>
+                              </div>
+                              <div class="video-page text-success">
+                                 Education  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
+                              </div>
+                              <div class="video-view">
+                                 1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-xl-3 col-sm-6 mb-3">
+                        <div class="video-card">
+                           <div class="video-card-image">
+                              <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
+                              <a href="#"><img class="img-fluid" src="img/v5.png" alt=""></a>
+                              <div class="time">3:50</div>
+                           </div>
+                           <div class="video-card-body">
+                              <div class="video-title">
+                                 <a href="#">There are many variations of passages of Lorem</a>
+                              </div>
+                              <div class="video-page text-success">
+                                 Education  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
+                              </div>
+                              <div class="video-view">
+                                 1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-xl-3 col-sm-6 mb-3">
+                        <div class="video-card">
+                           <div class="video-card-image">
+                              <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
+                              <a href="#"><img class="img-fluid" src="img/v6.png" alt=""></a>
+                              <div class="time">3:50</div>
+                           </div>
+                           <div class="video-card-body">
+                              <div class="video-title">
+                                 <a href="#">There are many variations of passages of Lorem</a>
+                              </div>
+                              <div class="video-page text-danger">
+                                 Education  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Unverified"><i class="fas fa-frown text-danger"></i></a>
+                              </div>
+                              <div class="video-view">
+                                 1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-xl-3 col-sm-6 mb-3">
+                        <div class="video-card">
+                           <div class="video-card-image">
+                              <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
+                              <a href="#"><img class="img-fluid" src="img/v7.png" alt=""></a>
+                              <div class="time">3:50</div>
+                           </div>
+                           <div class="video-card-body">
+                              <div class="video-title">
+                                 <a href="#">There are many variations of passages of Lorem</a>
+                              </div>
+                              <div class="video-page text-success">
+                                 Education  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
+                              </div>
+                              <div class="video-view">
+                                 1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-xl-3 col-sm-6 mb-3">
+                        <div class="video-card">
+                           <div class="video-card-image">
+                              <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
+                              <a href="#"><img class="img-fluid" src="img/v8.png" alt=""></a>
+                              <div class="time">3:50</div>
+                           </div>
+                           <div class="video-card-body">
+                              <div class="video-title">
+                                 <a href="#">There are many variations of passages of Lorem</a>
+                              </div>
+                              <div class="video-page text-success">
+                                 Education  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
+                              </div>
+                              <div class="video-view">
+                                 1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <hr class="mt-0">
+               <div class="video-block section-padding">
+                  <div class="row">
+                     <div class="col-md-12">
+                        <div class="main-title">
+                           <div class="btn-group float-right right-action">
+                              <a href="#" class="right-action-link text-gray" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Sort by <i class="fa fa-caret-down" aria-hidden="true"></i>
+                              </a>
+                              <div class="dropdown-menu dropdown-menu-right">
+                                 <a class="dropdown-item" href="#"><i class="fas fa-fw fa-star"></i> &nbsp; Top Rated</a>
+                                 <a class="dropdown-item" href="#"><i class="fas fa-fw fa-signal"></i> &nbsp; Viewed</a>
+                                 <a class="dropdown-item" href="#"><i class="fas fa-fw fa-times-circle"></i> &nbsp; Close</a>
+                              </div>
+                           </div>
+                           <h6>Popular Channels</h6>
+                        </div>
+                     </div>
+                     <div class="col-xl-3 col-sm-6 mb-3">
+                        <div class="channels-card">
+                           <div class="channels-card-image">
+                              <a href="#"><img class="img-fluid" src="img/s1.png" alt=""></a>
+                              <div class="channels-card-image-btn"><button type="button" class="btn btn-outline-danger btn-sm">Subscribe <strong>1.4M</strong></button></div>
+                           </div>
+                           <div class="channels-card-body">
+                              <div class="channels-title">
+                                 <a href="#">Channels Name</a>
+                              </div>
+                              <div class="channels-view">
+                                 382,323 subscribers
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-xl-3 col-sm-6 mb-3">
+                        <div class="channels-card">
+                           <div class="channels-card-image">
+                              <a href="#"><img class="img-fluid" src="img/s2.png" alt=""></a>
+                              <div class="channels-card-image-btn"><button type="button" class="btn btn-outline-danger btn-sm">Subscribe <strong>1.4M</strong></button></div>
+                           </div>
+                           <div class="channels-card-body">
+                              <div class="channels-title">
+                                 <a href="#">Channels Name</a>
+                              </div>
+                              <div class="channels-view">
+                                 382,323 subscribers
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-xl-3 col-sm-6 mb-3">
+                        <div class="channels-card">
+                           <div class="channels-card-image">
+                              <a href="#"><img class="img-fluid" src="img/s3.png" alt=""></a>
+                              <div class="channels-card-image-btn"><button type="button" class="btn btn-outline-secondary btn-sm">Subscribed <strong>1.4M</strong></button></div>
+                           </div>
+                           <div class="channels-card-body">
+                              <div class="channels-title">
+                                 <a href="#">Channels Name <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle"></i></span></a>
+                              </div>
+                              <div class="channels-view">
+                                 382,323 subscribers
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-xl-3 col-sm-6 mb-3">
+                        <div class="channels-card">
+                           <div class="channels-card-image">
+                              <a href="#"><img class="img-fluid" src="img/s4.png" alt=""></a>
+                              <div class="channels-card-image-btn"><button type="button" class="btn btn-outline-danger btn-sm">Subscribe <strong>1.4M</strong></button></div>
+                           </div>
+                           <div class="channels-card-body">
+                              <div class="channels-title">
+                                 <a href="#">Channels Name</a>
+                              </div>
+                              <div class="channels-view">
+                                 382,323 subscribers
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
             </div>
-        </section>
-        <!-- Trending Area End -->
-
-        <!-- New Releases Start -->
-        <section class="my-48">
-            <div class="container-fluid">
-                <div class="heading mb-24">
-                    <h4 class="white mb-12">New Releases</h4>
-                    <a href="#" class="p white">See All <span><i class="fa-regular fa-chevron-right"></i></span></a>
-                </div>
-                <div class="releasesSlider row">
-                    <div class="col-12">
-                        <a href="anime-detail.html" class="anime-card gap-24">
-                            <img src="assets/media/anime/anime-06.jpg" alt="pic">
-                            <div class="overlay"></div>
-                            <div class="text">
-                                <h6 class="white">Death Note</h6>
-                                <p class="white">Mystery, Supernatural</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12">
-                        <a href="anime-detail.html" class="anime-card gap-24">
-                            <img src="assets/media/anime/anime-07.jpg" alt="pic">
-                            <div class="overlay"></div>
-                            <div class="text">
-                                <h6 class="white">Fullmetal Alchemist</h6>
-                                <p class="white">Action, Adventure, Steampunk</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12">
-                        <a href="anime-detail.html" class="anime-card gap-24">
-                            <img src="assets/media/anime/anime-08.jpg" alt="pic">
-                            <div class="overlay"></div>
-                            <div class="text">
-                                <h6 class="white">Sword Art Online</h6>
-                                <p class="white">Action, Adventure, Fantasy</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12">
-                        <a href="anime-detail.html" class="anime-card gap-24">
-                            <img src="assets/media/anime/anime-09.jpg" alt="pic">
-                            <div class="overlay"></div>
-                            <div class="text">
-                                <h6 class="white">Tokyo Ghoul</h6>
-                                <p class="white">Action, Horror, Supernatural</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12">
-                        <a href="anime-detail.html" class="anime-card gap-24">
-                            <img src="assets/media/anime/anime-10.jpg" alt="pic">
-                            <div class="overlay"></div>
-                            <div class="text">
-                                <h6 class="white">Komitsu Uhang</h6>
-                                <p class="white">Anime, Vervex</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12">
-                        <a href="anime-detail.html" class="anime-card gap-24">
-                            <img src="assets/media/anime/anime-06.jpg" alt="pic">
-                            <div class="overlay"></div>
-                            <div class="text">
-                                <h6 class="white">Death Note</h6>
-                                <p class="white">Mystery, Supernatural</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12">
-                        <a href="anime-detail.html" class="anime-card gap-24">
-                            <img src="assets/media/anime/anime-07.jpg" alt="pic">
-                            <div class="overlay"></div>
-                            <div class="text">
-                                <h6 class="white">Fullmetal Alchemist</h6>
-                                <p class="white">Action, Adventure, Steampunk</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12">
-                        <a href="anime-detail.html" class="anime-card gap-24">
-                            <img src="assets/media/anime/anime-08.jpg" alt="pic">
-                            <div class="overlay"></div>
-                            <div class="text">
-                                <h6 class="white">Sword Art Online</h6>
-                                <p class="white">Action, Adventure, Fantasy</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12">
-                        <a href="anime-detail.html" class="anime-card gap-24">
-                            <img src="assets/media/anime/anime-09.jpg" alt="pic">
-                            <div class="overlay"></div>
-                            <div class="text">
-                                <h6 class="white">Tokyo Ghoul</h6>
-                                <p class="white">Action, Horror, Supernatural</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12">
-                        <a href="anime-detail.html" class="anime-card gap-24">
-                            <img src="assets/media/anime/anime-10.jpg" alt="pic">
-                            <div class="overlay"></div>
-                            <div class="text">
-                                <h6 class="white">Komitsu Uhang</h6>
-                                <p class="white">Anime, Vervex</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+            <!-- /.container-fluid -->
+            <!-- Sticky Footer -->
+            <footer class="sticky-footer">
+               <div class="container">
+                  <div class="row no-gutters">
+                     <div class="col-lg-6 col-sm-6">
+                        <p class="mt-1 mb-0">&copy; Copyright 2020 <strong class="text-dark">Vidoe</strong>. All Rights Reserved<br>
+                           <small class="mt-0 mb-0">Made with <i class="fas fa-heart text-danger"></i> by <a class="text-primary" target="_blank" href="https://askbootstrap.com/">Ask Bootstrap</a>
+                           </small>
+                        </p>
+                     </div>
+                     <div class="col-lg-6 col-sm-6 text-right">
+                        <div class="app">
+                           <a href="#"><img alt="" src="img/google.png"></a>
+                           <a href="#"><img alt="" src="img/apple.png"></a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </footer>
+         </div>
+         <!-- /.content-wrapper -->
+      </div>
+      <!-- /#wrapper -->
+      <!-- Scroll to Top Button-->
+      <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+      </a>
+      <!-- Logout Modal-->
+      <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                  <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                  </button>
+               </div>
+               <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+               <div class="modal-footer">
+                  <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                  <a class="btn btn-primary" href="login.html">Logout</a>
+               </div>
             </div>
-        </section>
-        <!-- New Releases end -->
-
-        <!-- Top-picks start -->
-        <section class="mt-48 mb-40">
-            <div class="container-fluid">
-                <div class="heading mb-24">
-                    <h4 class="white mb-12">Top Picks According To your Taste</h4>
-                    <a href="#" class="p white">See All <span><i class="fa-regular fa-chevron-right"></i></span></a>
-                </div>
-                <div class="picksSlider row">
-                    <div class="col-12">
-                        <a href="anime-detail.html" class="anime-card gap-24">
-                            <img src="assets/media/anime/anime-11.jpg" alt="pic">
-                            <div class="overlay"></div>
-                            <div class="text">
-                                <h6 class="white">Gun Gale</h6>
-                                <p class="white">Anime, Vervex</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12">
-                        <a href="anime-detail.html" class="anime-card gap-24">
-                            <img src="assets/media/anime/anime-12.jpg" alt="pic">
-                            <div class="overlay"></div>
-                            <div class="text">
-                                <h6 class="white">Demon Slayer</h6>
-                                <p class="white">Fire Force</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12">
-                        <a href="anime-detail.html" class="anime-card gap-24">
-                            <img src="assets/media/anime/anime-13.jpg" alt="pic">
-                            <div class="overlay"></div>
-                            <div class="text">
-                                <h6 class="white">Demon Slayer</h6>
-                                <p class="white">Fire Force</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12">
-                        <a href="anime-detail.html" class="anime-card gap-24">
-                            <img src="assets/media/anime/anime-14.jpg" alt="pic">
-                            <div class="overlay"></div>
-                            <div class="text">
-                                <h6 class="white">Fire Force</h6>
-                                <p class="white">Fire Force</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12">
-                        <a href="anime-detail.html" class="anime-card gap-24">
-                            <img src="assets/media/anime/anime-15.jpg" alt="pic">
-                            <div class="overlay"></div>
-                            <div class="text">
-                                <h6 class="white">Fire Force</h6>
-                                <p class="white">Fire Force</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12">
-                        <a href="anime-detail.html" class="anime-card gap-24">
-                            <img src="assets/media/anime/anime-11.jpg" alt="pic">
-                            <div class="overlay"></div>
-                            <div class="text">
-                                <h6 class="white">Death Note</h6>
-                                <p class="white">Mystery, Supernatural</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12">
-                        <a href="anime-detail.html" class="anime-card gap-24">
-                            <img src="assets/media/anime/anime-12.jpg" alt="pic">
-                            <div class="overlay"></div>
-                            <div class="text">
-                                <h6 class="white">Fullmetal Alchemist</h6>
-                                <p class="white">Action, Adventure, Steampunk</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12">
-                        <a href="anime-detail.html" class="anime-card gap-24">
-                            <img src="assets/media/anime/anime-13.jpg" alt="pic">
-                            <div class="overlay"></div>
-                            <div class="text">
-                                <h6 class="white">Sword Art Online</h6>
-                                <p class="white">Action, Adventure, Fantasy</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12">
-                        <a href="anime-detail.html" class="anime-card gap-24">
-                            <img src="assets/media/anime/anime-14.jpg" alt="pic">
-                            <div class="overlay"></div>
-                            <div class="text">
-                                <h6 class="white">Tokyo Ghoul</h6>
-                                <p class="white">Action, Horror, Supernatural</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12">
-                        <a href="anime-detail.html" class="anime-card gap-24">
-                            <img src="assets/media/anime/anime-15.jpg" alt="pic">
-                            <div class="overlay"></div>
-                            <div class="text">
-                                <h6 class="white">Komitsu Uhang</h6>
-                                <p class="white">Anime, Vervex</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Top-picks end -->
-
-        <!-- inner-banner start -->
-        <section class="inner-banner">
-            <div class="container-fluid">
-                <div class="content">
-                    <ul class="tabs d-flex gap-8 list-unstyled mb-12">
-                        <li>Drama</li>
-                        <li>Thriller</li>
-                        <li>Voilence</li>
-                    </ul>
-                    <h1 class="white mb-12">Naruto Sans</h1>
-                    <p class="white mb-48">Lorem ipsum dolor sit amet consectetur. Sed netus tortor hendrerit<br> massa
-                        sem nunc nam odio. Orci posuere id donec.</p>
-                    <div class="gap-24 d-flex">
-                        <a href="index.html  " class="cus-btn">
-                            <span class="btn-text">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21"
-                                    fill="none">
-                                    <g clip-path="url(#clip0_11735_317)">
-                                        <path
-                                            d="M16.6755 9.3536L4.87079 0.772465C4.43757 0.458428 3.86247 0.411134 3.38763 0.655174C2.90901 0.897323 2.61011 1.38919 2.61011 1.92078V19.0774C2.61011 19.6146 2.90901 20.1046 3.38763 20.3468C3.59005 20.4489 3.81139 20.5 4.03462 20.5C4.32596 20.5 4.62107 20.4073 4.87079 20.2238L16.6755 11.6502C17.0482 11.3759 17.2658 10.9522 17.2658 10.5019C17.2677 10.0441 17.0444 9.62223 16.6755 9.3536Z"
-                                            fill="#FAFAFA" />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_11735_317">
-                                            <rect width="20" height="20" fill="white" transform="translate(0 0.5)" />
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-                                Watch Trailer
-                            </span>
-                            <span class="btn-text">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21"
-                                    fill="none">
-                                    <g clip-path="url(#clip0_11735_317)">
-                                        <path
-                                            d="M16.6755 9.3536L4.87079 0.772465C4.43757 0.458428 3.86247 0.411134 3.38763 0.655174C2.90901 0.897323 2.61011 1.38919 2.61011 1.92078V19.0774C2.61011 19.6146 2.90901 20.1046 3.38763 20.3468C3.59005 20.4489 3.81139 20.5 4.03462 20.5C4.32596 20.5 4.62107 20.4073 4.87079 20.2238L16.6755 11.6502C17.0482 11.3759 17.2658 10.9522 17.2658 10.5019C17.2677 10.0441 17.0444 9.62223 16.6755 9.3536Z"
-                                            fill="#FAFAFA" />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_11735_318">
-                                            <rect width="20" height="20" fill="white" transform="translate(0 0.5)" />
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-                                Watch Trailer
-                            </span>
-                        </a>
-                        <a href="index.html" class="cus-btn-2">
-                            <span class="btn-text">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21"
-                                    fill="none">
-                                    <g clip-path="url(#clip0_11735_635)">
-                                        <path
-                                            d="M16.0547 10.768V8.89844C16.0547 6.17102 14.2418 3.85934 11.7579 3.1043V2.25781C11.7579 1.28855 10.9693 0.5 10 0.5C9.03079 0.5 8.24223 1.28855 8.24223 2.25781V3.1043C5.75825 3.85934 3.94536 6.17098 3.94536 8.89844V10.768C3.94536 13.1638 3.03216 15.4355 1.37399 17.1648C1.21149 17.3342 1.16583 17.5843 1.25794 17.8002C1.35005 18.0161 1.56216 18.1562 1.79692 18.1562H7.1293C7.40149 19.4919 8.58524 20.5 10 20.5C11.4149 20.5 12.5986 19.4919 12.8708 18.1562H18.2032C18.4379 18.1562 18.65 18.0161 18.7421 17.8002C18.8342 17.5843 18.7886 17.3342 18.6261 17.1648C16.9679 15.4355 16.0547 13.1638 16.0547 10.768ZM9.41411 2.25781C9.41411 1.93473 9.67696 1.67188 10 1.67188C10.3231 1.67188 10.586 1.93473 10.586 2.25781V2.87219C10.3931 2.85359 10.1977 2.84375 10 2.84375C9.80239 2.84375 9.60696 2.85359 9.41411 2.87219V2.25781ZM10 19.3281C9.23618 19.3281 8.58489 18.8382 8.34301 18.1562H11.6571C11.4152 18.8382 10.7639 19.3281 10 19.3281ZM3.05981 16.9844C4.39423 15.1956 5.11723 13.0309 5.11723 10.768V8.89844C5.11723 6.20605 7.30766 4.01562 10 4.01562C12.6924 4.01562 14.8829 6.20605 14.8829 8.89844V10.768C14.8829 13.0309 15.6059 15.1956 16.9403 16.9844H3.05981Z"
-                                            fill="#FAFAFA" />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_11735_635">
-                                            <rect width="20" height="20" fill="white" transform="translate(0 0.5)" />
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-                                Remind Me
-                            </span>
-                            <span class="btn-text">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21"
-                                    fill="none">
-                                    <g clip-path="url(#clip0_11735_636)">
-                                        <path
-                                            d="M16.0547 10.768V8.89844C16.0547 6.17102 14.2418 3.85934 11.7579 3.1043V2.25781C11.7579 1.28855 10.9693 0.5 10 0.5C9.03079 0.5 8.24223 1.28855 8.24223 2.25781V3.1043C5.75825 3.85934 3.94536 6.17098 3.94536 8.89844V10.768C3.94536 13.1638 3.03216 15.4355 1.37399 17.1648C1.21149 17.3342 1.16583 17.5843 1.25794 17.8002C1.35005 18.0161 1.56216 18.1562 1.79692 18.1562H7.1293C7.40149 19.4919 8.58524 20.5 10 20.5C11.4149 20.5 12.5986 19.4919 12.8708 18.1562H18.2032C18.4379 18.1562 18.65 18.0161 18.7421 17.8002C18.8342 17.5843 18.7886 17.3342 18.6261 17.1648C16.9679 15.4355 16.0547 13.1638 16.0547 10.768ZM9.41411 2.25781C9.41411 1.93473 9.67696 1.67188 10 1.67188C10.3231 1.67188 10.586 1.93473 10.586 2.25781V2.87219C10.3931 2.85359 10.1977 2.84375 10 2.84375C9.80239 2.84375 9.60696 2.85359 9.41411 2.87219V2.25781ZM10 19.3281C9.23618 19.3281 8.58489 18.8382 8.34301 18.1562H11.6571C11.4152 18.8382 10.7639 19.3281 10 19.3281ZM3.05981 16.9844C4.39423 15.1956 5.11723 13.0309 5.11723 10.768V8.89844C5.11723 6.20605 7.30766 4.01562 10 4.01562C12.6924 4.01562 14.8829 6.20605 14.8829 8.89844V10.768C14.8829 13.0309 15.6059 15.1956 16.9403 16.9844H3.05981Z"
-                                            fill="#FAFAFA" />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_11735_637">
-                                            <rect width="20" height="20" fill="white" transform="translate(0 0.5)" />
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-                                Remind Me
-                            </span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- inner-banner end -->
-
-        <!--accordion start -->
-        <section class=" mt-48 mb-24">
-            <div class="container-fluid">
-                <div class="heading mb-24">
-                    <h4 class="white mb-12">Top Rated</h4>
-                    <a href="#" class="p white">See All <span><i class="fa-regular fa-chevron-right"></i></span></a>
-                </div>
-                <div class="anime-grid">
-                    <a href="anime-detail.html" class="anime-card gap-24">
-                        <img src="assets/media/anime/anime-06.jpg" alt="pic">
-                        <div class="overlay"></div>
-                        <div class="text">
-                            <h6 class="white">Death Note</h6>
-                            <p class="white">Mystery, Supernatural</p>
-                        </div>
-                    </a>
-                    <a href="anime-detail.html" class="anime-card gap-24">
-                        <img src="assets/media/anime/anime-07.jpg" alt="pic">
-                        <div class="overlay"></div>
-                        <div class="text">
-                            <h6 class="white">Fullmetal Alchemist</h6>
-                            <p class="white">Action, Adventure, Steampunk</p>
-                        </div>
-                    </a>
-                    <a href="anime-detail.html" class="anime-card gap-24">
-                        <img src="assets/media/anime/anime-08.jpg" alt="pic">
-                        <div class="overlay"></div>
-                        <div class="text">
-                            <h6 class="white">Sword Art Online</h6>
-                            <p class="white">Action, Adventure, Fantasy</p>
-                        </div>
-                    </a>
-                    <a href="anime-detail.html" class="anime-card gap-24">
-                        <img src="assets/media/anime/anime-09.jpg" alt="pic">
-                        <div class="overlay"></div>
-                        <div class="text">
-                            <h6 class="white">Tokyo Ghoul</h6>
-                            <p class="white">Action, Horror, Supernatural</p>
-                        </div>
-                    </a>
-                    <a href="anime-detail.html" class="anime-card gap-24">
-                        <img src="assets/media/anime/anime-10.jpg" alt="pic">
-                        <div class="overlay"></div>
-                        <div class="text">
-                            <h6 class="white">Komitsu Uhang</h6>
-                            <p class="white">Anime, Vervex</p>
-                        </div>
-                    </a>
-                    <a href="anime-detail.html" class="anime-card d-xxl-none gap-24">
-                        <img src="assets/media/anime/anime-11.jpg" alt="pic">
-                        <div class="overlay"></div>
-                        <div class="text">
-                            <h6 class="white">Gun Gale</h6>
-                            <p class="white">Anime, Vervex</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="accordion" id="accordionPanelsStayOpenExample">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-                                aria-controls="panelsStayOpen-collapseOne">
-                                See More <span><i class="fa-light fa-chevron-down"></i></span>
-                            </button>
-                        </h2>
-                        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse"
-                            aria-labelledby="panelsStayOpen-headingOne">
-                            <div class="accordion-body">
-                                <div class="anime-grid">
-                                    <a href="anime-detail.html" class="anime-card gap-24">
-                                        <img src="assets/media/anime/anime-01.jpg" alt="pic">
-                                        <div class="overlay"></div>
-                                        <div class="text">
-                                            <h6 class="white">Death Note</h6>
-                                            <p class="white">Mystery, Supernatural</p>
-                                        </div>
-                                    </a>
-                                    <a href="anime-detail.html" class="anime-card gap-24">
-                                        <img src="assets/media/anime/anime-02.jpg" alt="pic">
-                                        <div class="overlay"></div>
-                                        <div class="text">
-                                            <h6 class="white">Fullmetal Alchemist</h6>
-                                            <p class="white">Action, Adventure, Steampunk</p>
-                                        </div>
-                                    </a>
-                                    <a href="anime-detail.html" class="anime-card gap-24">
-                                        <img src="assets/media/anime/anime-03.jpg" alt="pic">
-                                        <div class="overlay"></div>
-                                        <div class="text">
-                                            <h6 class="white">Sword Art Online</h6>
-                                            <p class="white">Action, Adventure, Fantasy</p>
-                                        </div>
-                                    </a>
-                                    <a href="anime-detail.html" class="anime-card gap-24">
-                                        <img src="assets/media/anime/anime-04.jpg" alt="pic">
-                                        <div class="overlay"></div>
-                                        <div class="text">
-                                            <h6 class="white">Tokyo Ghoul</h6>
-                                            <p class="white">Action, Horror, Supernatural</p>
-                                        </div>
-                                    </a>
-                                    <a href="anime-detail.html" class="anime-card gap-24">
-                                        <img src="assets/media/anime/anime-05.jpg" alt="pic">
-                                        <div class="overlay"></div>
-                                        <div class="text">
-                                            <h6 class="white">Komitsu Uhang</h6>
-                                            <p class="white">Anime, Vervex</p>
-                                        </div>
-                                    </a>
-                                    <a href="anime-detail.html" class="anime-card d-xxl-none gap-24">
-                                        <img src="assets/media/anime/anime-06.jpg" alt="pic">
-                                        <div class="overlay"></div>
-                                        <div class="text">
-                                            <h6 class="white">Komitsu Uhang</h6>
-                                            <p class="white">Anime, Vervex</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-        <!--accordion start  -->
-
-        <!-- collection start -->
-        <section class="collection my-24">
-            <div class="container-fluid">
-                <h4 class="mb-24 white">Series Genres</h4>
-                <div class="row row-gap-3 justify-content-center">
-                    <div class="col-xl-3 col-md-4 col-sm-6">
-                        <a href="anime.html" class="cards">
-                            <h5 class="white">Drama</h5>
-                            <img src="assets/media/user/icon1.png" alt="icon">
-                        </a>
-                    </div>
-                    <div class="col-xl-3 col-md-4 col-sm-6">
-                        <a href="anime.html" class="cards">
-                            <h5 class="white">Documentary</h5>
-                            <img src="assets/media/user/icon2.png" alt="icon">
-                        </a>
-                    </div>
-                    <div class="col-xl-3 col-md-4 col-sm-6">
-                        <a href="anime.html" class="cards">
-                            <h5 class="white">Action</h5>
-                            <img src="assets/media/user/icon3.png" alt="icon">
-                        </a>
-                    </div>
-                    <div class="col-xl-3 col-md-4 col-sm-6">
-                        <a href="anime.html" class="cards">
-                            <h5 class="white">Grand Theft</h5>
-                            <img src="assets/media/user/icon4.png" alt="icon">
-                        </a>
-                    </div>
-                    <div class="col-xl-3 col-md-4 col-sm-6">
-                        <a href="anime.html" class="cards">
-                            <h5 class="white">Bomb & Crime</h5>
-                            <img src="assets/media/user/icon5.png" alt="icon">
-                        </a>
-                    </div>
-                    <div class="col-xl-3 col-md-4 col-sm-6">
-                        <a href="anime.html" class="cards">
-                            <h5 class="white">Crime Thriller</h5>
-                            <img src="assets/media/user/icon6.png" alt="icon">
-                        </a>
-                    </div>
-                    <div class="col-xl-3 col-md-4 col-sm-6">
-                        <a href="anime.html" class="cards">
-                            <h5 class="white">Car Racing</h5>
-                            <img src="assets/media/user/icon7.png" alt="icon">
-                        </a>
-                    </div>
-                    <div class="col-xl-3 col-md-4 col-sm-6">
-                        <a href="anime.html" class="cards">
-                            <h5 class="white">Drama</h5>
-                            <img src="assets/media/user/icon8.png" alt="icon">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- collection end -->
-
-        <!--premiere start -->
-        <section class="premiere m-40 py-40">
-            <div class="container-fluid">
-                <div class="row align-items-center row-gap-4">
-                    <div class="col-lg-6">
-                        <div class="text-block">
-                            <h4 class="white mb-08">Premiere</h4>
-                            <h1 class="white mb-12 ">Dragon Ball Z</h1>
-                            <p class="white mb-48">Lorem ipsum dolor sit amet consectetur. Sed netus tortor
-                                hendrerit<br> massa sem nunc nam odio. Orci posuere id donec.</p>
-                            <a href="index.html" class="cus-btn">
-                                <span class="btn-text">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
-                                        fill="none">
-                                        <path
-                                            d="M16.0547 10.268V8.39844C16.0547 5.67102 14.2418 3.35934 11.7579 2.6043V1.75781C11.7579 0.788555 10.9693 0 10 0C9.03079 0 8.24223 0.788555 8.24223 1.75781V2.6043C5.75825 3.35934 3.94536 5.67098 3.94536 8.39844V10.268C3.94536 12.6638 3.03216 14.9355 1.37399 16.6648C1.21149 16.8342 1.16583 17.0843 1.25794 17.3002C1.35005 17.5161 1.56216 17.6562 1.79692 17.6562H7.1293C7.40149 18.9919 8.58524 20 10 20C11.4149 20 12.5986 18.9919 12.8708 17.6562H18.2032C18.4379 17.6562 18.65 17.5161 18.7421 17.3002C18.8342 17.0843 18.7886 16.8342 18.6261 16.6648C16.9679 14.9355 16.0547 12.6638 16.0547 10.268ZM9.41411 1.75781C9.41411 1.43473 9.67696 1.17188 10 1.17188C10.3231 1.17188 10.586 1.43473 10.586 1.75781V2.37219C10.3931 2.35359 10.1977 2.34375 10 2.34375C9.80239 2.34375 9.60696 2.35359 9.41411 2.37219V1.75781ZM10 18.8281C9.23618 18.8281 8.58489 18.3382 8.34301 17.6562H11.6571C11.4152 18.3382 10.7639 18.8281 10 18.8281ZM3.05981 16.4844C4.39423 14.6956 5.11723 12.5309 5.11723 10.268V8.39844C5.11723 5.70605 7.30766 3.51562 10 3.51562C12.6924 3.51562 14.8829 5.70605 14.8829 8.39844V10.268C14.8829 12.5309 15.6059 14.6956 16.9403 16.4844H3.05981Z"
-                                            fill="#FAFAFA" />
-                                    </svg>
-                                    Remind Me
-                                </span>
-                                <span class="btn-text">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
-                                        fill="none">
-                                        <path
-                                            d="M16.0547 10.268V8.39844C16.0547 5.67102 14.2418 3.35934 11.7579 2.6043V1.75781C11.7579 0.788555 10.9693 0 10 0C9.03079 0 8.24223 0.788555 8.24223 1.75781V2.6043C5.75825 3.35934 3.94536 5.67098 3.94536 8.39844V10.268C3.94536 12.6638 3.03216 14.9355 1.37399 16.6648C1.21149 16.8342 1.16583 17.0843 1.25794 17.3002C1.35005 17.5161 1.56216 17.6562 1.79692 17.6562H7.1293C7.40149 18.9919 8.58524 20 10 20C11.4149 20 12.5986 18.9919 12.8708 17.6562H18.2032C18.4379 17.6562 18.65 17.5161 18.7421 17.3002C18.8342 17.0843 18.7886 16.8342 18.6261 16.6648C16.9679 14.9355 16.0547 12.6638 16.0547 10.268ZM9.41411 1.75781C9.41411 1.43473 9.67696 1.17188 10 1.17188C10.3231 1.17188 10.586 1.43473 10.586 1.75781V2.37219C10.3931 2.35359 10.1977 2.34375 10 2.34375C9.80239 2.34375 9.60696 2.35359 9.41411 2.37219V1.75781ZM10 18.8281C9.23618 18.8281 8.58489 18.3382 8.34301 17.6562H11.6571C11.4152 18.3382 10.7639 18.8281 10 18.8281ZM3.05981 16.4844C4.39423 14.6956 5.11723 12.5309 5.11723 10.268V8.39844C5.11723 5.70605 7.30766 3.51562 10 3.51562C12.6924 3.51562 14.8829 5.70605 14.8829 8.39844V10.268C14.8829 12.5309 15.6059 14.6956 16.9403 16.4844H3.05981Z"
-                                            fill="#FAFAFA" />
-                                    </svg>
-                                    Remind Me
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <video autoplay muted loop>
-                            <source src="assets/media/videos/banner_2.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--premiere end -->
-
-
-        <!-- start blogs-->
-        <section class="blogs py-48">
-            <div class="container-fluid">
-                <div class="heading mb-24">
-                    <h4 class="white mb-12">Blog</h4>
-                    <a href="#" class="p white">See All <span><i class="fa-regular fa-chevron-right"></i></span></a>
-                </div>
-                <div class="blogsSlider row row-gap-3 ">
-                    <div class="col-lg-4">
-                        <a href="blogs.html">
-                            <div class="blog-card">
-                                <div class="img-block">
-                                    <img src="assets/media/blogs/blog-1.png" alt="blog">
-                                </div>
-                                <div class="overlay"></div>
-                                <div class="text-block">
-                                    <h5 class="white">Komitsu Uhang</h5>
-                                    <p class="mb-24 white">Lorem ipsum dolor sit amet consectetur.Sed sed et felis
-                                        morbi..</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p>2 min read</p>
-                                        <p>1 Day Ago</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4">
-                        <a href="blogs.html">
-                            <div class="blog-card">
-                                <div class="img-block">
-                                    <img src="assets/media/blogs/blog-2.png" alt="blog">
-                                </div>
-                                <div class="overlay"></div>
-                                <div class="text-block">
-                                    <h5 class="white">Komitsu Uhang</h5>
-                                    <p class="mb-24 white">Lorem ipsum dolor sit amet consectetur.Sed sed et felis
-                                        morbi..</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p>2 min read</p>
-                                        <p>1 Day Ago</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4">
-                        <a href="blogs.html">
-                            <div class="blog-card">
-                                <div class="img-block">
-                                    <img src="assets/media/blogs/blog-3.png" alt="blog">
-                                </div>
-                                <div class="overlay"></div>
-                                <div class="text-block">
-                                    <h5 class="white">Komitsu Uhang</h5>
-                                    <p class="mb-24 white">Lorem ipsum dolor sit amet consectetur.Sed sed et felis
-                                        morbi..</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p>2 min read</p>
-                                        <p>1 Day Ago</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="blog-card">
-                            <img src="assets/media/blogs/blog-1.png" alt="blog">
-                            <div class="overlay"></div>
-                            <div class="text-block">
-                                <h5 class="white">Komitsu Uhang</h5>
-                                <p class="mb-24 white">Lorem ipsum dolor sit amet consectetur.Sed sed et felis morbi..
-                                </p>
-                                <div class="d-flex justify-content-between">
-                                    <p>2 min read</p>
-                                    <p>1 Day Ago</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="blog-card">
-                            <img src="assets/media/blogs/blog-2.png" alt="blog">
-                            <div class="overlay"></div>
-                            <div class="text-block">
-                                <h5 class="white">Komitsu Uhang</h5>
-                                <p class="mb-24 white">Lorem ipsum dolor sit amet consectetur.Sed sed et felis morbi..
-                                </p>
-                                <div class="d-flex justify-content-between">
-                                    <p>2 min read</p>
-                                    <p>1 Day Ago</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="blog-card">
-                            <img src="assets/media/blogs/blog-3.png" alt="blog">
-                            <div class="overlay"></div>
-                            <div class="text-block">
-                                <h5 class="white">Komitsu Uhang</h5>
-                                <p class="mb-24 white">Lorem ipsum dolor sit amet consectetur.Sed sed et felis morbi..
-                                </p>
-                                <div class="d-flex justify-content-between">
-                                    <p>2 min read</p>
-                                    <p>1 Day Ago</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- blogs end -->
-        <!-- FOOTER START -->
-        <footer class="py-64">
-            <div class="container-fluid">
-                <div class="row row-gap-48">
-                    <div class="col-lg-6">
-                        <div class="text">
-                            <h6 class="mb-16 color-primary">Start Your Entertainment Journey</h6>
-                            <h3 class="white mb-48">Start Your Entertainment Journey</h3>
-                            <div class="newsletter-field">
-                                <form action="index.html">
-                                    <input type="email" name="email" id="eMail" class="form-input"
-                                        placeholder=" Your Email">
-                                    <button type="submit" class="submit-arrow">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none">
-                                            <g clip-path="url(#clip0_11735_1263)">
-                                                <path
-                                                    d="M23.7939 0.205977C23.595 0.00703961 23.2966 -0.0541321 23.0356 0.0503052L0.441886 9.08769C0.183371 9.1911 0.0102616 9.43729 0.000324102 9.71558C-0.0095665 9.99383 0.145683 10.2517 0.396183 10.3732L9.3056 14.6942L13.6266 23.6036C13.7445 23.8466 13.9906 23.9999 14.2591 23.9999C14.2675 23.9999 14.2758 23.9998 14.2842 23.9994C14.5624 23.9896 14.8087 23.8164 14.9121 23.5579L23.9496 0.964319C24.054 0.703132 23.9928 0.404867 23.7939 0.205977ZM2.44176 9.80235L20.3773 2.62819L9.68848 13.3169L2.44176 9.80235ZM14.1975 21.5581L10.6828 14.3112L21.3717 3.6225L14.1975 21.5581Z"
-                                                    fill="#AB0511" />
-                                            </g>
-                                            <defs>
-                                                <clipPath id="clip0_11735_1263">
-                                                    <rect width="24" height="24" fill="white" />
-                                                </clipPath>
-                                            </defs>
-                                        </svg>
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <img src="assets/media/footer/pngwing.com1.png" alt="pic">
-                    </div>
-                    <div class="col-lg-6">
-                        <a href="index.html">
-                            <img src="assets/media/user/logo.png" alt="/logo" class="header-logo pt-12 mb-24">
-                        </a>
-                        <p>Lorem ipsum dolor sit amet consectetur. Magna at in nunc viverra. Felis<br> nascetur nulla at
-                            viverra egestas.</p>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="row row-gap-4">
-                            <div class="col-md-3 col-5">
-                                <ul class="list-unstyled">
-                                    <li class="mb-12">
-                                        <a href="index.html">
-                                            Home
-                                        </a>
-                                    </li>
-                                    <li class="mb-12">
-                                        <a href="anime.html">
-                                            Anime
-                                        </a>
-                                    </li>
-                                    <li class="mb-12">
-                                        <a href="movies.html">
-                                            Movies
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="blogs.html">
-                                            Blog
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-md-4 col-7">
-                                <ul class="list-unstyled">
-                                    <li class="mb-12">
-                                        <a href="#">
-                                            Terms and Conditions
-                                        </a>
-                                    </li>
-                                    <li class="mb-12">
-                                        <a href="#">
-                                            Privacy Policy
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            Cookie Policy
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-md-4 col-12">
-                                <ul class="list-unstyled">
-                                    <li class="mb-12">
-                                        <a href="#" class="white">
-                                            Have a Chat!
-                                        </a>
-                                    </li>
-                                    <li class="mb-12">
-                                        <a href="#">
-                                            abc@example.com
-                                        </a>
-                                    </li>
-                                    <li class="white">
-                                        <a href="#" class="white">
-                                            Follow Us
-                                        </a>
-                                    </li>
-                                </ul>
-                                <ul class="list-unstyled gap-16 d-flex">
-                                    <li>
-                                        <a href="#">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none">
-                                                <path
-                                                    d="M16.7273 4H14.3471C13.295 4 12.286 4.42143 11.5421 5.17157C10.7981 5.92172 10.3802 6.93913 10.3802 8V10.4H8V13.6H10.3802V20H13.5537V13.6H15.9339L16.7273 10.4H13.5537V8C13.5537 7.78783 13.6373 7.58434 13.7861 7.43431C13.9349 7.28429 14.1367 7.2 14.3471 7.2H16.7273V4Z"
-                                                    stroke="#EAEAEC" stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none">
-                                                <path d="M19 5L10 14" stroke="#EAEAEC" stroke-linecap="round"
-                                                    stroke-linejoin="round" />
-                                                <path d="M19 5L13.4 21L10.2 13.8L3 10.6L19 5Z" stroke="#EAEAEC"
-                                                    stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none">
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M8.26748 5C6.4629 5 5 6.4629 5 8.26748V15.8024C5 17.607 6.4629 19.0699 8.26748 19.0699H15.8024C17.607 19.0699 19.0699 17.607 19.0699 15.8024V8.26748C19.0699 6.4629 17.607 5 15.8024 5H8.26748ZM4 8.26748C4 5.91062 5.91062 4 8.26748 4H15.8024C18.1593 4 20.0699 5.91062 20.0699 8.26748V15.8024C20.0699 18.1593 18.1593 20.0699 15.8024 20.0699H8.26748C5.91062 20.0699 4 18.1593 4 15.8024V8.26748ZM12.4364 9.51543C11.9134 9.43786 11.3792 9.52721 10.9098 9.77075C10.4404 10.0143 10.0598 10.3996 9.82209 10.872C9.58436 11.3443 9.50161 11.8795 9.58562 12.4016C9.66962 12.9237 9.91611 13.406 10.29 13.7799C10.6639 14.1538 11.1462 14.4003 11.6683 14.4843C12.1903 14.5683 12.7256 14.4855 13.1979 14.2478C13.6703 14.0101 14.0556 13.6294 14.2991 13.1601C14.5427 12.6907 14.632 12.1565 14.5545 11.6335C14.4753 11.0999 14.2267 10.606 13.8453 10.2246C13.4639 9.84316 12.97 9.59454 12.4364 9.51543ZM10.4492 8.88312C11.1053 8.54271 11.852 8.41783 12.5831 8.52624C13.3289 8.63683 14.0193 8.98435 14.5524 9.51746C15.0855 10.0506 15.4331 10.741 15.5436 11.4868C15.6521 12.2179 15.5272 12.9646 15.1868 13.6207C14.8463 14.2767 14.3077 14.8087 13.6475 15.141C12.9873 15.4733 12.2391 15.589 11.5094 15.4716C10.7797 15.3541 10.1055 15.0096 9.58291 14.487C9.06027 13.9643 8.71574 13.2902 8.59832 12.5605C8.48089 11.8308 8.59656 11.0826 8.92886 10.4224C9.26116 9.76216 9.79317 9.22354 10.4492 8.88312ZM16.1792 7.39074C15.903 7.39074 15.6792 7.6146 15.6792 7.89074C15.6792 8.16688 15.903 8.39074 16.1792 8.39074H16.1878C16.464 8.39074 16.6878 8.16688 16.6878 7.89074C16.6878 7.6146 16.464 7.39074 16.1878 7.39074H16.1792Z"
-                                                    fill="#EAEAEC" />
-                                            </svg>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none">
-                                                <path
-                                                    d="M7 6.5C7 5.83696 7.26339 5.20107 7.73223 4.73223C8.20107 4.26339 8.83696 4 9.5 4H12V9H9.5C8.83696 9 8.20107 8.73661 7.73223 8.26777C7.26339 7.79893 7 7.16304 7 6.5Z"
-                                                    stroke="#EAEAEC" stroke-linecap="round" stroke-linejoin="round" />
-                                                <path
-                                                    d="M12 4H14.5C14.8283 4 15.1534 4.06466 15.4567 4.1903C15.76 4.31594 16.0356 4.50009 16.2678 4.73223C16.4999 4.96438 16.6841 5.23998 16.8097 5.54329C16.9353 5.84661 17 6.1717 17 6.5C17 6.8283 16.9353 7.15339 16.8097 7.45671C16.6841 7.76002 16.4999 8.03562 16.2678 8.26777C16.0356 8.49991 15.76 8.68406 15.4567 8.8097C15.1534 8.93534 14.8283 9 14.5 9H12V4Z"
-                                                    stroke="#EAEAEC" stroke-linecap="round" stroke-linejoin="round" />
-                                                <path
-                                                    d="M12 11.5C12 11.1717 12.0647 10.8466 12.1903 10.5433C12.3159 10.24 12.5001 9.96438 12.7322 9.73223C12.9644 9.50009 13.24 9.31594 13.5433 9.1903C13.8466 9.06466 14.1717 9 14.5 9C14.8283 9 15.1534 9.06466 15.4567 9.1903C15.76 9.31594 16.0356 9.50009 16.2678 9.73223C16.4999 9.96438 16.6841 10.24 16.8097 10.5433C16.9353 10.8466 17 11.1717 17 11.5C17 11.8283 16.9353 12.1534 16.8097 12.4567C16.6841 12.76 16.4999 13.0356 16.2678 13.2678C16.0356 13.4999 15.76 13.6841 15.4567 13.8097C15.1534 13.9353 14.8283 14 14.5 14C14.1717 14 13.8466 13.9353 13.5433 13.8097C13.24 13.6841 12.9644 13.4999 12.7322 13.2678C12.5001 13.0356 12.3159 12.76 12.1903 12.4567C12.0647 12.1534 12 11.8283 12 11.5V11.5Z"
-                                                    stroke="#EAEAEC" stroke-linecap="round" stroke-linejoin="round" />
-                                                <path
-                                                    d="M7 16.5C7 15.837 7.26339 15.2011 7.73223 14.7322C8.20107 14.2634 8.83696 14 9.5 14H12V16.5C12 17.163 11.7366 17.7989 11.2678 18.2678C10.7989 18.7366 10.163 19 9.5 19C8.83696 19 8.20107 18.7366 7.73223 18.2678C7.26339 17.7989 7 17.163 7 16.5Z"
-                                                    stroke="#EAEAEC" stroke-linecap="round" stroke-linejoin="round" />
-                                                <path
-                                                    d="M7 11.5C7 10.837 7.26339 10.2011 7.73223 9.73223C8.20107 9.26339 8.83696 9 9.5 9H12V14H9.5C8.83696 14 8.20107 13.7366 7.73223 13.2678C7.26339 12.7989 7 12.163 7 11.5Z"
-                                                    stroke="#EAEAEC" stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- FOOTER END -->
-
-    </div>
-    <!-- Main Wrapper End -->
-
-    <!-- Back To Top Start -->
-    <button class="scrollToTopBtn"><i class="fa fa-arrow-up"></i></button>
-
-
-
-    <!-- Mobile Menu Start -->
-    <div class="mobile-nav__wrapper">
-        <div class="mobile-nav__overlay mobile-nav__toggler"></div>
-        <div class="mobile-nav__content">
-            <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
-            <div class="logo-box">
-                <a href="index.html" aria-label="logo image"><img src="assets/media/user/logo.png" alt="logo"></a>
-            </div>
-            <div class="mobile-nav__container"></div>
-            <ul class="mobile-nav__contact list-unstyled">
-                <li>
-                    <i class="fa-thin fa-envelope"></i>
-                    <a href="mailto:example@company.com">example@company.com</a>
-                </li>
-                <li>
-                    <i class="fa-light fa-phone-volume"></i>
-                    <a href="tel:+12345678">+123 (4567) -890</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <!-- Mobile Menu End -->
-
-
-
-    <!-- Jquery Js -->
-    <script src="assets/js/vendor/bootstrap.min.js"></script>
-    <script src="assets/js/vendor/jquery-3.6.3.min.js"></script>
-    <script src="assets/js/vendor/slick.min.js"></script>
-    <script src="assets/js/app.js"></script>
-
-</body>
-
+         </div>
+      </div>
+      <!-- Bootstrap core JavaScript-->
+      <script src="vendor/jquery/jquery.min.js"></script>
+      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <!-- Core plugin JavaScript-->
+      <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+      <!-- Owl Carousel -->
+      <script src="vendor/owl-carousel/owl.carousel.js"></script>
+      <!-- Custom scripts for all pages-->
+      <script src="js/custom.js"></script>
+   </body>
 </html>

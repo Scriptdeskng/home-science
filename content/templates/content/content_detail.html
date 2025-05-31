@@ -1,133 +1,85 @@
 {% extends 'content/base.html' %}
 {% load static %}
+
+{% block page_title %}
+    {{the_content.title}}
+{% endblock page_title %}
+
 {% block content %}
-    <!-- HERO BANNER START -->
-    <div class="anime-detail">
-        <div class="trailer">
-            <div class="video-container">
+    <div class="video-block section-padding">
+                  <div class="row">
+                     <div class="col-md-12">
+                        <div class="single-video-left">
+                           <div class="single-video">
+                                        <div class="video-container">
                 <video id="mainVideo" controls controlsList="nodownload" preload="metadata" poster="{{ the_content.img_detail_poster.url }}" style="width: 100%; max-height: 80vh; object-fit: contain;">
                     <source src="{{ the_content.file_mp4.url }}" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
-        </div>
-        <!-- blogs-start -->
-        <section class="anime-streaming bg-dark-black py-40">
-            <div class="container-fluid">
-                <h3 class="white mb-24">{{ the_content.title }}</h3>
-                <div class="streamer-detail mb-24">
-                    
-                </div>
-                <p class="white mb-48">
-                    {{the_content.description}}
-                </p>
 
-                <div class="trendingSlider row">
-                    {% for content in other_contents  %}
-                    <div class="col-12">
-                        <a href="{% url 'content:content_detail_view' content.slug %}" class="anime-card gap-24">
-                            {% if content.img_poster %}
-                            <img src="{{content.img_poster.url}}" alt="pic">
-                            {% else %}
-                            <img src="{% static 'assets/media/anime/anime-01.jpg' %}" alt="pic">
-                            {% endif %}
-                            <div class="overlay"></div>
-                            <div class="text">
-                                <h6 class="white">{{content.title}}</h6>
-                            </div>
-                        </a>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
-        </section>
-        <!--blogs-->
-        <!-- HERO BANNER END -->
-        <!-- modal-popup area start  -->
-        <div class="modal fade" id="videoModal" role="dialog" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="top_bar">
-                        <h4 class="modal-title">{{the_content.title}} 4</h4>
-                        <button type="button"
-                                class="close"
-                                id="closeVideoModalButton"
-                                data-dismiss="modal"
-                                aria-label="Close">
-                            <span aria-hidden="true"><i class="fas fa-times"></i> <b>Close</b></span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <video controls title="Video">
-                            <source src="{{ the_content.file_mp4.url }}" type="video/mp4">
-                        </video>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- modal-popup area end  -->
-        <!-- modal-popup area start  -->
-        <div class="modal fade" id="videoModal" role="dialog" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="top_bar">
-                        <h4 class="modal-title">{{ the_content.title }}</h4>
-                        <button type="button"
-                                class="close"
-                                id="closeVideoModalButton"
-                                data-dismiss="modal"
-                                aria-label="Close">
-                            <span aria-hidden="true"><i class="fas fa-times"></i> <b>Close</b></span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <video controls title="Video">
-                            <source src="{{ the_content.file_mp4.url }}" type="video/mp4">
-                            <a href="/" aria-label="logo image">
-                                <img src="{% static 'assets/media/user/logo.png' %}" alt="logo">
-                            </a>
-                        </video>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <form class="d-none">
-            <input type="hidden" id="videoFiles" value='[{"file": "{{ the_content.file_mp4.url }}", "label": "720p"}]' />
-            <input type="hidden" id="posterImage" value="{{ the_content.img_detail_poster.url }}" />
-        </form>
-        <!-- modal-popup area end  -->
-    {% endblock content %}
-    {% block extra_js %}
-    <style>
-    .video-container {
-        width: 100%;
-        background: #000;
-        position: relative;
-    }
-    video::-webkit-media-controls-fullscreen-button,
-    video::-webkit-media-controls-play-button,
-    video::-webkit-media-controls-timeline,
-    video::-webkit-media-controls-current-time-display,
-    video::-webkit-media-controls-time-remaining-display,
-    video::-webkit-media-controls-time-remaining-display,
-    video::-webkit-media-controls-mute-button,
-    video::-webkit-media-controls-toggle-closed-captions-button,
-    video::-webkit-media-controls-volume-slider {
-        display: flex;
-    }
-    </style>
-    <script>
-        $(document).ready(function () {
-            const video_url = JSON.parse($('#videoFiles').val());
-            const poster_url = $('#posterImage').val();
-        
-            console.log('video_url:', video_url);
-            console.log('poster_url:', poster_url);
-        
-            Init.VideoPlayer(video_url, poster_url);
-            Init.videoPlay();
-        });
-        
-    </script>
-    {% endblock extra_js %}
-    
+                        </div>
+                           <div class="single-video-title box mb-3">
+                              <h2><a href="#">{{the_content.title}}</a></h2>
+                              <p class="mb-0"><i class="fas fa-eye"></i> {{the_content.watch_times}} views</p>
+                           </div>
+                         
+                           <div class="single-video-info-content box mb-3">
+                              <h6>Category :</h6>
+                              <p>{{the_content.category}}</p>
+                              <h6>About :</h6>
+                              <p>{{the_content.description}}</p>
+                              <h6>Tags :</h6>
+                              {% comment %} <p class="tags mb-0">
+                                 <span><a href="#">Uncharted 4</a></span>
+                                 <span><a href="#">Playstation 4</a></span>
+                                 <span><a href="#">Gameplay</a></span>
+                                 <span><a href="#">1080P</a></span>
+                                 <span><a href="#">ps4Share</a></span>
+                                 <span><a href="#">+ 6</a></span>
+                              </p> {% endcomment %}
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-12">
+                        <div class="single-video-right">
+                            <h3>Related Videos</h3>
+                           <div class="row">
+                               <div class="col-md-12 row">
+
+                               {% for video in other_contents %}
+                               {% if video.category == the_content.category and video.id != the_content.id %}
+                                  <div class="video-card video-card-list col-md-4">
+                                     <div class="video-card-image">
+                                        <a class="play-icon" href="{% url 'content:content_detail_view' video.slug %}"><i class="fas fa-play-circle"></i></a>
+                                        {% if video.img_poster %}
+                                        <a href="{% url 'content:content_detail_view' video.slug %}"><img class="img-fluid" src="{{ video.img_poster.url }}" alt="{{ video.title }}"></a>
+                                        {% else %}
+                                        <a href="{% url 'content:content_detail_view' video.slug %}"><img class="img-fluid" src="{% static 'assets/media/anime/anime-01.jpg' %}" alt="{{ video.title }}"></a>
+                                        {% endif %}
+                                        {% if video.duration %}
+                                        <div class="time">{{ video.duration }}</div>
+                                        {% endif %}
+                                     </div>
+                                     <div class="video-card-body">
+                                        <div class="video-title">
+                                           <a href="{% url 'content:content_detail_view' video.slug %}">{{ video.title }}</a>
+                                        </div>
+                                        <div class="video-page text-success">
+                                           {{ video.category }}
+                                        </div>
+                                        <div class="video-view">
+                                           {{ video.watch_times }} views
+                                        </div>
+                                     </div>
+                                  </div>
+                               {% endif %}
+                               {% endfor %}
+                               </div>
+
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+{% endblock content %}

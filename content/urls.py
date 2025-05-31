@@ -16,4 +16,5 @@ urlpatterns = [
     # path("watch-show/<slug>/", show_detail, name="show_detail"),
     path("watch/<content_slug>/<episode_slug>/", episode_detail, name="episode_detail"),
     path("category/<category_slug>/", category, name="category"),
+    path("search/", search_videos, name="search"),
 ]

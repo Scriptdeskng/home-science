@@ -30,6 +30,8 @@ from django.core.cache import cache
 
 # from ratelimit.decorators import ratelimit
 
+from django.db.models import Q
+
 
 # Create your views here.
 
@@ -58,7 +60,7 @@ class Homepage(View):
         ).only("id", "title", "watch_times", "trailer_mp4")
 
         # Order by watch times descending for featured_content and ascending for featured_content_2
-        featured_content = featured_content_queryset.order_by("?").first()
+        featured_content = featured_content_queryset.order_by("?")[:12]
 
         # Cache the results for 1 hour
         # cache.set("featured_content", featured_content, timeout=60 * 60)  # 1 hour
@@ -138,7 +140,7 @@ class AllContentsView(View):
         template = "content/view-all.html"
 
         context = {
-            "contents": contents,
+            "all_contents": contents,
         }
 
         return render(request, template, context)
@@ -177,9 +179,20 @@ class AllEpisodesContentsView(View):
 def content_detail_view(request, slug=None):
     the_content = get_object_or_404(Content, slug=slug)
 
-    other_contents = Content.objects.filter(verified=True).exclude(
-        slug=the_content.slug
-    )
+    # Get all related videos with same category
+    related_videos = Content.objects.filter(
+        category=the_content.category, verified=True
+    ).exclude(id=the_content.id)
+
+    # Paginate related videos
+    paginator = Paginator(related_videos, 6)  # Show 6 videos per page
+    page = request.GET.get("page")
+    try:
+        other_contents = paginator.page(page)
+    except PageNotAnInteger:
+        other_contents = paginator.page(1)
+    except EmptyPage:
+        other_contents = paginator.page(paginator.num_pages)
 
     try:
         the_content.watch_times += 1
@@ -304,3 +317,34 @@ def getRequestInfo(request):
 
 def echoView(request):
     return HttpResponse("YES, MAGICBOXX IS LIVE !!")
+
+
+def search_videos(request):
+    query = request.GET.get("q", "")
+    if query:
+        results = (
+            Content.objects.filter(
+                Q(title__icontains=query)
+                | Q(description__icontains=query)
+                | Q(category__name__icontains=query),
+                verified=True,
+            )
+            .distinct()
+            .order_by("-upload_date")
+        )
+    else:
+        results = Content.objects.filter(verified=True).order_by("-upload_date")
+
+    # Paginate results
+    paginator = Paginator(results, 20)  # Show 20 videos per page
+    page = request.GET.get("page")
+    try:
+        results = paginator.page(page)
+    except PageNotAnInteger:
+        results = paginator.page(1)
+    except EmptyPage:
+        results = paginator.page(paginator.num_pages)
+
+    context = {"query": query, "results": results}
+
+    return render(request, "content/search_results.html", context)

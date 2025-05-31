@@ -1,78 +1,77 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport"
-              content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="Home Recipe">
-        <title>Home Recipe</title>
-        <!-- Favicon -->
-        <link rel="shortcut icon"
-              type="image/x-icon"
-              href="{% static 'assets/media/favicon/favicon.png' %}">
-        <!-- All CSS files -->
-        <link rel="stylesheet"
-              href="{% static 'assets/css/vendor/font-awesome.css' %}">
-        <link rel="stylesheet"
-              href="{% static 'assets/css/vendor/bootstrap.min.css' %}">
-        <link rel="stylesheet" href="{% static 'assets/css/vendor/slick.css' %}">
-        <link rel="stylesheet"
-              href="{% static 'assets/css/vendor/slick-theme.css' %}">
-        <link rel="stylesheet" href="{% static 'assets/css/app.css' %}">
-        <link rel="stylesheet"
-              href="{% static 'assets/css/vendor/aksVideoPlayer.css' %}">
-    </head>
-    <body class="tt-smooth-scroll x-hidden">
-        <!-- Preloader-->
-        <div id="preloader">
-            <div class="loader"></div>
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="Askbootstrap">
+      <meta name="author" content="Askbootstrap">
+      <title>
+      {% block page_title %}
+        
+      {% endblock page_title %} | Home Recipe
+        </title>
+      <!-- Favicon Icon -->
+      <link rel="icon" type="image/png" href="img/favicon.png">
+      <!-- Bootstrap core CSS-->
+      <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+      <!-- Custom fonts for this template-->
+      <link href="{% static 'assets/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+      <!-- Custom styles for this template-->
+      <link href="{% static 'assets/css/osahan.css' %}" rel="stylesheet">
+      <!-- Owl Carousel -->
+      <link rel="stylesheet" href="{% static 'assets/vendor/owl-carousel/owl.carousel.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/vendor/owl-carousel/owl.theme.css' %}">
+   </head>
+    <body id="page-top">
+    {% include 'partials/_header.html' %}
+     <div id="wrapper">
+        {% include 'partials/_sidebar.html' %}
+        <div id="content-wrapper">
+        <div class="container-fluid pb-0">
+
+        {% block content %}
+        
+        {% endblock content %}
         </div>
-        <!-- Preloader-->
-        <!-- Main Wrapper Start -->
-        <div id="scroll-container">
-            {% include 'partials/_header.html' %}
-            {% block content %}
-            {% endblock content %}
-            {% include 'partials/_footer.html' %}
-        </div>
-        <!-- Main Wrapper End -->
-        <!-- Back To Top Start -->
-        <button class="scrollToTopBtn">
-            <i class="fa fa-arrow-up"></i>
-        </button>
-        <!-- Mobile Menu Start -->
-        <div class="mobile-nav__wrapper">
-            <div class="mobile-nav__overlay mobile-nav__toggler"></div>
-            <div class="mobile-nav__content">
-                <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
-                <div class="logo-box">
-                    <a href="index.html" aria-label="logo image">
-                        <img src="{% static 'assets/media/user/logo.png' %}" alt="logo">
-                    </a>
-                </div>
-                <div class="mobile-nav__container"></div>
-                {% comment %} <ul class="mobile-nav__contact list-unstyled">
-                    <li>
-                        <i class="fa-thin fa-envelope"></i>
-                        <a href="mailto:example@company.com">example@company.com</a>
-                    </li>
-                    <li>
-                        <i class="fa-light fa-phone-volume"></i>
-                        <a href="tel:+12345678">+123 (4567) -890</a>
-                    </li>
-                </ul> {% endcomment %}
-            </div>
-        </div>
-        <!-- Mobile Menu End -->
-        <!-- Jquery Js -->
-        <script src="{% static 'assets/js/vendor/bootstrap.min.js' %}"></script>
-        <script src="{% static 'assets/js/vendor/jquery-3.6.3.min.js' %}"></script>
-        <script src="{% static 'assets/js/vendor/slick.min.js' %}"></script>
-        <script src="{% static 'assets/js/vendor/aksVideoPlayer.js' %}"></script>
-        <script src="{% static 'assets/js/app.js' %}"></script>
-        {% block extra_js %}
-        {% endblock extra_js %}
-    </body>
+         <!-- /.container-fluid -->
+            <!-- Sticky Footer -->
+            <footer class="sticky-footer">
+               <div class="container">
+                  <div class="row no-gutters">
+                     <div class="col-lg-6 col-sm-6">
+                        <p class="mt-1 mb-0">&copy; Copyright <script>document.write(new Date().getFullYear())</script> <strong class="text-dark">Home Recipe</strong>. All Rights Reserved<br>
+                         
+                        </p>
+                     </div>
+                     {% comment %} <div class="col-lg-6 col-sm-6 text-right">
+                        <div class="app">
+                           <a href="#"><img alt="" src="img/google.png"></a>
+                           <a href="#"><img alt="" src="img/apple.png"></a>
+                        </div>
+                     </div> {% endcomment %}
+                  </div>
+               </div>
+            </footer>
+
+         <!-- /.content-wrapper -->
+      </div>
+
+       <!-- /#wrapper -->
+      <!-- Scroll to Top Button-->
+      <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+      </a>
+     
+      <!-- Bootstrap core JavaScript-->
+      <script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
+      <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+      <!-- Core plugin JavaScript-->
+      <script src="{% static 'assets/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+      <!-- Owl Carousel -->
+      <script src="{% static 'assets/vendor/owl-carousel/owl.carousel.js' %}"></script>
+      <!-- Custom scripts for all pages-->
+      <script src="{% static 'assets/js/custom.js' %}"></script>
+   </body>
 </html>
