@@ -1,29 +1,42 @@
 {% load static %}
 <nav class="navbar navbar-expand navbar-light bg-white static-top osahan-nav sticky-top">
-         &nbsp;&nbsp; 
-         <button class="btn btn-link btn-sm text-secondary order-1 order-sm-0" id="sidebarToggle">
-         <i class="fas fa-bars"></i>
-         </button> &nbsp;&nbsp;
-         <a class="navbar-brand mr-1" href="/"><img class="img-fluid" alt="" src="{% static 'assets/img/logo.png' %}"></a>
-         <!-- Navbar Search -->
-         <form action="{% url 'content:search' %}" method="GET" class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-5 my-2 my-md-0 osahan-navbar-search">
-            <div class="input-group">
-               <input type="text" name="q" class="form-control" placeholder="Search videos..." value="{{ request.GET.q }}">
-               <div class="input-group-append">
-                  <button class="btn btn-light" type="submit">
-                  <i class="fas fa-search"></i> 
-                  </button>
-               </div>
+    &nbsp;&nbsp;
+    <button class="btn btn-link btn-sm text-secondary order-1 order-sm-0"
+            id="sidebarToggle">
+        <i class="fas fa-bars"></i>
+    </button>
+    &nbsp;&nbsp;
+    <a class="navbar-brand mr-1" href="/">
+        <img class="img-fluid"
+             style="width: 100px;
+                    object-fit: cover"
+             alt=""
+             src="{% static 'assets/img/logo.png' %}">
+    </a>
+    <!-- Navbar Search -->
+    <form action="{% url 'content:search' %}"
+          method="GET"
+          class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-5 my-2 my-md-0 osahan-navbar-search">
+        <div class="input-group">
+            <input type="text"
+                   name="q"
+                   class="form-control"
+                   placeholder="Search videos..."
+                   value="{{ request.GET.q }}">
+            <div class="input-group-append">
+                <button class="btn btn-light" type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
             </div>
-         </form>
-         <!-- Navbar -->
-         <ul class="navbar-nav ml-auto ml-md-0 osahan-right-navbar">
-            <li class="nav-item mx-1">
-               <a class="nav-link" href="#">
-               <i class="fas fa-plus-circle fa-fw"></i>
-               {{msisdn}}
-               </a>
-            </li>
-            
-         </ul>
-      </nav>
+        </div>
+    </form>
+    <!-- Navbar -->
+    <ul class="navbar-nav ml-auto ml-md-0 osahan-right-navbar">
+        <li class="nav-item mx-1">
+            <a class="nav-link" href="#">
+                <i class="fas fa-plus-circle fa-fw"></i>
+                {{ msisdn }}
+            </a>
+        </li>
+    </ul>
+</nav>
