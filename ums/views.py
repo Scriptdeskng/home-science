@@ -436,7 +436,6 @@ def get_cr_data(request):
 
 
 ### Web Partners Promo URL
-
 def mobplus_campaign_url(request):
     try:
         partner = request.GET.get("partner", None)
