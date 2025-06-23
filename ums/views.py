@@ -2,11 +2,12 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.http import require_POST
 
-from django.shortcuts import render, redirect
+from django.shortcuts import render, get_object_or_404, HttpResponse, redirect, HttpResponseRedirect
 
 from django.views.decorators.csrf import csrf_exempt
 
 from django.db.models import Sum
+from dateutil.relativedelta import relativedelta
 
 
 from datetime import datetime
@@ -21,38 +22,17 @@ from django.utils.crypto import get_random_string
 
 import requests
 
+import logging
 
-# def subscribe(request):
-#     N = 7
 
-#     # using random.choices()
-#     # generating random strings
-#     res = "".join(random.choices(string.ascii_lowercase + string.digits, k=N))
-
-#     redirect_url = f"http://ng-app.com/CloudIntegrated/MagicBox-168-No-23410220000022702-web?trxId={res}"
-
-#     return redirect(redirect_url)
+logger = logging.getLogger(__name__)
 
 
 def subscribe(request):
     try:
-
-        # fetch msisdn
-        # if mtn, use secureD redirect
-
-        if "Msisdn" in request.headers:
-            msisdn = request.headers["Msisdn"]
-            # get user msisdn
-
-            print(f"redirecting {msisdn} to secureD DUI")
-
-        # send to secureD for redirection
-        # N = 7
-        # res = "".join(random.choices(string.ascii_lowercase + string.digits, k=N))
         res = get_random_string(length=48)
         traffic_source = "Organic Search"
-        # redirect_url = f"http://ng-app.com/CloudIntegrated/MagicBox-168-No-23410220000022702-web?trfsrc={traffic_source}&trxId={res}"
-        redirect_url = f"http://ng-app.com/CloudIntegrated/magicbox-daily-en-doi-web?origin_banner=1&trfsrc={traffic_source}&trxId={res}"
+        redirect_url = f"http://ng-app.com/AVANZAR/homerecipe-landing-en-doi-web?origin_banner=1&trxId={res}&trfsrc={traffic_source}"
         return redirect(redirect_url)
     except Exception as ex:
         print(ex)
@@ -86,12 +66,7 @@ def cancelSubscribtion(request):
 
 
 def after_signup(request):
-    # get user msisdn
-    # msisdn = request.user.profile.phone
-    # sub = mtnSubscribe(msisdn)
-    # print(sub)
-    # check subscription status
-    ###########
+   
 
     return redirect("users:awaiting_response")
 
@@ -129,229 +104,22 @@ def inactive_account(request):
     return render(request, template, context)
 
 
-# DATA SYNC
-@require_POST
-@csrf_exempt
-def data_sync(request):
-    print("Receiving from HML datasync")
-
-    the_data = json.loads(request.body)
-    print(the_data)
-
-    try:
-        new_sync = WebhookBackup.objects.create(
-            req_body=f"{request.body}", operator="HML"
-        )
-    except:
-        pass
-
-    try:
-        new_sync_data = DataSync.objects.create(
-            type=the_data["type"],
-            telco=the_data["telco"],
-            product_id=the_data["product"]["id"],
-            product_name=the_data["product"]["name"],
-            product_not_type=the_data["product"]["type"],
-            product_sub_type=the_data["product"]["subscription_type"],
-            phone=the_data["details"]["phone"],
-            telco_ref=the_data["details"]["telco_ref"],
-            operator="HML",
-        )
-        if the_data["details"]["amount"]:
-            new_sync_data.amount = int(the_data["details"]["amount"]) / 100
-        if the_data["details"]["channel"]:
-            new_sync_data.channel = the_data["details"]["channel"]
-        if the_data["details"]["date"]:
-            new_sync_data.sub_date = the_data["details"]["date"]
-        if the_data["details"]["auto_renewal"]:
-            new_sync_data.auto_renewal = the_data["details"]["auto_renewal"]
-        if the_data["details"]["expiry"]:
-            new_sync_data.sub_expiry = the_data["details"]["expiry"]
-        if the_data["details"]["bearerId"]:
-            new_sync_data.bearer_id = the_data["details"]["bearerId"]
-        if new_sync:
-            new_sync_data.webhook_backup = new_sync
-
-        new_sync_data.save()
-    except Exception as ex:
-        print("saving datasync error", ex)
-        pass
-
-    if the_data["telco"] == "MTN":
-        not_type = the_data["type"]  # UNSUBSCRIPTION_NOTIFICATION, SYNC_NOTIFICATION
-        msisdn = the_data["details"]["phone"]
-        # "%Y-%m-%dT%H:%M:%S.%fZ",
-
-        prod_type = the_data["product"]["type"]
-        # sub_type = the_data["product"]["subscription_type"]
-        print("prod_type", prod_type)
-
-        if msisdn.startswith("0") and len(msisdn) == 11:
-            msisdn = msisdn.replace("0", "234", 1)
-
-        # fetch user
-        theUser, user_created = UserProfile.objects.get_or_create(phone=msisdn)
-        userSub, sub_created = UserSubscribtion.objects.get_or_create(user=theUser)
-        if not_type == "SYNC_NOTIFICATION":
-
-            """
-            b'{"type":"SYNC_NOTIFICATION","telco":"MTN","action":"NONE","shortcode":null,"product":{"id":70,"name":"Magic Box Daily","identity":"PD-16541987951000","type":"SUBSCRIPTION","subscription_type":"ONETIME_AND_RECURRING","status":"LIVE"},"details":{"phone":"2348130801443","amount":5000,"channel":"SecureD","date":"2023-01-07 08:57","expiry":"2023-01-08 08:57","auto_renewal":true,"telco_status_code":"0","telco_ref":"upstream_paid_f562330523f48921"}}'
-            """
-
-            start_date = the_data["details"]["date"]
-            start_datetime = datetime.strptime(start_date, "%Y-%m-%d %H:%M")
-            end_date = the_data["details"]["expiry"]
-            end_datetime = datetime.strptime(end_date, "%Y-%m-%d %H:%M")
-
-            sub_amount = "0.35"
-
-            userSub.sub_active = True
-            userSub.starts_date = start_datetime
-            userSub.ends_date = end_datetime
-
-            try:
-                if not sub_created:
-                    userSub.first_sub = True
-                    if the_data["details"]["auto_renewal"] == True:
-                        userSub.auto_renewal = True
-            except:
-                pass
-            userSub.save()
-
-            theUser.sub_status = "active"
-            theUser.save()
-
-            # try mobplus
-            try:
-                find_mobplus_promo_msisdn_qs = CampaignTracker.objects.filter(
-                    msisdn=msisdn, provider=choices.CampaignProvider.MOBPLUS.value
-                )
-                if find_mobplus_promo_msisdn_qs.exists():
-                    find_promo_msisdn = find_mobplus_promo_msisdn_qs.last()
-                    postbackUrl = f"http://m.mobplus.net/c/p/5085e36b2e1e4d909b1a732a9841c965?txid={find_promo_msisdn.click_id}&pubid={find_promo_msisdn.pubid}&amt={sub_amount}&currency={find_promo_msisdn.currency}"
-                    send_postback = requests.get(postbackUrl)
-                    find_promo_msisdn.converted = True
-                    find_promo_msisdn.amt = sub_amount
-                    find_promo_msisdn.save()
-                    new_sync_data.campaign_tracker = find_promo_msisdn
-                    new_sync_data.save()
-                    print(send_postback)
-            except Exception as ex:
-                print("mobplus exception", ex)
-                pass
-
-            try:
-                # check campaign tracker is msisdn is there
-                find_neth_promo_msisdn_qs = CampaignTracker.objects.filter(
-                    msisdn=msisdn, provider=choices.CampaignProvider.NETH.value
-                )
-                if find_neth_promo_msisdn_qs.exists():
-                    find_promo_msisdn = find_neth_promo_msisdn_qs.last()
-
-                    postbackUrl = f"https://postback.level23.nl/?currency=USD&handler=11349&hash=63857b26c564dd6b79e5a2fb1bb209e8&tracker={find_promo_msisdn.click_id}"
-
-                    send_postback = requests.get(postbackUrl)
-                    find_promo_msisdn.converted = True
-                    find_promo_msisdn.amt = sub_amount
-                    find_promo_msisdn.save()
-                    new_sync_data.campaign_tracker = find_promo_msisdn
-                    new_sync_data.save()
-                    print(send_postback)
-            except Exception as ex:
-                print("neth exception is ", ex)
-                pass
-
-            return JsonResponse({"status": 200, "message": "ok"})
-
-        elif not_type == "UNSUBSCRIPTION_NOTIFICATION":
-            print("this is a unsubscribtion request")
-            userSub.sub_active = False
-            userSub.save()
-
-            theUser.sub_status = "inactive"
-            theUser.save()
-
-            print("done with unsubscribtion")
-            return JsonResponse({"status": 200, "message": "ok"})
-        elif not_type == "RENEWAL_NOTIFICATION":
-
-            """
-            b'{"type":"RENEWAL_NOTIFICATION","telco":"MTN","action":"NONE","shortcode":null,"product":{"id":70,"name":"Magic Box Daily","identity":"PD-16541987951000","type":"SUBSCRIPTION","subscription_type":"ONETIME_AND_RECURRING","status":"LIVE"},"details":{"phone":"2347047344879","amount":5000,"channel":"system-renewal","date":"2023-01-07 08:58","expiry":"2023-01-08 08:58","auto_renewal":true,"telco_status_code":"0","telco_ref":"upstream_paid_2617724eebdbc3e8"}}'
-            """
-            start_date = the_data["details"]["date"]
-            start_datetime = datetime.strptime(start_date, "%Y-%m-%d %H:%M")
-            end_date = the_data["details"]["expiry"]
-            end_datetime = datetime.strptime(end_date, "%Y-%m-%d %H:%M")
-
-            userSub.sub_active = True
-
-            userSub.starts_date = start_datetime
-            userSub.ends_date = end_datetime
-
-            try:
-                userSub.first_sub = False
-                userSub.renewal_sub = True
-                if the_data["details"]["auto_renewal"] == True:
-                    userSub.auto_renewal = True
-            except:
-                pass
-            userSub.save()
-
-            theUser.sub_status = "active"
-            theUser.save()
-
-            return JsonResponse({"status": 200, "message": "ok"})
-
-        else:
-            return JsonResponse({"status": 200, "message": "ok"})
-    else:
-        return JsonResponse({"status": 200, "message": "ok"})
-
-
 # CampaignNotificationBackup
 @require_POST
 @csrf_exempt
 def campaign_notification(request):
-    try:
-        the_data = json.loads(request.body)
-        print(the_data)
-
-        try:
-            new_sync = CampaignNotificationBackup.objects.create(
-                req_body=f"{request.body}"
-            )
-        except:
-            pass
-    except Exception as e:
-        print("error", e)
-        pass
-
+    CampaignNotificationBackup.objects.create(
+        req_body=f"{request.body}"
+    )
     return HttpResponse(200)
 
 
-def pullData(request):
-    try:
-        allSub = UserSubscribtion.objects.all()
-        allSubCount = allSub.count()
-        print("allsub count", allSubCount)
 
-        allActiveSubCount = allSub.filter(sub_active=True).count()
-        print("allActiveSub count", allActiveSubCount)
-
-        allRenewalSub = allSub.filter(renewal_sub=True, first_sub=False).count()
-        print("all renewal sub", allRenewalSub)
-
-    except Exception as e:
-        pass
-
-    return HttpResponse(200)
 
 
 def generate_report(request):
-    from .tasks import fetch_report, subscribtion_source_report
-
-    fetch_report.delay()
-    subscribtion_source_report.delay()
+    tasks.fetch_report.delay()
+    tasks.subscribtion_source_report.delay()
 
     return HttpResponse(200)
 
@@ -523,51 +291,12 @@ def fetch_stats(request):
 # Forthsoft
 
 
-# DATA SYNC
 @require_POST
 @csrf_exempt
 def data_sync_v2(request):
-    from .tasks import process_datasync
-
-    print("Receiving from Forthsoft datasync")
-
-    try:
-        # Check if request body is empty
-        if not request.body:
-            return JsonResponse({"status": 400, "message": "Empty request body"})
-
-        # Try to decode the request body
-        try:
-            request_body = request.body.decode("utf-8")
-        except UnicodeDecodeError:
-            return JsonResponse(
-                {"status": 400, "message": "Invalid request body encoding"}
-            )
-
-        # Try to parse as JSON
-        try:
-            the_data = json.loads(request_body)
-        except json.JSONDecodeError as e:
-            return JsonResponse(
-                {
-                    "status": 400,
-                    "message": f"Invalid JSON format: {str(e)}",
-                    "received_data": request_body[
-                        :200
-                    ],  # First 200 chars for debugging
-                }
-            )
-
-        # Process the data
-        process_datasync.apply_async(args=[the_data], countdown=45)
-
-        return JsonResponse({"status": 200, "message": "ok"})
-
-    except Exception as e:
-        print(f"Error in data_sync_v2: {str(e)}")
-        return JsonResponse(
-            {"status": 500, "message": "Internal server error", "error": str(e)}
-        )
+    the_data = json.loads(request.body)
+    tasks.process_datasync.delay(the_data)
+    return JsonResponse({"status": 200, "message": "ok"})
 
 
 def reconcile_subscribtions(request):
@@ -703,3 +432,72 @@ def get_cr_data(request):
         "CR": cr,
     }
     return JsonResponse(data)
+
+
+
+### Web Partners Promo URL
+
+def mobplus_campaign_url(request):
+    try:
+        partner = request.GET.get("partner", None)
+        click_id = request.GET.get("clickid", None)
+        telco = request.GET.get("telco", None)
+        pubid = request.GET.get("pubid", None)
+
+        unique_sub_ref = get_random_string(length=48)
+        msisdn = request.headers.get("Msisdn")
+        if not msisdn:
+            traffic_source = "OrganicSource"
+            redirect_url = f"http://ng-app.com/AVANZAR/homerecipe-landing-en-doi-web?origin_banner=1&trxId={unique_sub_ref}&trfsrc={traffic_source}"
+            return HttpResponseRedirect(redirect_url)
+
+        if msisdn.startswith("0") and len(msisdn) == 11:
+            msisdn = msisdn.replace("0", "234", 1)
+
+        new_promo_hit = CampaignTracker.objects.filter(
+            click_id=click_id, provider=choices.CampaignProvider.MOBPLUS.value
+        ).last()
+        if not new_promo_hit:
+            new_promo_hit = CampaignTracker.objects.create(
+                click_id=click_id,
+                msisdn=msisdn,
+                provider=choices.CampaignProvider.MOBPLUS.value,
+                currency="USD",
+            )
+
+        if any([partner, telco, pubid]):
+            new_promo_hit.partner = partner or new_promo_hit.partner
+            new_promo_hit.telco = telco or new_promo_hit.telco
+            new_promo_hit.pubid = pubid or new_promo_hit.pubid
+            # new_promo_hit.save() 
+        
+
+        user_prof = UserProfile.objects.filter(phone=msisdn).first()
+        if user_prof:
+            # check if user has active subscribtion
+            now = timezone.now()
+            one_month_ago = now - relativedelta(hours=24)
+            # user deactivated active subscribtion
+            user_sub = UserSubscribtion.objects.filter(user=user_prof).first()
+            if user_sub.ends_date and user_sub.ends_date <= one_month_ago:
+                tasks.handle_remarketing.apply_async(
+                args=[msisdn, choices.CampaignProvider.MOBPLUS.value],
+                countdown=120,
+                )
+                # redirect to secured D
+                new_promo_hit.is_convertable = False
+                ### redirect as organic source
+                traffic_source = "OrganicSource"
+                redirect_url = f"http://ng-app.com/AVANZAR/homerecipe-landing-en-doi-web?origin_banner=1&trxId={unique_sub_ref}&trfsrc={traffic_source}"
+                return HttpResponseRedirect(redirect_url)
+            else:
+                return redirect("core:home")
+
+        new_promo_hit.save()
+        tasks.handle_occurence.delay(new_promo_hit.id)
+        traffic_source = "MobPlus"
+        redirect_url = f"http://ng-app.com/AVANZAR/homerecipe-landing-en-doi-web?origin_banner=1&trxId={unique_sub_ref}&trfsrc={traffic_source}"
+        return HttpResponseRedirect(redirect_url)
+    except Exception as ex:
+        logger.error("exception occurred", exc_info=True)
+        return redirect("core:home")

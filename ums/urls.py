@@ -12,7 +12,6 @@ urlpatterns = [
     path("subscribe/", subscribe, name="subscribe"),
     path("cancelSubscribtion/", cancelSubscribtion, name="cancelSubscribtion"),
     path("inactive_account/", inactive_account, name="inactive_account"),
-    path("data_sync_endpoint/", data_sync, name="data_sync_endpoint"),
     path("data-sync/", data_sync_v2, name="data_sync_v2"),
     path("campaign_notification/", campaign_notification, name="campaign_notification"),
     path("generate_report/", generate_report, name="generate-report"),
@@ -55,4 +54,7 @@ urlpatterns = [
         get_cr_data,
         name="get_cr_data",
     ),
+
+    #web promos 
+    path("campaign/mobplus/", mobplus_campaign_url, name="campaign-mobplus"),
 ]

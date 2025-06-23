@@ -1,34 +1,14 @@
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, get_object_or_404, redirect, HttpResponse
-from django.views.defaults import page_not_found
+
+from django.shortcuts import render, get_object_or_404, HttpResponse
+
 from django.views.generic import View
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from .models import *
-from dateutil.relativedelta import relativedelta
-from django.utils import timezone
-from ums.models import (
-    Subscribtion,
-    CampaignTracker,
-    UserProfile,
-    UserSubscribtion,
-    CampaignDuplicate,
-)
+
 import json
 from django.http import JsonResponse
 from ums.decorators import allowed_users
 from .context_processor import fetch_msisdn
-
-from ums import choices as ums_choices
-from ums.subscriptionManager import HML
-
-from ums.tasks import handle_occurence, handle_remarketing
-
-import string, random
-
-from django.utils.crypto import get_random_string
-from django.core.cache import cache
-
-# from ratelimit.decorators import ratelimit
 
 from django.db.models import Q
 
@@ -175,7 +155,7 @@ class AllEpisodesContentsView(View):
         return render(request, template, context)
 
 
-# @allowed_users
+@allowed_users
 def content_detail_view(request, slug=None):
     the_content = get_object_or_404(Content, slug=slug)
 
@@ -251,9 +231,9 @@ def episode_detail(request, content_slug=None, episode_slug=None):
 
 # @allowed_users
 def category(request, category_slug=None):
-    print(category_slug)
+
     the_category = ContentCategory.objects.filter(slug=category_slug).first()
-    print(the_category)
+
     the_contents = Content.objects.filter(category=the_category, verified=True).all()
 
     paginator = Paginator(the_contents, 20)
@@ -308,10 +288,9 @@ def faqPage(request):
 def getRequestInfo(request):
 
     theheaders = json.dumps(dict(request.headers))
-    print(theheaders)
-    print(type(theheaders))
+   
     returnData = {"MSISDN": theheaders}
-    # print(returnData)
+
     return JsonResponse(returnData)
 
 
