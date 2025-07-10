@@ -294,9 +294,16 @@ def fetch_stats(request):
 @require_POST
 @csrf_exempt
 def data_sync_v2(request):
-    the_data = json.loads(request.body)
-    tasks.process_datasync(the_data)
-    return JsonResponse({"status": 200, "message": "ok"})
+    try:
+        WebhookBackup.objects.create(
+                req_body=f"{request.body}"
+            )
+        the_data = json.loads(request.body)
+        tasks.process_datasync(the_data)
+        return JsonResponse({"status": 200, "message": "ok"})
+    except Exception as ex:
+        print(ex)
+        return JsonResponse({"status": 400, "error": "Unable to process request", "details": str(ex)}, status=400)
 
 
 def reconcile_subscribtions(request):
