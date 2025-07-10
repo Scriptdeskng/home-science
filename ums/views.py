@@ -295,7 +295,7 @@ def fetch_stats(request):
 @csrf_exempt
 def data_sync_v2(request):
     the_data = json.loads(request.body)
-    tasks.process_datasync.delay(the_data)
+    tasks.process_datasync(the_data)
     return JsonResponse({"status": 200, "message": "ok"})
 
 

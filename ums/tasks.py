@@ -676,7 +676,7 @@ def handle_postback_delay(provider: str, tracker_id, new_sync_data_id, user_sub_
 
 
 
-@shared_task
+# @shared_task
 def process_datasync(payload):
     try:
         new_sync_data = handle_datasync_payload(payload)
