@@ -84,11 +84,12 @@ ADMINS = (("HomeScience Support", "hello@zamari.tv"),)
 
 # CELERY related settings
 BROKER_URL = "amqp://localhost"
-# CELERY_RESULT_BACKEND = 'amqp://'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
 CELERY_ACCEPT_CONTENT = ["application/json"]
 CELERY_TASK_SERIALIZER = "json"
 CELERY_RESULT_SERIALIZER = "json"
 CELERY_TIMEZONE = "Africa/Lagos"
+CELERY_TASK_DEFAULT_QUEUE = "homerecipe"
 
 
 # AWS_ACCESS_KEY_ID = config("AWS_ACCESS_KEY_ID")
