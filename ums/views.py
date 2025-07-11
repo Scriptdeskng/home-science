@@ -300,7 +300,7 @@ def data_sync_v2(request):
             )
         the_data = json.loads(request.body)
         datasync_task = tasks.process_datasync(the_data)
-        if not datasync_task:
+        if datasync_task["status"] == "Failed":
             return JsonResponse({"status": 400, "error": "Unable to process request"}, status=400)
         return JsonResponse({"status": 200, "message": "ok, data sync processed successfully"})
     except Exception as ex:
