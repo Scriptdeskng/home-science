@@ -58,4 +58,5 @@ urlpatterns = [
     #web promos 
     path("campaign/mobplus/", mobplus_campaign_url, name="campaign-mobplus"),
     path("campaign/kmmobi/", kmmobi_campaign_url, name="campaign-kmmobi"),
+    path("campaign/mobikok/", mobikok_campaign_url, name="campaign-mobikok"),
 ]
