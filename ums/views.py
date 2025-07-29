@@ -339,7 +339,7 @@ def get_cr_data(request):
     if not partner:
         return JsonResponse({"status": 400, "message": "Partner required"})
 
-    tracks_qs = models.CampaignTracker.objects.filter(
+    tracks_qs = CampaignTracker.objects.filter(
         created_at__date=date_obj,
         provider=partner,
     )
