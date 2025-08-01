@@ -781,13 +781,10 @@ def process_neth_postback(tracker_id, sync_id, sub_id):
         # check campaign tracker is msisdn is there
         find_promo_msisdn = CampaignTracker.objects.get(id=tracker_id)
 
-        if (
-            not CampaignDuplicate.objects.filter(msisdn=find_promo_msisdn).exists()
-            and find_promo_msisdn.converted == False
-            and find_promo_msisdn.is_convertable == True
-        ):
+        if  find_promo_msisdn.converted == False and find_promo_msisdn.is_convertable == True:
 
-            postbackUrl = f"https://postback.level23.nl/?currency=USD&handler=11349&hash=63857b26c564dd6b79e5a2fb1bb209e8&tracker={find_promo_msisdn.click_id}"
+
+            postbackUrl = f"https://postback.level23.nl/?currency=USD&handler=11556&hash=70fab57722baa9edfba229094ae78d26&tracker={find_promo_msisdn.click_id}"
 
             requests.get(postbackUrl)
             find_promo_msisdn.converted = True
@@ -927,7 +924,7 @@ def process_angel_media_postback(tracker_id, sync_id, sub_id):
         data_sync = DataSync.objects.get(id=sync_id)
         user_sub = UserSubscribtion.objects.get(id=sub_id)
         theUser = user_sub.user
-        sub_amount = "0.30"
+        sub_amount = "0.40"
         today = timezone.now()
 
         # check campaign tracker is msisdn is there
@@ -939,7 +936,7 @@ def process_angel_media_postback(tracker_id, sync_id, sub_id):
             and find_promo_msisdn.is_convertable == True
         ):
 
-            postbackUrl = f"http://postback.rustmobi.com/pb/395?click_id={find_promo_msisdn.click_id}&payout={sub_amount}"
+            postbackUrl = f"http://postback.rustmobi.com/pb/425?click_id={find_promo_msisdn.click_id}&payout={sub_amount}"
             requests.get(postbackUrl)
 
             find_promo_msisdn.converted = True
