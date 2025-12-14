@@ -216,17 +216,17 @@ def campaign_behaviour(start_date, end_date):
     logger.info(start_date, end_date)
 
     if not (start_date or end_date):
-        logger.info(f"start or end date required")
+        logger.info("start or end date required")
         return
 
     start_date = datetime.strptime(start_date, "%Y-%m-%d")
     end_date = datetime.strptime(end_date, "%Y-%m-%d")
     logger.info(f"pulling reports between {start_date} and {end_date}")
     if end_date <= start_date:
-        logger.info(f"end date should be greater than start date")
+        logger.info("end date should be greater than start date")
         return
     if (end_date - start_date).days > 30:
-        logger.info(f"max days allowed is 30")
+        logger.info("max days allowed is 30")
         return
 
     # pull all datasync subscribtion for each provider
@@ -334,10 +334,10 @@ def campaign_behaviour_daily_report(start_date, end_date):
     end_date = datetime.strptime(end_date, "%Y-%m-%d")
     logger.info(f"pulling reports between {start_date} and {end_date}")
     if end_date <= start_date:
-        logger.info(f"end date should be greater than start date")
+        logger.info("end date should be greater than start date")
         return
     if (end_date - start_date).days > 30:
-        logger.info(f"max days allowed is 30")
+        logger.info("max days allowed is 30")
         return
 
     curr_path = os.path.dirname(os.path.realpath(__file__))
@@ -427,7 +427,7 @@ def campaign_behaviour_daily_report(start_date, end_date):
     logger.info(report_path, os.path.exists(report_path), filename)
 
     try:
-        EMAIL_SUBJECT = f"VES TV Campaign Behaviour Daily stats"
+        EMAIL_SUBJECT = "VES TV Campaign Behaviour Daily stats"
         REPORTING_MSG = """
             Hello Admin,
             Please find the attached stats report requested.
