@@ -818,3 +818,19 @@ def mobipium_campaign_url(request):
     except Exception:
         logger.error("exception occurred", exc_info=True)
         return redirect("content:home")
+
+def export_all_msisdn_query(request):
+
+    tasks.export_all_msisdns.delay()
+
+    return JsonResponse({"status": 200, "message": "Processing report!"})
+
+def export_user_msisdn_query(request):
+    month_num = request.GET.get("month")
+
+    tasks.export_user_msisdn.delay(month_num)
+
+    if not month_num:
+        return JsonResponse({"status": 400, "message": "Month required"})
+
+    return JsonResponse({"status": 200, "message": "Processing report!"})

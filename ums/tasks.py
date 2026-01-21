@@ -1403,3 +1403,112 @@ def campaign_partner_user_behaviour():
     except Exception as e:
         logger.error(traceback.format_exc())
         logger.error(e)
+
+
+@shared_task
+def export_user_msisdn(month_num):
+    try:
+        # fetch all users
+
+        today = date.today()
+        user_profs = UserProfile.objects.filter(
+            created_at__month=int(month_num),
+        ).distinct("phone")
+        curr_path = os.path.dirname(os.path.realpath(__file__))
+
+        report_path = os.path.join(curr_path, "reports/")
+
+        filename = f"{report_path}MSISDN_Exports_{today.strftime('%d/%m/%Y').replace('/', '')}.xlsx"
+
+        data_cols = ["MSISDN", "Date"]
+
+        data = {}
+
+        for dt in data_cols:
+            data[dt] = []
+
+        for val in user_profs.all():
+            print(f"{val.phone} - {val.created_at}")
+            data["Date"].append(val.created_at.strftime("%d/%m/%Y"))
+            data["MSISDN"].append(val.phone)
+
+        new_df = pd.DataFrame(
+            {key: pd.Series(value, dtype=object) for key, value in data.items()},
+            columns=data_cols,
+        )
+        new_df.to_excel(filename, index=False, header=True)
+
+        logger.info(report_path, os.path.exists(report_path), filename)
+
+        ### send email
+
+        EMAIL_SUBJECT = "Home Recipe MSISDN report"
+        REPORTING_MSG = """
+            Hello Admin,
+            Please find the attached report .
+            Regards.
+            """
+
+        send_email(
+            recipients=[
+                "olushola@scriptdeskng.com",
+                "olusoji200@gmail.com",
+                "support@avanzar.com.ng",
+                ###
+            ],
+            subject=EMAIL_SUBJECT,
+            body_text=REPORTING_MSG,
+            attachment=filename,
+            attachment_mime_type="text/plain",
+            quiet=False,
+        )
+
+    except Exception:
+        logger.error(traceback.format_exc())
+
+
+@shared_task
+def export_all_msisdns():
+    try:
+        # fetch all ended User Subscription
+
+        curr_path = os.path.dirname(os.path.realpath(__file__))
+
+        report_path = os.path.join(curr_path, "reports/")
+
+        filename = f"{report_path}msisdn_export.txt"
+
+        all_profiles = UserProfile.objects.filter(phone__isnull=False).all()
+        with open(filename, "w") as f:
+
+            for profile in all_profiles:
+                logger.info(f"{profile.phone}")
+                f.writelines(profile.phone + "\n")
+        f.close()
+        logger.info(f"done processing {all_profiles.count()}")
+
+        ### send email
+
+        EMAIL_SUBJECT = "Home Recipe Subscribers report"
+        REPORTING_MSG = """
+            Hello Admin,
+            Please find the attached all the msisdn export.
+            Regards.
+            """
+        send_email(
+            recipients=[
+                "olushola@scriptdeskng.com",
+                "olusoji200@gmail.com",
+                "support@avanzar.com.ng",
+                ###
+            ],
+            subject=EMAIL_SUBJECT,
+            body_text=REPORTING_MSG,
+            attachment=filename,
+            attachment_mime_type="text/plain",
+            quiet=False,
+        )
+
+    except Exception as e:
+        logger.error(traceback.format_exc())
+        logger.error(e)

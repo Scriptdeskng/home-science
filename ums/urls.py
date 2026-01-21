@@ -17,6 +17,16 @@ urlpatterns = [
     path("generate_report/", generate_report, name="generate-report"),
     path("fetch_stats/", fetch_stats, name="fetch_stats"),
     path(
+        "export_all_msisdn_query/",
+        export_all_msisdn_query,
+        name="export_all_msisdn_query",
+    ),
+    path(
+        "export_user_msisdn_query/",
+        export_user_msisdn_query,
+        name="export_user_msisdn_query",
+    ),
+    path(
         "pull_3rd_party_acquisition_report/",
         pull_3rd_party_acquisition_report,
         name="pull_3rd_party_acquisition_report",
@@ -54,12 +64,13 @@ urlpatterns = [
         get_cr_data,
         name="get_cr_data",
     ),
-
-    #web promos 
+    # web promos
     path("campaign/mobplus/", mobplus_campaign_url, name="campaign-mobplus"),
     path("campaign/kmmobi/", kmmobi_campaign_url, name="campaign-kmmobi"),
     path("campaign/mobikok/", mobikok_campaign_url, name="campaign-mobikok"),
-    path("campaign/angel-media/", angel_media_campaign_url, name="campaign-angel-media"),
+    path(
+        "campaign/angel-media/", angel_media_campaign_url, name="campaign-angel-media"
+    ),
     path("campaign/tc/", neth_campaign_url, name="campaign-neth"),
     path("campaign/shine/", shine_campaign_url, name="campaign-shine"),
     path("campaign/mobipium/", mobipium_campaign_url, name="campaign-mobipium"),
