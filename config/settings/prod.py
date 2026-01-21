@@ -61,14 +61,14 @@ DATABASES = {
 }
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = "smtp.sendgrid.net"
+EMAIL_HOST = "smtp.zeptomail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 
-AUTO_MAIL_FROM = config("AUTO_MAIL_FROM", "dev@rainfall.ng")
+AUTO_MAIL_FROM = config("AUTO_MAIL_FROM", "noreply@scriptdeskng.com")
 
-DEFAULT_FROM_EMAIL = "dev@rainfall.ng"
+DEFAULT_FROM_EMAIL = "noreply@scriptdeskng.com"
 
 EMAIL_SUBJECT_PREFIX = ["HomeScience"]
 
@@ -79,12 +79,12 @@ EMAIL_HOST_USER = "apikey"
 EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
 
 
-ADMINS = (("HomeScience Support", "hello@zamari.tv"),)
+ADMINS = (("HomeScience Support", "noreply@scriptdeskng.com"),)
 
 
 # CELERY related settings
 BROKER_URL = "amqp://localhost"
-CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+CELERY_RESULT_BACKEND = "redis://localhost:6379/0"
 CELERY_ACCEPT_CONTENT = ["application/json"]
 CELERY_TASK_SERIALIZER = "json"
 CELERY_RESULT_SERIALIZER = "json"
