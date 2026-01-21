@@ -1,4 +1,3 @@
-
 from django.shortcuts import render, get_object_or_404, HttpResponse
 
 from django.views.generic import View
@@ -189,7 +188,7 @@ def content_detail_view(request, slug=None):
             new_watched.count += 1
             new_watched.save()
 
-    except Exception as e:
+    except Exception:
         pass
 
     if the_content.category.slug == "series":
@@ -288,7 +287,7 @@ def faqPage(request):
 def getRequestInfo(request):
 
     theheaders = json.dumps(dict(request.headers))
-   
+
     returnData = {"MSISDN": theheaders}
 
     return JsonResponse(returnData)
