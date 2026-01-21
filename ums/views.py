@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.http import require_POST
 
-from django.shortcuts import render, get_object_or_404, HttpResponse, redirect, HttpResponseRedirect
+from django.shortcuts import render, HttpResponse, redirect, HttpResponseRedirect
 
 from django.views.decorators.csrf import csrf_exempt
 
@@ -20,7 +20,6 @@ from . import choices, tasks
 from django.utils.crypto import get_random_string
 
 
-import requests
 
 import logging
 
@@ -32,7 +31,7 @@ def subscribe(request):
     try:
         res = get_random_string(length=48)
         traffic_source = "Organic Search"
-        redirect_url = f"http://mtn-nigeria-prod.mfilterit.org/sid/234102200008079/?origin_banner=1&trxId={res}&trfsrc={traffic_source}"
+        redirect_url = f"http://mtn-nigeria-prod.mfilterit.org/sid/234102200008079/?trxId={res}&trfsrc={traffic_source}"
         return redirect(redirect_url)
     except Exception as ex:
         print(ex)
@@ -391,7 +390,7 @@ def mobplus_campaign_url(request):
         msisdn = request.headers.get("Msisdn")
         if not msisdn:
             traffic_source = "OrganicSource"
-            redirect_url = f"http://mtn-nigeria-prod.mfilterit.org/sid/234102200008079/?origin_banner=1&trxId={unique_sub_ref}&trfsrc={traffic_source}"
+            redirect_url = f"http://mtn-nigeria-prod.mfilterit.org/sid/234102200008079/?trxId={unique_sub_ref}&trfsrc={traffic_source}"
             return HttpResponseRedirect(redirect_url)
 
         if msisdn.startswith("0") and len(msisdn) == 11:
@@ -431,7 +430,7 @@ def mobplus_campaign_url(request):
                 new_promo_hit.is_convertable = False
                 ### redirect as organic source
                 traffic_source = "OrganicSource"
-                redirect_url = f"http://mtn-nigeria-prod.mfilterit.org/sid/234102200008079/?origin_banner=1&trxId={unique_sub_ref}&trfsrc={traffic_source}"
+                redirect_url = f"http://mtn-nigeria-prod.mfilterit.org/sid/234102200008079/?trxId={unique_sub_ref}&trfsrc={traffic_source}"
                 return HttpResponseRedirect(redirect_url)
             else:
                 return redirect("content:home")
@@ -439,9 +438,9 @@ def mobplus_campaign_url(request):
         new_promo_hit.save()
         tasks.handle_occurence.delay(new_promo_hit.id)
         traffic_source = "MobPlus"
-        redirect_url = f"http://mtn-nigeria-prod.mfilterit.org/sid/234102200008079/?origin_banner=1&trxId={unique_sub_ref}&trfsrc={traffic_source}"
+        redirect_url = f"http://mtn-nigeria-prod.mfilterit.org/sid/234102200008079/?trxId={unique_sub_ref}&trfsrc={traffic_source}"
         return HttpResponseRedirect(redirect_url)
-    except Exception as ex:
+    except Exception:
         logger.error("exception occurred", exc_info=True)
         return redirect("content:home")
     
@@ -480,7 +479,7 @@ def mobplus_campaign_url(request):
 
 #         new_promo_hit.save()
 #         traffic_source = "MobPlus"
-#         redirect_url = f"http://mtn-nigeria-prod.mfilterit.org/sid/234102200008079/?origin_banner=1&trxId={unique_sub_ref}&trfsrc={traffic_source}"
+#         redirect_url = f"http://mtn-nigeria-prod.mfilterit.org/sid/234102200008079/?trxId={unique_sub_ref}&trfsrc={traffic_source}"
 #         return HttpResponseRedirect(redirect_url)
 #     except Exception as ex:
 #         logger.error("exception occurred", exc_info=True)
@@ -499,7 +498,7 @@ def kmmobi_campaign_url(request):
         msisdn = request.headers.get("Msisdn")
         if not msisdn:
             traffic_source = "OrganicSource"
-            redirect_url = f"http://mtn-nigeria-prod.mfilterit.org/sid/234102200008079/?origin_banner=1&trxId={unique_sub_ref}&trfsrc={traffic_source}"
+            redirect_url = f"http://mtn-nigeria-prod.mfilterit.org/sid/234102200008079/?trxId={unique_sub_ref}&trfsrc={traffic_source}"
             return HttpResponseRedirect(redirect_url)
 
         if msisdn.startswith("0") and len(msisdn) == 11:
@@ -539,7 +538,7 @@ def kmmobi_campaign_url(request):
                 new_promo_hit.is_convertable = False
                 ### redirect as organic source
                 traffic_source = "OrganicSource"
-                redirect_url = f"http://mtn-nigeria-prod.mfilterit.org/sid/234102200008079/?origin_banner=1&trxId={unique_sub_ref}&trfsrc={traffic_source}"
+                redirect_url = f"http://mtn-nigeria-prod.mfilterit.org/sid/234102200008079/?trxId={unique_sub_ref}&trfsrc={traffic_source}"
                 return HttpResponseRedirect(redirect_url)
             else:
                 return redirect("content:home")
@@ -547,9 +546,9 @@ def kmmobi_campaign_url(request):
         new_promo_hit.save()
         tasks.handle_occurence.delay(new_promo_hit.id)
         traffic_source = "KM Mobi"
-        redirect_url = f"http://mtn-nigeria-prod.mfilterit.org/sid/234102200008079/?origin_banner=1&trxId={unique_sub_ref}&trfsrc={traffic_source}"
+        redirect_url = f"http://mtn-nigeria-prod.mfilterit.org/sid/234102200008079/?trxId={unique_sub_ref}&trfsrc={traffic_source}"
         return HttpResponseRedirect(redirect_url)
-    except Exception as ex:
+    except Exception:
         logger.error("exception occurred", exc_info=True)
         return redirect("content:home")
     
@@ -592,7 +591,7 @@ def kmmobi_campaign_url(request):
 
 #         new_promo_hit.save()
 #         traffic_source = "KM Mobi"
-#         redirect_url = f"http://mtn-nigeria-prod.mfilterit.org/sid/234102200008079/?origin_banner=1&trxId={unique_sub_ref}&trfsrc={traffic_source}"
+#         redirect_url = f"http://mtn-nigeria-prod.mfilterit.org/sid/234102200008079/?trxId={unique_sub_ref}&trfsrc={traffic_source}"
 #         return HttpResponseRedirect(redirect_url)
 #     except Exception as ex:
 #         logger.error("exception occurred", exc_info=True)
@@ -636,9 +635,9 @@ def mobikok_campaign_url(request):
 
         new_promo_hit.save()
         traffic_source = "Mobikok"
-        redirect_url = f"http://mtn-nigeria-prod.mfilterit.org/sid/234102200008079/?origin_banner=1&trxId={unique_sub_ref}&trfsrc={traffic_source}"
+        redirect_url = f"http://mtn-nigeria-prod.mfilterit.org/sid/234102200008079/?trxId={unique_sub_ref}&trfsrc={traffic_source}"
         return HttpResponseRedirect(redirect_url)
-    except Exception as ex:
+    except Exception:
         logger.error("exception occurred", exc_info=True)
         return redirect("content:home")
     
@@ -681,9 +680,9 @@ def angel_media_campaign_url(request):
 
         new_promo_hit.save()
         traffic_source = "Janx"
-        redirect_url = f"http://mtn-nigeria-prod.mfilterit.org/sid/234102200008079/?origin_banner=1&trxId={unique_sub_ref}&trfsrc={traffic_source}"
+        redirect_url = f"http://mtn-nigeria-prod.mfilterit.org/sid/234102200008079/?trxId={unique_sub_ref}&trfsrc={traffic_source}"
         return HttpResponseRedirect(redirect_url)
-    except Exception as ex:
+    except Exception:
         logger.error("exception occurred", exc_info=True)
         return redirect("content:home")
     
@@ -726,9 +725,9 @@ def neth_campaign_url(request):
 
         new_promo_hit.save()
         traffic_source = "Traffic Company"
-        redirect_url = f"http://mtn-nigeria-prod.mfilterit.org/sid/234102200008079/?origin_banner=1&trxId={unique_sub_ref}&trfsrc={traffic_source}"
+        redirect_url = f"http://mtn-nigeria-prod.mfilterit.org/sid/234102200008079/?trxId={unique_sub_ref}&trfsrc={traffic_source}"
         return HttpResponseRedirect(redirect_url)
-    except Exception as ex:
+    except Exception:
         logger.error("exception occurred", exc_info=True)
         return redirect("content:home")
     
@@ -770,9 +769,9 @@ def shine_campaign_url(request):
 
         new_promo_hit.save()
         traffic_source = "Shine Digital"
-        redirect_url = f"http://mtn-nigeria-prod.mfilterit.org/sid/234102200008079/?origin_banner=1&trxId={unique_sub_ref}&trfsrc={traffic_source}"
+        redirect_url = f"http://mtn-nigeria-prod.mfilterit.org/sid/234102200008079/?trxId={unique_sub_ref}&trfsrc={traffic_source}"
         return HttpResponseRedirect(redirect_url)
-    except Exception as ex:
+    except Exception:
         logger.error("exception occurred", exc_info=True)
         return redirect("content:home")
     
@@ -814,8 +813,8 @@ def mobipium_campaign_url(request):
 
         new_promo_hit.save()
         traffic_source = "Mobipium"
-        redirect_url = f"http://mtn-nigeria-prod.mfilterit.org/sid/234102200008079/?origin_banner=1&trxId={unique_sub_ref}&trfsrc={traffic_source}"
+        redirect_url = f"http://mtn-nigeria-prod.mfilterit.org/sid/234102200008079/?trxId={unique_sub_ref}&trfsrc={traffic_source}"
         return HttpResponseRedirect(redirect_url)
-    except Exception as ex:
+    except Exception:
         logger.error("exception occurred", exc_info=True)
         return redirect("content:home")

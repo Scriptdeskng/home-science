@@ -44,7 +44,7 @@ def reconcile_subscription(msisdn, telco):
             if checkSub["data"]["active_subscription"] > 0:
                 return True
             return False
-           
+
         return False
 
     except Exception as ex:
@@ -147,7 +147,9 @@ def fetch_report():
 
         ### send email
 
-        EMAIL_SUBJECT = f'VES TV Report for Today, {yesterday.strftime("%d/%m/%Y")}'
+        EMAIL_SUBJECT = (
+            f'Home Recipe Report for Today, {yesterday.strftime("%d/%m/%Y")}'
+        )
         REPORTING_MSG = """
             Hello Admin,
             Please find the attached report for today.
@@ -427,7 +429,7 @@ def campaign_behaviour_daily_report(start_date, end_date):
     logger.info(report_path, os.path.exists(report_path), filename)
 
     try:
-        EMAIL_SUBJECT = "VES TV Campaign Behaviour Daily stats"
+        EMAIL_SUBJECT = "Home Recipe Campaign Behaviour Daily stats"
         REPORTING_MSG = """
             Hello Admin,
             Please find the attached stats report requested.
@@ -645,7 +647,6 @@ def reconcile_subscribtion():
 def handle_datasync_payload(payload):
     new_sync_data = DataSync.objects.create(
         type=payload["type"],
-        
         product_id=payload["product"]["id"],
         product_name=payload["product"]["name"],
         product_not_type=payload["product"]["type"],
@@ -653,7 +654,7 @@ def handle_datasync_payload(payload):
         phone=payload["details"]["phone"],
         telco_ref=payload["details"]["telco_ref"],
     )
-    new_sync_data.telco = payload.get("telco"),
+    new_sync_data.telco = (payload.get("telco"),)
     new_sync_data.amount = int(payload["details"].get("amount", 0))
     new_sync_data.channel = payload["details"].get("channel")
     new_sync_data.sub_date = payload["details"].get("date")
@@ -680,7 +681,6 @@ def handle_postback_delay(provider: str, tracker_id, new_sync_data_id, user_sub_
     return postback_processes[provider].delay(tracker_id, new_sync_data_id, user_sub_id)
 
 
-
 @shared_task
 def share_datasync(request_body):
     try:
@@ -693,7 +693,6 @@ def share_datasync(request_body):
     except Exception as req_ex:
         logger.error(f"Subscription processing error: {req_ex}")
     logger.info(f"Intelli sync request sent{resp}")
-
 
 
 # @shared_task
@@ -727,9 +726,12 @@ def process_datasync(payload):
 
             if not sub_created:
                 userSub.first_sub = True
-                if payload["details"].get("auto_renewal") and payload["details"]["auto_renewal"]:
+                if (
+                    payload["details"].get("auto_renewal")
+                    and payload["details"]["auto_renewal"]
+                ):
                     userSub.auto_renewal = True
-                
+
             theUser.sub_status = "active"
             # theUser.save()
 
@@ -772,7 +774,9 @@ def process_datasync(payload):
 
             userSub.auto_renewal = bool(payload["details"].get("auto_renewal"))
 
-            theUser.sub_status = "active" if end_datetime.astimezone() > today else "inactive"
+            theUser.sub_status = (
+                "active" if end_datetime.astimezone() > today else "inactive"
+            )
 
         userSub.save()
         theUser.save()
@@ -781,7 +785,6 @@ def process_datasync(payload):
     except Exception as ex:
         logger.error(ex)
         return {"status": "Failed", "error": str(ex)}
-
 
 
 # process neth postback
@@ -798,8 +801,10 @@ def process_neth_postback(tracker_id, sync_id, sub_id):
         # check campaign tracker is msisdn is there
         find_promo_msisdn = CampaignTracker.objects.get(id=tracker_id)
 
-        if  find_promo_msisdn.converted == False and find_promo_msisdn.is_convertable == True:
-
+        if (
+            find_promo_msisdn.converted == False
+            and find_promo_msisdn.is_convertable == True
+        ):
 
             postbackUrl = f"https://postback.level23.nl/?currency=USD&handler=11556&hash=70fab57722baa9edfba229094ae78d26&tracker={find_promo_msisdn.click_id}"
 
@@ -836,7 +841,10 @@ def process_mobplus_postback(tracker_id, sync_id, sub_id):
         # check campaign tracker is msisdn is there
         find_promo_msisdn = CampaignTracker.objects.get(id=tracker_id)
 
-        if  find_promo_msisdn.converted == False and find_promo_msisdn.is_convertable == True:
+        if (
+            find_promo_msisdn.converted == False
+            and find_promo_msisdn.is_convertable == True
+        ):
 
             postbackUrl = f"http://m.mobplus.net/c/p/fb83a001c07e407789097636bbf52f7c?txid={find_promo_msisdn.click_id}&pubid={find_promo_msisdn.pubid}&amt={sub_amount}&currency={find_promo_msisdn.currency}"
 
@@ -872,7 +880,10 @@ def process_kmmobi_postback(tracker_id, sync_id, sub_id):
         # check campaign tracker is msisdn is there
         find_promo_msisdn = CampaignTracker.objects.get(id=tracker_id)
 
-        if  find_promo_msisdn.converted == False and find_promo_msisdn.is_convertable == True:
+        if (
+            find_promo_msisdn.converted == False
+            and find_promo_msisdn.is_convertable == True
+        ):
             postbackUrl = f"http://kmmobi.fuse-ad.com/pb?tid={find_promo_msisdn.click_id}&affid={find_promo_msisdn.pubid}"
 
             requests.get(postbackUrl)
@@ -893,6 +904,7 @@ def process_kmmobi_postback(tracker_id, sync_id, sub_id):
             user_sub.save()
     except Exception as ex:
         logger.error(ex)
+
 
 # process mobedia postback
 @shared_task
@@ -974,8 +986,6 @@ def process_angel_media_postback(tracker_id, sync_id, sub_id):
         logger.error(ex)
 
 
-
-
 # process mobplus postback
 @shared_task
 def process_mobikok_postback(tracker_id, sync_id, sub_id):
@@ -989,7 +999,10 @@ def process_mobikok_postback(tracker_id, sync_id, sub_id):
         # check campaign tracker is msisdn is there
         find_promo_msisdn = CampaignTracker.objects.get(id=tracker_id)
 
-        if  find_promo_msisdn.converted == False and find_promo_msisdn.is_convertable == True:
+        if (
+            find_promo_msisdn.converted == False
+            and find_promo_msisdn.is_convertable == True
+        ):
             postbackUrl = f"http://trace.sm4link.com/pb?tid={find_promo_msisdn.click_id}&pubId={find_promo_msisdn.pubid}"
 
             requests.get(postbackUrl)
@@ -1012,7 +1025,6 @@ def process_mobikok_postback(tracker_id, sync_id, sub_id):
         logger.error(ex)
 
 
-
 # process mobplus postback
 @shared_task
 def process_shine_postback(tracker_id, sync_id, sub_id):
@@ -1026,7 +1038,10 @@ def process_shine_postback(tracker_id, sync_id, sub_id):
         # check campaign tracker is msisdn is there
         find_promo_msisdn = CampaignTracker.objects.get(id=tracker_id)
 
-        if  find_promo_msisdn.converted == False and find_promo_msisdn.is_convertable == True:
+        if (
+            find_promo_msisdn.converted == False
+            and find_promo_msisdn.is_convertable == True
+        ):
             postbackUrl = f"http://shinedigitalworld.offerstrack.net/advBack.php?click_id={find_promo_msisdn.click_id}"
 
             requests.get(postbackUrl)
@@ -1049,7 +1064,6 @@ def process_shine_postback(tracker_id, sync_id, sub_id):
         logger.error(ex)
 
 
-
 @shared_task
 def process_mobipium_postback(tracker_id, sync_id, sub_id):
     try:
@@ -1062,7 +1076,10 @@ def process_mobipium_postback(tracker_id, sync_id, sub_id):
         # check campaign tracker is msisdn is there
         find_promo_msisdn = CampaignTracker.objects.get(id=tracker_id)
 
-        if  find_promo_msisdn.converted == False and find_promo_msisdn.is_convertable == True:
+        if (
+            find_promo_msisdn.converted == False
+            and find_promo_msisdn.is_convertable == True
+        ):
             postbackUrl = f"https://smobipiumlink.com/conversion/index.php?jp={find_promo_msisdn.click_id}&source={find_promo_msisdn.pubid} "
 
             requests.get(postbackUrl)
@@ -1186,9 +1203,7 @@ def subscribtion_source_report():
 
         ### send email
 
-        EMAIL_SUBJECT = (
-            f'VES TV Subscription Source Report for {yesterday.strftime("%d/%m/%Y")}'
-        )
+        EMAIL_SUBJECT = f'Home Recipe Subscription Source Report for {yesterday.strftime("%d/%m/%Y")}'
         REPORTING_MSG = """
             Hello Admin,
             Please find the attached report for today.
