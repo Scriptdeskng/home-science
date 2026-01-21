@@ -1417,6 +1417,7 @@ def export_user_msisdn(month_num):
         curr_path = os.path.dirname(os.path.realpath(__file__))
 
         report_path = os.path.join(curr_path, "reports/")
+        os.makedirs(report_path, exist_ok=True)
 
         filename = f"{report_path}MSISDN_Exports_{today.strftime('%d/%m/%Y').replace('/', '')}.xlsx"
 
@@ -1475,6 +1476,7 @@ def export_all_msisdns():
         curr_path = os.path.dirname(os.path.realpath(__file__))
 
         report_path = os.path.join(curr_path, "reports/")
+        os.makedirs(report_path, exist_ok=True)
 
         filename = f"{report_path}msisdn_export.txt"
 
