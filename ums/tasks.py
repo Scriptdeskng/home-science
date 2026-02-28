@@ -685,7 +685,7 @@ def handle_postback_delay(provider: str, tracker_id, new_sync_data_id, user_sub_
 def share_datasync(request_body):
     try:
         resp = requests.post(
-            "https://api.intellihq.net/api/v1/service/7/sync-notification/",
+            "https://api.intellihq.net/api/v1/service/7/sync-notification/?api_key=0e351d54b2e3471fb896faa0ed77049c",
             data=request_body,
             headers={"Content-Type": "application/json"},
         )
