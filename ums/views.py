@@ -834,3 +834,17 @@ def export_user_msisdn_query(request):
         return JsonResponse({"status": 400, "message": "Month required"})
 
     return JsonResponse({"status": 200, "message": "Processing report!"})
+
+
+@require_POST
+@csrf_exempt
+def intelli_datasync(request):
+    """
+    Receive subscription sync notifications directly from Intelli.
+    """
+
+    the_data = json.loads(request.body)
+
+    tasks.process_datasync(the_data)
+
+    return JsonResponse({"status": 200, "message": "ok"})
