@@ -1,0 +1,44 @@
+{% extends 'content/base.html' %}
+{% block page_title %}
+    {% if no_subscription %}No Active Subscription{% else %}Sign In{% endif %}
+{% endblock page_title %}
+{% block content %}
+    <div class="row justify-content-center mt-4">
+        <div class="col-lg-6 col-md-8">
+            <div class="card">
+                <div class="card-body p-4">
+
+                    {% if no_subscription %}
+                        <h5 class="mb-3">No Active Subscription Found</h5>
+                        <p>
+                            <strong>{{ msisdn }}</strong> does not have an active subscription.
+                        </p>
+                        {% if redirect_url %}
+                            <a href="{{ redirect_url }}" class="btn btn-primary btn-block mb-2">
+                                <i class="fas fa-plus-circle mr-2"></i> Subscribe Now
+                            </a>
+                        {% endif %}
+                        <a href="{% url 'users:phone_login' %}?reset=1">Try a different number</a>
+
+                    {% else %}
+                        <h5 class="mb-3">Check your subscription</h5>
+                        {% if error %}
+                            <div class="alert alert-danger">{{ error }}</div>
+                        {% endif %}
+                        <form method="post" action="{% url 'users:phone_login' %}">
+                            {% csrf_token %}
+                            {% if next %}<input type="hidden" name="next" value="{{ next }}">{% endif %}
+                            <div class="form-group">
+                                <input type="tel" name="phone" required class="form-control"
+                                       value="{{ saved_phone|default:'' }}"
+                                       placeholder="e.g. 08031234567">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Check Subscription</button>
+                        </form>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
