@@ -86,6 +86,17 @@ def check_subscriber_status(msisdn):
     return response.json()
 
 
+def with_traffic_source(url, source="organic"):
+    """Append ?trfsrc=<source> (or &trfsrc= if a query string is already present)."""
+    if not url:
+        return url
+    if "?" in url:
+        return f"{url}&trfsrc={source}"
+    if not url.endswith("/"):
+        url += "/"
+    return f"{url}?trfsrc={source}"
+
+
 def extract_redirect_url(sub_data):
     """
     client_action is a nullable list (sometimes dict) of action objects.
@@ -102,12 +113,8 @@ def extract_redirect_url(sub_data):
 
         campaign_urls = [c for c in (action.get("campaign_urls") or []) if isinstance(c, dict) and c.get("url")]
         envina_url = next((c["url"] for c in campaign_urls if c.get("antifraud") == "envina"), None)
-        if envina_url:
-            return envina_url
-        if campaign_urls:
-            return campaign_urls[0]["url"]
-
-        return action.get("redirection_url", "")
+        url = envina_url or (campaign_urls[0]["url"] if campaign_urls else action.get("redirection_url", ""))
+        return with_traffic_source(url)
 
     return ""
 
