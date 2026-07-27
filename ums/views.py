@@ -15,9 +15,10 @@ from datetime import datetime
 from .models import *
 from .subscriptionManager import HML
 import json
-from . import choices, tasks
+from . import choices, tasks, utils
 
 from django.utils.crypto import get_random_string
+from django.views.decorators.cache import never_cache
 
 
 
@@ -25,6 +26,87 @@ import logging
 
 
 logger = logging.getLogger(__name__)
+
+
+@never_cache
+def phone_login(request):
+    next_url = utils.safe_next_url(
+        request, request.GET.get("next") or request.POST.get("next") or ""
+    )
+
+    if request.method == "GET" and request.GET.get("reset"):
+        request.session.pop("sub_redirect_url", None)
+        request.session.pop("saved_phone", None)
+
+    if request.method == "GET":
+        msisdn = utils.resolve_msisdn_from_request(request)
+        saved_redirect = request.session.get("sub_redirect_url")
+        if msisdn and saved_redirect:
+            return render(request, "ums/phone_login.html", {
+                "no_subscription": True,
+                "msisdn": msisdn,
+                "redirect_url": saved_redirect,
+                "next": next_url,
+            })
+
+    if request.method == "POST":
+        phone = request.POST.get("phone", "").strip()
+        if not phone:
+            return render(request, "ums/phone_login.html",
+                          {"error": "Please enter a phone number.", "next": next_url})
+
+        msisdn = utils.normalize_msisdn(phone)
+        request.session["saved_phone"] = msisdn
+        UserProfile.objects.get_or_create(phone=msisdn)
+
+        try:
+            result = utils.check_subscriber_status(msisdn)
+        except Exception as exc:
+            logger.error(f"[IntelliHQ] check-subscriber failed for {msisdn}: {exc}")
+            return utils.set_auth_cookies(
+                render(request, "ums/phone_login.html",
+                       {"error": "Service unavailable. Please try again.",
+                        "next": next_url}),
+                msisdn)
+
+        if isinstance(result, list):
+            result = result[0] if result else {}
+        if not isinstance(result, dict) or not result.get("success"):
+            return utils.set_auth_cookies(
+                render(request, "ums/phone_login.html",
+                       {"error": result.get("message",
+                           "Unable to verify subscription. Please try again."),
+                        "next": next_url}),
+                msisdn)
+
+        sub_data = result.get("data") or {}
+        if isinstance(sub_data, list):
+            sub_data = sub_data[0] if sub_data else {}
+        has_active = sub_data.get("has_active_subscription", False)
+
+        if has_active:
+            utils.sync_subscription_from_intellihq(msisdn, sub_data)
+            request.session.pop("sub_redirect_url", None)
+            response = redirect(next_url or "content:home")
+            return utils.set_auth_cookies(response, msisdn, sub_active=True)
+
+        redirect_url = utils.extract_redirect_url(sub_data)
+        if redirect_url:
+            request.session["sub_redirect_url"] = redirect_url
+
+        return utils.set_auth_cookies(
+            render(request, "ums/phone_login.html", {
+                "no_subscription": True,
+                "msisdn": msisdn,
+                "redirect_url": redirect_url,
+                "next": next_url,
+            }),
+            msisdn)
+
+    return render(request, "ums/phone_login.html", {
+        "saved_phone": request.session.pop("saved_phone", None),
+        "next": next_url,
+    })
 
 
 def subscribe(request):
@@ -221,12 +303,12 @@ def data_sync_v2(request):
     try:
         tasks.share_datasync.delay(request.body.decode("utf-8"))
         WebhookBackup.objects.create(
-                req_body=f"{request.body.decode("utf-8")}"
+                req_body=f"{request.body.decode('utf-8')}"
             )
         the_data = json.loads(request.body.decode('utf-8'))
         datasync_task = tasks.process_datasync(the_data)
         if datasync_task["status"] == "Failed":
-            return JsonResponse({"status": 400, "error": f"Unable to process request-{datasync_task["error"]}"}, status=400)
+            return JsonResponse({"status": 400, "error": f"Unable to process request-{datasync_task['error']}"}, status=400)
         return JsonResponse({"status": 200, "message": "ok, [homerecipe] data sync processed successfully"})
     except Exception as ex:
         print(ex)

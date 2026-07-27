@@ -5,6 +5,7 @@ from .views import *
 app_name = "users"
 
 urlpatterns = [
+    path("phone-login/", phone_login, name="phone_login"),
     path("after_signup/", after_signup, name="after_signup"),
     path("after_login/", after_login, name="after_login"),
     path("awaiting_response/", awaiting_response, name="awaiting_response"),
