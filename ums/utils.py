@@ -87,13 +87,28 @@ def check_subscriber_status(msisdn):
 
 
 def extract_redirect_url(sub_data):
-    """client_action is a nullable list (sometimes dict) of action objects."""
+    """
+    client_action is a nullable list (sometimes dict) of action objects.
+    Prefer the "envina" antifraud campaign_url, then any other campaign_url,
+    then the action's own redirection_url.
+    """
     client_actions = sub_data.get("client_action") or []
     if isinstance(client_actions, dict):
-        return client_actions.get("redirection_url", "")
+        client_actions = [client_actions]
+
     for action in client_actions:
-        if isinstance(action, dict) and action.get("action") == "redirect":
-            return action.get("redirection_url", "")
+        if not isinstance(action, dict) or action.get("action") != "redirect":
+            continue
+
+        campaign_urls = [c for c in (action.get("campaign_urls") or []) if isinstance(c, dict) and c.get("url")]
+        envina_url = next((c["url"] for c in campaign_urls if c.get("antifraud") == "envina"), None)
+        if envina_url:
+            return envina_url
+        if campaign_urls:
+            return campaign_urls[0]["url"]
+
+        return action.get("redirection_url", "")
+
     return ""
 
 
